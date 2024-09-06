@@ -1,0 +1,8 @@
+**/node_modules/
+vite.config.ts
+jest.**
+fileTransformer.cjs
+dist
+jest.config.js
+babel.config.cjs
+jest.setup.js

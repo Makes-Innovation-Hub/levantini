@@ -1,6 +1,7 @@
 export const useAuth = () => {
   const login = () => {
-    console.log('logged in');
+    // eslint-disable-next-line no-console
+    console.log("logged in");
   };
   return { login };
 };

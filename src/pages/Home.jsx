@@ -11,6 +11,7 @@ const Home = () => {
     queryKey: ["posts"],
     queryFn: fetchPosts,
   });
+  // eslint-disable-next-line no-console
   console.log("Fetched Data:", data);
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching posts</div>;

@@ -23,7 +23,7 @@ api.interceptors.response.use(
   },
   (error) => {
     const message = error.response?.data?.message || error.message;
-
+    // eslint-disable-next-line no-console
     console.log({ message });
 
     if (error.response?.status === 401) {
@@ -34,5 +34,5 @@ api.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );
