@@ -1,8 +1,9 @@
 :root {
   --color-my-example: #ffff;
-  --font-color--Answer--QuestionBox: #ffffff;
-  --font-color--Question--QuestionBox: #333333;
-  --color-for-correct-answer: #58d39f;
-  --color-for-wrong-answer: #d35883;
-  --color-for-pre-answer: #4285f4;
+
+  --white--: #ffffff;
+  --grey-black--: #333333;
+  --green--: #58d39f;
+  --red--: #d35883;
+  --blue--: #4285f4;
 }
