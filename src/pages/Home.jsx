@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
 import Button from "@/components/ui/Button";
 import { fetchPosts } from "../api/apiConstants";
+
 const Home = () => {
   const dispatch = useDispatch();
   const example = useSelector((state) => state.example.example);

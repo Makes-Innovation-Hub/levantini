@@ -8,6 +8,8 @@ import { queryClient } from "./lib/react-query.js";
 import App from "./App.jsx";
 import router from "./routes/router.jsx";
 import "./index.css";
+import "./styles/colors.css";
+import "./styles/fonts.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -1,4 +1,8 @@
 :root {
   --color-my-example: #ffff;
-  /* ... other color variables ... */
+  --font-color--Answer--QuestionBox: #ffffff;
+  --font-color--Question--QuestionBox: #333333;
+  --color-for-correct-answer: #58d39f;
+  --color-for-wrong-answer: #d35883;
+  --color-for-pre-answer: #4285f4;
 }
