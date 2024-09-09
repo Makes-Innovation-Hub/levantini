@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { StyledQuestionBox } from "./QuestionBox.style";
-import dummyData from "../../../api/dummyData";
-import { AnswerButton } from "../QuestionBox/QuestionBox.style";
+import Button from "../Button/Button";
+import * as S from "./QuestionBox.style.js";
+import dummyData from "../../../api/dummyData"; // Import the dummy data
 
 const QuestionBox = () => {
+  const questionData = dummyData[0].questions[0];
+
   const [answerColors, setAnswerColors] = useState(Array(4).fill("var(--blue--)"));
   const [isAnswered, setIsAnswered] = useState(false);
-
-  const questionData = dummyData[0].questions[0];
 
   const handleAnswerClick = (index) => {
     if (isAnswered) return; // If already answered, do nothing
@@ -25,21 +25,21 @@ const QuestionBox = () => {
     setIsAnswered(true);
   };
 
+  if (!questionData) return <p>No question data available</p>;
+
   return (
-    <StyledQuestionBox>
+    <S.QuestionBox>
       <p>{questionData.question}</p>
       {questionData.answers.map((answer, index) => (
-        <AnswerButton
+        <Button
           key={index}
-          onClick={() => handleAnswerClick(index)}
-          style={{
-            backgroundColor: answerColors[index],
-          }}
+          handleClick={() => handleAnswerClick(index)}
+          color={answerColors[index]}
         >
           {answer}
-        </AnswerButton>
+        </Button>
       ))}
-    </StyledQuestionBox>
+    </S.QuestionBox>
   );
 };
 
