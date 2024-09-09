@@ -1,0 +1,18 @@
+.points-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
+.points-img-container {
+  position: relative;
+}
+
+.points {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
