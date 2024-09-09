@@ -4,9 +4,7 @@ import dummyData from "../../../api/dummyData";
 import { AnswerButton } from "../QuestionBox/QuestionBox.style";
 
 const QuestionBox = () => {
-  const [answerColors, setAnswerColors] = useState(
-    Array(4).fill("var(--color-for-pre-answer)"),
-  );
+  const [answerColors, setAnswerColors] = useState(Array(4).fill("var(--blue--)"));
   const [isAnswered, setIsAnswered] = useState(false);
 
   const questionData = dummyData[0].questions[0];
@@ -17,10 +15,10 @@ const QuestionBox = () => {
     const updatedColors = [...answerColors];
 
     if (index === questionData.correctAnswer) {
-      updatedColors[index] = "var(--color-for-correct-answer)";
+      updatedColors[index] = "var(--green--)";
     } else {
-      updatedColors[index] = "var(--color-for-wrong-answer)";
-      updatedColors[questionData.correctAnswer] = "var(--color-for-correct-answer)";
+      updatedColors[index] = "var(--red--)";
+      updatedColors[questionData.correctAnswer] = "var(--green--)";
     }
 
     setAnswerColors(updatedColors);
