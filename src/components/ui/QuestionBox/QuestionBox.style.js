@@ -14,7 +14,7 @@ export const StyledQuestionBox = styled.div`
   line-height: 24px;
   border-radius: 8px;
   border-color: transparent;
-  color: var(--font-color--Answer--QuestionBox);
+  color: var(--white--);
   background-color: ${(props) => props.color};
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -24,7 +24,7 @@ export const StyledQuestionBox = styled.div`
     border-color: transparent;
   }
   p {
-    color: var(--font-color--Question--QuestionBox);
+    color: var(--grey-black--);
     font-family: var(--font-rubik-regular);
     font-style: italic;
     font-size: 14px;
@@ -39,7 +39,7 @@ export const AnswerButton = styled.button`
   padding-left: 17px;
   font-size: 12px;
   line-height: 24px;
-  color: var(--font-color--Answer--QuestionBox);
+  color: var(--white--);
   font-family: var(--font-rubik-regular);
   cursor: pointer;
   border-color: transparent;
