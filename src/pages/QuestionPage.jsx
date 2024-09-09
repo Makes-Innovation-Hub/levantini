@@ -3,9 +3,9 @@ import QuestionBox from "../components/ui/QuestionBox";
 
 const QuestionPage = () => {
   return (
-    <div>
+    <main>
       <QuestionBox />
-    </div>
+    </main>
   );
 };
 
