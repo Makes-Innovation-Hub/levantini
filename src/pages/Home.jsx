@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
 import Button from "@/components/ui/Button";
 import { fetchPosts } from "../api/apiConstants";
+import Categories from "../features/authentication/components/LoginForm/Categories/Categories";
 const Home = () => {
   const dispatch = useDispatch();
   const example = useSelector((state) => state.example.example);
@@ -18,11 +19,7 @@ const Home = () => {
 
   return (
     <>
-      <h1>REACT TEMPLATE</h1>
-      <Button handleClick={() => dispatch(setExample("changing redux state"))}>
-        Click me
-      </Button>
-      <p>{example}</p>
+      <Categories />
     </>
   );
 };
