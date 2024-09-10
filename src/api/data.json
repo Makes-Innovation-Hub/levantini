@@ -1,0 +1,392 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "category": "Music",
+      "categoryImage": "https://images.pexels.com/photos/1389429/pexels-photo-1389429.jpeg",
+      "questions": [
+        {
+          "id": 0,
+          "questionType": "image",
+          "question": "who from the following names is a jewish pop singer?",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/%D7%A2%D7%93%D7%9F_%D7%91%D7%9F_%D7%96%D7%A7%D7%9F.jpg/1200px-%D7%A2%D7%93%D7%9F_%D7%91%D7%9F_%D7%96%D7%A7%D7%9F.jpg",
+          "video": "",
+          "text": "",
+          "answers": ["Eden ben Zaken", "Ada Yonat", "Keren Mor", "Yarden Gerbee"],
+          "correctAnswer": 0,
+          "explanation": "Eden Pasia Ben Zaken (born June 8, 1994) is an Israeli singer-songwriter and composer.She gained fame through her participation in the first season of the TV show 'The X Factor Israel,  where she finished in second place. Ben Zaken also served as a guest judge in the third season and has released seven studio albums to date"
+        },
+        {
+          "id": 1,
+          "questionType": "video",
+          "question": "Which musical instrument is traditionally used in Hasidic music?",
+          "image": "",
+          "video": "https://www.youtube.com/watch?v=m62aWh_ypKI",
+          "text": "",
+          "answers": ["Piano", "Chello", "Trumpet", "Clarinet"],
+          "correctAnswer": 3,
+          "explanation": "The clarinet is a woodwind instrument with a single-reed mouthpiece, offering a versatile sound from warm to bright. It is also widely used in classical, jazz, and band music."
+        },
+        {
+          "id": 2,
+          "questionType": "image",
+          "question": "Who is considered the 'Queen of Arabic music'? ",
+          "image": "https://media.newyorker.com/photos/590950de019dfc3494e9d765/master/pass/50344566-290.jpg",
+          "video": "",
+          "text": "",
+          "answers": ["Nancy Ajram", "Sherine Abd Al-Wahab", "Umm kalthoum ", "Fairouz"],
+          "correctAnswer": 2,
+          "explanation": "Umm Kulthum, often referred to as 'The Star of the East,' was one of the most iconic and influential singers in the Arab world. Born in Egypt in the early 20th century, she became famous for her powerful voice, emotional depth, and ability to captivate audiences across the Middle East and beyond"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "category": "Holidays",
+      "categoryImage": "https://images.news18.com/webstories/2024/03/pexels-leeloo-the-first-6487203-2024-03-45799de92804bf12f25192433341b637-scaled.jpg",
+      "questions": [
+        {
+          "id": 0,
+          "questionType": "image",
+          "question": "Which Jewish holiday commemorates receiving the Torah at Mount Sinai?",
+          "image": "data:image/jpeg;base64,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",
+          "video": "",
+          "text": "",
+          "answers": ["Shavuot", "Simhat-Torah", "Purim", "Asara-Be'Tevet"],
+          "correctAnswer": 0,
+          "explanation": "Shavuot is a Jewish holiday that commemorates the giving of the Torah to the people of Israel at Mount Sinai, occurring seven weeks after Passover. It is customary to study Torah all night, read the Book of Ruth, and eat dairy foods."
+        },
+        {
+          "id": 1,
+          "questionType": "image",
+          "question": "What is the central custom of the Sukkot holiday?",
+          "image": "https://storage.hidabroot.org/articles/47521_tumb_750Xauto.jpg",
+          "video": "",
+          "text": "",
+          "answers": [
+            "Sing all night",
+            "Not eating bread",
+            "Fasting",
+            "Sitting in the Sukkah"
+          ],
+          "correctAnswer": 3,
+          "explanation": "A Sukkah is a temporary outdoor structure used during the Jewish holiday of Sukkot. It typically has at least three walls and a roof made of natural materials like branches or reeds, which must be open enough to allow stars to be visible through it at night. The Sukkah symbolizes the temporary dwellings used by the Israelites during their 40 years of wandering in the desert after the Exodus from Egypt."
+        },
+        {
+          "id": 2,
+          "questionType": "image",
+          "question": " In which Gregorian calendar month does the Ramadan take place?",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnpBH1KtbvewgOuGCQmDjX7oFfmr1q0IGX054j0Ehp2A9Ty5CZ",
+          "video": "",
+          "text": "",
+          "answers": ["April", "It changes every year", "June ", "January"],
+          "correctAnswer": 1,
+          "explanation": "The Gregorian calendar is the one we're most used to – but the Gregorian calendar is a solar calendar based on the sun. The Islamic calendar is lunar and based on the moon. Because of that, Ramadan changes its dates every year"
+        },
+        {
+          "id": 3,
+          "questionType": "image",
+          "question": "  Which Arabic holiday commemorates Ibrahim sacrifice of his son?",
+          "image": "https://4850175.fs1.hubspotusercontent-na1.net/hub/4850175/hubfs/Kurban-Holiday-Goat.jpg?width=330&name=Kurban-Holiday-Goat.jpg",
+          "video": "",
+          "text": "",
+          "answers": [
+            "New year’s eve",
+            "Eid al-Fitr",
+            "Eid al-Adha ",
+            "The birth of the Prophet"
+          ],
+          "correctAnswer": 2,
+          "explanation": "Eid al-Adha, or the 'Festival of Sacrifice,' is a major Islamic holiday that honors Prophet Ibrahim's willingness to sacrifice his son in obedience to God. Celebrated with prayers, animal sacrifice, and sharing meat with the less fortunate, it marks the end of the Hajj pilgrimage and emphasizes faith, charity, and community"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "category": "Culture",
+      "categoryImage": "https://images.pexels.com/photos/1033202/pexels-photo-1033202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "questions": [
+        {
+          "id": 0,
+          "questionType": "video",
+          "question": "Which Israeli folk dance is characterized by participants forming a circle and dancing withlinked arms?",
+          "image": "",
+          "video": "https://www.youtube.com/watch?v=LtqdqTlvXUQ",
+          "text": "",
+          "answers": ["Tza’ad Temani", "Debka", "Hora", "Mayim Mayim"],
+          "correctAnswer": 2,
+          "explanation": "The Hora is a traditional Israeli folk dance where dancers hold hands or link arms and form a circle, moving together in unison. "
+        },
+        {
+          "id": 1,
+          "questionType": "image",
+          "question": "What is the traditional market in many Arab cities called? ",
+          "image": "https://english.palinfo.com/wp-content/uploads//Models/Media/Images/2022/10/16/1943354234.jpg",
+          "video": "",
+          "text": "",
+          "answers": ["Bazaar", "Medina", "Khan", "Souk"],
+          "correctAnswer": 3,
+          "explanation": "Souk  is an open-air marketplace or commercial quarter in an Arab city. A souk or souq is a free-market where vendors can say the going market price for their products. The term is often used for the market in any Arab or Muslim city."
+        },
+        {
+          "id": 2,
+          "questionType": "image",
+          "question": "Which traditional dance is performed in a line or circle and is popular in many Arab countries, especially during celebrations and weddings?",
+          "image": "https://365daysoflebanon.com/wp-content/uploads/2016/06/18381.jpg?w=499&h=312",
+          "video": "",
+          "text": "",
+          "answers": ["Belly Dance", "Dabkeh", "Zaffa ", "Raqs Sharqi"],
+          "correctAnswer": 1,
+          "explanation": "Dabkeh is a traditional Arab folk dance popular in several Middle Eastern countries, particularly Lebanon, Palestine, Syria, and Jordan. It is performed in a line or circle, with dancers stomping, jumping, and moving in unison to rhythmic music."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "category": "Clothing",
+      "categoryImage": "https://upload.wikimedia.org/wikipedia/commons/1/12/Arabic-traditional-Dress.jpg",
+      "questions": [
+        {
+          "id": 0,
+          "questionType": "image",
+          "question": "What is the traditional garment worn by Jewish men during prayer?",
+          "image": "https://ae01.alicdn.com/kf/S2031c836842341cc8c7a867da79e8005c.jpg_640x640Q90.jpg_.webp",
+          "video": "",
+          "text": "",
+          "answers": [
+            "Tallit - טלית",
+            "כיפה - Kippah (or Yarmulke)",
+            "מטפחת - Headscarf (or Kerchief)",
+            "Tefillin - תפילי"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Tallit - Jewish prayer garment. In the Torah, the men are ordered to wrap themselves in a small tallit - a tassel. is intended to remind a person of the mitzvot of the Torah "
+        },
+        {
+          "id": 1,
+          "questionType": "image",
+          "question": "What is this head covering worn by religious Jewish men called? ",
+          "image": "https://static.wixstatic.com/media/6ce9f2_491e980b7c134fecb47b04ee265414f3~mv2.jpg/v1/fill/w_480,h_458,al_c,lg_1,q_80,enc_auto/6ce9f2_491e980b7c134fecb47b04ee265414f3~mv2.jpg",
+          "video": "",
+          "text": "",
+          "answers": ["Shtreimel", "Kippah", "Adi", "Parochet"],
+          "correctAnswer": 1,
+          "explanation": "A kippah (also spelled 'kipah') or yarmulke is a small, rounded cap worn by Jewish men and boys as a sign of respect and reverence for God. The kippah is typically worn during prayers, religious study, and while eating, though some Jewish men choose to wear it at all times. The practice varies among different Jewish communities, with some wearing it more consistently than others. "
+        },
+        {
+          "id": 2,
+          "questionType": "image",
+          "question": "What is the head covering worn by traditional Arab women called?",
+          "image": "https://png.pngtree.com/png-clipart/20210510/ourmid/pngtree-greyish-brown-hijab-style-illustration-png-image_3259351.jpg",
+          "video": "",
+          "text": "",
+          "answers": ["Kippah", "Turban", "Sari ", "Hijab"],
+          "correctAnswer": 3,
+          "explanation": "The hijab is a traditional head covering worn by many Muslim women as a symbol of modesty and privacy. It typically covers the hair, neck, and sometimes the shoulders, while leaving the face visible."
+        },
+        {
+          "id": 3,
+          "questionType": "image",
+          "question": "What is the head covering worn by men in Arab culture called? ",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTqllSGDGgYXgyr-6FZoAITCGB6-Y63RZIJrDzyX-rEktXEiLGI",
+          "video": "",
+          "text": "",
+          "answers": ["Turban", "Keffiyeh", "Fez ", "Yarmulke"],
+          "correctAnswer": 1,
+          "explanation": "The keffiyeh is a traditional Middle Eastern headscarf, commonly worn by men, especially in Palestinian culture. It is typically made of cotton and features a distinctive black-and-white checkered pattern. The keffiyeh is both a practical garment, providing protection from the sun and dust, and a symbol of Palestinian identity and resistance. It has become an iconic cultural item, recognized worldwide."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "category": "Literature",
+      "categoryImage": "https://images.pexels.com/photos/768125/pexels-photo-768125.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
+      "questions": [
+        {
+          "id": 0,
+          "questionType": "image",
+          "question": "Which of the following Jewish authors have not been awarded the Nobel Prize in Literature?",
+          "image": "",
+          "video": "",
+          "text": "",
+          "answers": [
+            "Isaac Bashevis Singer",
+            "Chaim Nachman Bialik",
+            "Saul Bellow",
+            "Shmuel Yosef Agnon"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Chaim Nachman Bialik Did not win the Nobel Prize in Literature. Bialik was a prominent Hebrew poet and scholar but was not a Nobel laureate."
+        },
+        {
+          "id": 1,
+          "questionType": "image",
+          "question": "Which Jewish female author and songwriter is renowned for her significant contributions to Israeli culture and literature? ",
+          "image": "",
+          "video": "",
+          "text": "",
+          "answers": ["Esther Hautzig", "Naomi Neuman", "Naomi Shemer", "Dvora Omer"],
+          "correctAnswer": 2,
+          "explanation": "Naomi Shemer is celebrated for her influential contributions to Israeli music and literature, particularly her impactful songs and poems that have shaped Israeli culture. While Esther Hautzig, Dvora Omer, and Naomi Neuman have made notable contributions in their fields, Shemer is especially recognized for her combined literary and musical achievements"
+        },
+        {
+          "id": 2,
+          "questionType": "video",
+          "question": "The poem 'Waiting for Her' is related to which famous poet?",
+          "image": "",
+          "video": "https://www.youtube.com/watch?v=82duWho-iHQ",
+          "text": "",
+          "answers": ["Nizar Qabbani", "Adonis", "Jalaluddin Rumi ", "Mahmoud Darwish"],
+          "correctAnswer": 3,
+          "explanation": "Mahmoud Darwish was a prominent Palestinian poet known for his evocative work on exile, identity, and resistance. His poetry, including famous pieces like 'Identity Card,' captures the Palestinian experience and has made him a significant voice in globalliterature, symbolizing the resilience of the human spirit."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "category": "Cinema",
+      "categoryImage": "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "questions": [
+        {
+          "id": 0,
+          "questionType": "image",
+          "question": " Who is the Jewish director who created the film 'Schindler's List'? ",
+          "image": "https://www.israelhayom.co.il/wp-content/uploads/2022/04/26/26/%D7%A8%D7%A9%D7%99%D7%9E%D7%AA-%D7%A9%D7%99%D7%A0%D7%93%D7%9C%D7%A8-600x400.jpg",
+          "video": "",
+          "text": "",
+          "answers": [
+            "Woody Allen",
+            "Steven Spielberg",
+            "Joel and Ethan Coen (the cohen borthers)",
+            "Martin Scorsese"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Steven Spielberg is an iconic American film director and producer, celebrated for his pioneering work in cinema. His career spans several decades, with groundbreaking films like E.T. the Extra-Terrestrial, Jurassic Park, and Schindler's List. Spielberg is renowned for his storytelling prowess and ability to capture both the wonder and depth of human experience. His influence on modern filmmaking is profound and enduring."
+        },
+        {
+          "id": 1,
+          "questionType": "image",
+          "question": "What is the name of the famous Egyptian play that revolves around a family comedy and is considered a classic in Egyptian theater ",
+          "image": "https://mhtwaa.com/wp-content/uploads/2023/04/%D8%AA%D8%AD%D9%85%D9%8A%D9%84-%D9%85%D8%B3%D8%B1%D8%AD%D9%8A%D8%A9-%D8%A7%D9%84%D8%B9%D9%8A%D8%A7%D9%84-%D9%83%D8%A8%D8%B1%D8%AA-%D9%83%D8%A7%D9%85%D9%84%D8%A9-egybest-780x470-1.jpg.webp",
+          "video": "",
+          "text": "",
+          "answers": [
+            "Alial Kibret",
+            "Madrasat Al-Mushaghibin",
+            "El Eyal Rayaha Fein ",
+            "Afoah w Aranab"
+          ],
+          "correctAnswer": 0,
+          "explanation": "'Alial Kibret' (كبرت العيال (is a famous Egyptian comedy play from the 1970s. It humorously follows the antics of children trying to stop their father from remarrying. The play's witty dialogue and memorable characters have made it a beloved classic in Arab culture."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "category": "Science",
+      "categoryImage": "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "questions": [
+        {
+          "id": 0,
+          "questionType": "image",
+          "question": "Who is the Jewish scientist who won the Nobel Prize in Physics for the Theory of Relativity?",
+          "image": "https://images.theconversation.com/files/550733/original/file-20230927-15-pmj07x.jpg?ixlib=rb-4.1.0&rect=0,0,1200,878&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip",
+          "video": "",
+          "text": "",
+          "answers": [
+            "Aaron Ciechanover",
+            "Robert Aumann",
+            "Albert Einstein",
+            "Dan Schechtman"
+          ],
+          "correctAnswer": 2,
+          "explanation": "*Aaron Ciechanover* - Nobel Prize in Chemistry (2004) *Robert Aumann* - Nobel Memorial Prize in Economic Sciences (2005) *Dan Schechtman* - Nobel Prize in Chemistry (2011)"
+        },
+        {
+          "id": 1,
+          "questionType": "image",
+          "question": "Who is the muslim scientist who figured out schools?",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Hazan.png/220px-Hazan.png",
+          "video": "",
+          "text": "",
+          "answers": ["Al-Farabi", "Ibn Sina", "Ḥasan Ibn al-Haytham ", "Al-Khwarizmi"],
+          "correctAnswer": 0,
+          "explanation": "Ḥasan Ibn al-Haytham, also known as Alhazen, was a pioneering Arab scientist and mathematician from the 10th century. He is often regarded as the father of modern optics for his significant contributions to the understanding of vision, light, and lenses. His work, particularly the Book of Optics, laid the foundation for the scientific method and influenced many later scientists in both the Islamic world and Europe."
+        },
+        {
+          "id": 2,
+          "questionType": "image",
+          "question": "Who was the famous Arab scientist who contributed significantly to the development of medicine?",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Hazan.png/220px-Hazan.png",
+          "video": "",
+          "text": "",
+          "answers": ["Al-Farabi", "Ibn Sina", "Al-Kindi ", "Ibn Khaldun"],
+          "correctAnswer": 1,
+          "explanation": "Ibn Sina, also known as Avicenna, was a Persian scholar and a key figure in medicine during the Islamic Golden Age. His most famous work, 'The Canon of Medicine,' became a foundational medical text in both the Islamic world and Europe. He is often called the 'Father of Early Modern Medicine'"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "category": "Food",
+      "categoryImage": "https://images.pexels.com/photos/6544491/pexels-photo-6544491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "questions": [
+        {
+          "id": 0,
+          "questionType": "image",
+          "question": "What is the traditional dish eaten on Shabbat? ",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR5d9d73ZuBxcwT_ibvZ3D83qDAGM9snwrOlm9_jX0_eBCfZDQk",
+          "video": "",
+          "text": "",
+          "answers": ["Shakshuka", "Gefilte Fish", "Jachnun", "Challah"],
+          "correctAnswer": 3,
+          "explanation": "Challah is a traditional Jewish bread, often enjoyed during Shabbat and Jewish holidays. It features a slightly sweet, soft texture with a distinctive braided appearance. Typically made with eggs, it symbolizes the double portion of manna received by the Israelites in the desert. Challah is both a culinary staple and a symbol of celebration and togetherness in Jewish tradition"
+        },
+        {
+          "id": 1,
+          "questionType": "image",
+          "question": "What is the traditional food eaten during Hanukkah?",
+          "image": "https://www.foodisgood.co.il/wp-content/uploads/2017/11/hanukkah-sufganiyot-300x200.jpg",
+          "video": "",
+          "text": "",
+          "answers": ["Matzah", "Sufganiyot", "Fish ", "Charoset"],
+          "correctAnswer": 1,
+          "explanation": "Sufganiyot are traditional jelly-filled doughnuts eaten during Hanukkah. These deep-fried treats are typically coated in powdered sugar and filled with sweet fruit jam or jelly. Their oily preparation commemorates the miracle of the oil that lasted eight days in the Hanukkah story. Sufganiyot are a popular and festive delicacy enjoyed during the holiday season"
+        },
+        {
+          "id": 2,
+          "questionType": "image",
+          "question": "Which of the following is a traditional Palestinian dish made of rice, meat, and fried vegetables, often flipped upside down before serving?",
+          "image": "https://i.ytimg.com/vi/LVX_2JNJw08/mqdefault.jpg",
+          "video": "",
+          "text": "",
+          "answers": ["Musakhan", "Knafeh", "Mansaf ", "Maqluba"],
+          "correctAnswer": 3,
+          "explanation": "Maqluba is a traditional Middle Eastern dish, popular in Palestinian cuisine. Its name means 'upside-down,'' which reflects the cooking method: rice, meat, and vegetables are layered in a pot, cooked together, and then flipped onto a plate before serving. This flavorful dish is often enjoyed during family gatherings and special occasions"
+        },
+        {
+          "id": 3,
+          "questionType": "image",
+          "question": "Which traditional Palestinian dish is made with roasted chicken, sumac, onions, and pine nuts, typically served on flatbread?",
+          "image": "https://falasteenifoodie.com/wp-content/uploads/2022/11/IMG-20221027-WA0218-1.jpg",
+          "video": "",
+          "text": "",
+          "answers": ["Musakhan", "Knafeh", "Mansaf ", "Maqluba"],
+          "correctAnswer": 0,
+          "explanation": "Musakhan is a traditional Palestinian dish made with roasted chicken, sumac, onions, and pine nuts, served on flatbread. It's known for its rich, tangy flavor and is often enjoyed during family gatherings and special occasions, symbolizing Palestinian heritage and hospitality."
+        },
+        {
+          "id": 4,
+          "questionType": "image",
+          "question": "Which spice, often referred to as 'the king of spices,'' is commonly used in Arab cuisine to add a warm, earthy flavor to dishes?",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQWlu8D5MK-hHJ14fBYvMfKBX6o4ZAZnIMNaOVBVmN2QtAZgX-g",
+          "video": "",
+          "text": "",
+          "answers": ["Cinnamon", "Saffron", "Cumin ", "Cardamom"],
+          "correctAnswer": 2,
+          "explanation": "Cumin is a widely used spice in Middle Eastern and global cuisine, known for its warm, earthy flavor and aromatic scent. It is often used in dishes like curries, stews, and soups, adding depth and richness. Cumin is a staple in many spice blends and plays a key role in traditional recipes across various cultures."
+        }
+      ]
+    }
+  ]
+}
