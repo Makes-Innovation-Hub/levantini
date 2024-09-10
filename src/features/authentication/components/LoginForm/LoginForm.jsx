@@ -3,8 +3,6 @@ import { Container, GoogleSignInButton, Title } from "./LoginForm.styles";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../../../lib/firebaseSetup";
 
-
-
 const LoginForm = () => {
   const handleGoogle = async () => {
     const provider = await new GoogleAuthProvider();
