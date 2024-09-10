@@ -1,43 +1,30 @@
-//presentational component
-import React, { useState } from "react";
-import FormInput from "@components/form/FormInput";
-import Button from "@components/ui/Button";
+import React from "react";
+import { Container, GoogleSignInButton, Title } from "./LoginForm.styles";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../../../../lib/firebaseSetup";
 
-const LoginForm = ({ onLogin }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onLogin(username, password);
+
+const LoginForm = () => {
+  const handleGoogle = async () => {
+    const provider = await new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <FormInput
-          label="Username"
-          value={username}
-          onInputChange={setUsername}
-          type="text"
-          id="username"
-          placeholder="Enter your username"
-          autoComplete="username"
-        />
-      </div>
-      <div>
-        <FormInput
-          label="password"
-          value={password}
-          onInputChange={setPassword}
-          type="password"
-          id="password"
-          placeholder="Enter your password"
-          autoComplete="current-password"
-        />
-      </div>
-      <Button type="submit">Login</Button>
-    </form>
+    <div>
+      <Title>Levantini</Title>
+      <Container>
+        <GoogleSignInButton onClick={handleGoogle}>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png"
+            alt="Google icon"
+            width="70"
+          />
+          Sign in with Google
+        </GoogleSignInButton>
+      </Container>
+    </div>
   );
 };
 
