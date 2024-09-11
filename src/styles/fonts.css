@@ -1,25 +1,32 @@
-/* Define the Regular font-face for ABeeZee */
 @font-face {
-  font-family: 'ABeeZee';
+  font-family: "ABeeZee";
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: local('ABeeZee Regular'), 
-       url('/src/assets/fonts/ABeeZee-Regular.ttf') format('truetype');
+  src:
+    local("ABeeZee Regular"),
+    url("/src/assets/fonts/ABeeZee-Regular.ttf") format("truetype");
 }
 
-/* Define the Italic font-face for ABeeZee */
 @font-face {
-  font-family: 'ABeeZee';
+  font-family: "ABeeZee";
   font-weight: 400;
   font-style: italic;
   font-display: swap;
-  src: local('ABeeZee Italic'),
-       url('/src/assets/fonts/ABeeZee-Italic.ttf') format('truetype');
+  src:
+    local("ABeeZee Italic"),
+    url("/src/assets/fonts/ABeeZee-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Redressed";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("/src/assets/fonts/Redressed-Regular.ttf") format("truetype");
 }
 
-/* Define CSS variables for easy reference */
 :root {
-  --font-abeezee-regular: 'ABeeZee', 'Arial', sans-serif;
-  --font-abeezee-italic: 'ABeeZee', 'Arial', sans-serif;
+  --font-abeezee-regular: "ABeeZee", "Arial", sans-serif;
+  --font-abeezee-italic: "ABeeZee", "Arial", sans-serif;
+  --font-redressed: "Redressed", "Arial", sans-serif;
 }
