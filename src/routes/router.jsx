@@ -5,7 +5,7 @@ import Home from "@/pages/Home";
 import Layout from "../Layout/Layout"; // Import the Layout component
 
 const Login = React.lazy(() => import("@pages/Login"));
-const Category = React.lazy(() => import("@/pages/Category"));
+const Category = React.lazy(() => import("@/pages/Categories"));
 
 const router = createBrowserRouter([
   {

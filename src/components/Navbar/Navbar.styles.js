@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-export const Navbar = styled.div`
+export const NavbarContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 96px;
@@ -12,7 +11,5 @@ export const Navbar = styled.div`
   gap: 0px;
   opacity: 1;
   font-family: var(--font-redressed);
+  line-height: 37.24px;
 `;
-export default function NavBar() {
-  return <div>Levantini</div>;
-}

@@ -8,10 +8,13 @@ const CategoryContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  font-family: var(--font-abeezee-italic);
+  font-style: italic;
+  font-size: 24px;
 `;
 
 const Title = styled.h2`
-  font-family: var(--font-abeezee-italic);
+  font-family: var(--font-rubik-italic);
   font-style: italic;
   font-size: 24px;
   margin-bottom: 30px;
