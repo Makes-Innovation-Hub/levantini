@@ -1,51 +1,38 @@
-import { useEffect } from "react";
 import { toast, Toaster } from "react-hot-toast";
-import "./Notification.css";
+import Toast from "./Toast";
+import QuizNotification from "./QuizNotification";
+import QuizButton from "./QuizButton";
 
 const Notification = ({ isCorrect, isTimeout, explanation, handleNextQuestion }) => {
-  const toastColor = isTimeout
-    ? "toast-incorrect"
-    : isCorrect
-    ? "toast-correct"
-    : "toast-incorrect";
-
   const title = isTimeout
     ? "Time Out"
     : isCorrect
     ? "Yes! Right Answer"
     : "OOPS! Wrong Answer";
 
-  useEffect(() => {
-    const toastId = toast.custom(
+  const color = isTimeout || !isCorrect ? "var(--red--)" : "var(--green--)";
+
+  if (isCorrect || isTimeout) {
+    toast.custom(
       (t) => (
-        <div
-          className={`toast-container ${toastColor} ${
-            t.visible ? "animate-slideIn" : "animate-slideOut"
-          }`}
-        >
-          <h2 className="toast-title">{title}</h2>
-          <p className="toast-text">{explanation}</p>
-          <button
-            className="toast-button"
-            onClick={() => {
-              toast.dismiss(toastId);
+        <Toast color={color}>
+          <QuizNotification title={title} explanation={explanation} />
+          <QuizButton
+            handleClick={() => {
+              toast.dismiss(t.id);
               handleNextQuestion();
             }}
           >
             Next Question
-          </button>
-        </div>
+          </QuizButton>
+        </Toast>
       ),
       {
         duration: isTimeout ? 10000 : Infinity,
         position: "bottom-center",
       },
     );
-
-    return () => {
-      toast.dismiss(toastId);
-    };
-  }, [isCorrect, isTimeout, explanation, handleNextQuestion, toastColor, title]);
+  }
 
   return <Toaster />;
 };
