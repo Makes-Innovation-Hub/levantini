@@ -11,13 +11,8 @@ const TextQuestion = ({ question, text }) => {
   return (
     <div>
       <p>{question}</p> 
-      {text && <p>{text}</p>} 
-      <input
-        type="text"
-        value={userAnswer}
-        onChange={handleInputChange}
-        placeholder="Type your answer here"
-      />
+      {text  } 
+   
     </div>
   );
 };
