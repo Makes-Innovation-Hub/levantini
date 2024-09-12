@@ -8,7 +8,7 @@ const LoginForm = () => {
     const provider = new GoogleAuthProvider();
     try {
       const result = await signInWithPopup(auth, provider);
-      // Handle the result (e.g., user info) here
+
       console.log("User signed in:", result.user);
     } catch (error) {
       console.error("Error signing in with Google:", error);
@@ -21,9 +21,8 @@ const LoginForm = () => {
       <Container>
         <GoogleSignInButton onClick={handleGoogle}>
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png"
+            src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-tmg5cp5v.png"
             alt="Google icon"
-            width="70"
           />
           Sign in with Google
         </GoogleSignInButton>

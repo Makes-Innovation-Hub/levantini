@@ -10,6 +10,7 @@ import router from "./routes/router.jsx";
 import "./index.css";
 import "./styles/colors.css";
 import "./styles/fonts.css";
+import "./styles/base.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
