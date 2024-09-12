@@ -1,4 +1,9 @@
 :root {
   --color-my-example: #ffff;
-  /* ... other color variables ... */
+
+  --white--: #ffffff;
+  --grey-black--: #333333;
+  --green--: #58d39f;
+  --red--: #d35883;
+  --blue--: #4285f4;
 }

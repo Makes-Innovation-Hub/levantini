@@ -7,7 +7,7 @@ const dummyData = [
       {
         id: 0,
         questionType: "image",
-        question: "Wht nationality is this football player?",
+        question: "What nationality is this football player?",
         image: "image",
         answers: ["Jewish", "Arab", "Druze", "Christian"],
         correctAnswer: 0,
