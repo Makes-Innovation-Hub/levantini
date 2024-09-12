@@ -5,8 +5,14 @@ import { auth } from "../../../../lib/firebaseSetup";
 
 const LoginForm = () => {
   const handleGoogle = async () => {
-    const provider = await new GoogleAuthProvider();
-    return signInWithPopup(auth, provider);
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      // Handle the result (e.g., user info) here
+      console.log("User signed in:", result.user);
+    } catch (error) {
+      console.error("Error signing in with Google:", error);
+    }
   };
 
   return (
