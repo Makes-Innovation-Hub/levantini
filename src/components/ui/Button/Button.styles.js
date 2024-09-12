@@ -1,6 +1,8 @@
 import styled from "styled-components/macro";
 
+
 export const Button = styled.button`
+
   margin: 10px 0;
   padding: 2px 0;
   padding-left: 17px;
