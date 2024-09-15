@@ -21,21 +21,10 @@ const Home = () => {
 
   const handleCategoryClick = () => {
     console.log("Category thumbnail clicked!");
-    // Perform some actions
   };
 
   return (
     <div>
-      {/* Your content from the fetched data */}
-      {data &&
-        data.map((post) => (
-          <div key={post.id}>
-            {/* <h2>{post.title}</h2> */}
-            {/* <p>{post.body}</p> */}
-          </div>
-        ))}
-
-      {/* Render the CategoryThumbNail */}
       <CategoryThumbNail
         imgUrl="https://cdn.pixabay.com/photo/2014/10/14/20/24/football-488714_1280.jpg"
         onClick={handleCategoryClick}

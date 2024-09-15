@@ -1,9 +1,9 @@
 :root {
   --color-my-box: rgba(255, 255, 255, 0.28); /* Existing white color with 28% opacity */
-  
+
   --light-green: rgba(113, 167, 108, 0.85); /* Existing light green */
   --white: #ffffff; /* Pure white */
-  
+
   /* Drop shadow */
   --shadow-example: 0px -18px 49px 0px rgba(0, 0, 0, 0.09); /* Converted shadow with 9% opacity */
 
