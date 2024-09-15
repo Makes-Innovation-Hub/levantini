@@ -1,5 +1,8 @@
 import React from "react";
+ 
 import * as S from "./Button.styles.js";
+
+ 
 
 const Button = ({ handleClick, children, color }) => {
   return (
@@ -8,5 +11,6 @@ const Button = ({ handleClick, children, color }) => {
     </S.Button>
   );
 };
+
 
 export default Button;
