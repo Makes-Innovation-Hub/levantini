@@ -11,13 +11,16 @@ import "./index.css";
 import "./styles/colors.css";
 import "./styles/fonts.css";
 import "./styles/base.css";
+import { AuthProvider } from "./features/authentication/context/AuthContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router}>
-          <App />
+          <AuthProvider>
+            <App />
+          </AuthProvider>
         </RouterProvider>
       </QueryClientProvider>
     </Provider>

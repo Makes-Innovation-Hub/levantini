@@ -1,6 +1,6 @@
-import { createBrowserRouter, Router } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import RouteConfig from "./routes/router";
+// import RouteConfig from "./routes/router";
 import LoginForm from "./features/authentication/components/LoginForm/LoginForm";
 
 const router = createBrowserRouter([
@@ -19,20 +19,3 @@ function App() {
 }
 
 export default App;
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Layout />, // Use the Layout component here
-//     children: [
-//       { path: "/", element: <Home /> },
-//       { path: "/loginPage", element: <LoginForm /> },
-//       { path: "/register", element: <Register /> },
-//       { path: "/all-events", element: <AllEvent /> },
-//       { path: "/about", element: <About /> },
-//       { path: "/Profile", element: <Profile /> },
-
-//       <ToastContainer key="toast-container" />,
-//     ],
-//   },
-// ]);

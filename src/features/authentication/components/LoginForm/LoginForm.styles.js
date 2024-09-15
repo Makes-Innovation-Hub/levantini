@@ -1,21 +1,29 @@
 import styled from "styled-components";
+
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100vh;
   padding: 20px;
+  box-sizing: border-box;
 `;
 
 export const Title = styled.h1`
   color: var(--grey-black--);
   font-size: clamp(36px, 8vw, 128px);
   text-align: center;
+  /* margin-top: 20vh; */
   margin-bottom: 40vh;
   font-family: var(--font-Redressed), sans-serif;
   width: 100%;
   max-width: 644px;
+
+  @media (max-height: 600px) {
+    margin-top: 10vh;
+    margin-bottom: 20vh;
+  }
 `;
 
 export const Container = styled.div`
@@ -32,10 +40,10 @@ export const GoogleSignInButton = styled.button`
   justify-content: center;
   width: 100%;
   height: 42px;
+  margin-left: 40%;
   padding: 0 16px;
   background-color: #ffffff;
   border: 1px solid #dadce0;
-  margin-left: 9em;
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -59,13 +67,19 @@ export const GoogleSignInButton = styled.button`
   }
 
   img {
-    width: 40px;
-    height: 40px;
+    width: 24px;
+    height: 24px;
     margin-right: 8px;
   }
 
   @media (max-width: 480px) {
     font-size: 12px;
     height: 36px;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 6px;
+    }
   }
 `;
