@@ -35,8 +35,17 @@
     url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400&display=swap")
       format("woff2");
 }
-
+@font-face {
+  font-family: "ABeeZee-italic";
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local("ABeeZee"),
+    url("https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400&display=swap")
+      format("woff2");
+}
 :root {
   --font-rubik-bold: "Rubik-Bold", "Arial", sans-serif;
   --font-rubik-regular: "Rubik-Regular", "Arial", sans-serif;
+  --font-abeezee-regular: "ABeeZee-italic", "Arial", sans-serif;
 }
