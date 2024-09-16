@@ -1,7 +1,7 @@
 import * as React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { LOGIN, QUESTION_PAGE, ROOT } from "./routeConstants";
-import Home from "@/pages/Home";
+import Home from "@/pages/Home/Home";
 import QuestionPage from "../pages/QuestionPage";
 const Login = React.lazy(() => import("@pages/Login"));
 
