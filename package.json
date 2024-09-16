@@ -4,9 +4,6 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "*styles.js": [
-      "npm run lint:css"
-    ],
     "*.+(json|md)": [
       "prettier --write"
     ]
