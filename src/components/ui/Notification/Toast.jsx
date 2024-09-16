@@ -1,20 +1,25 @@
 import { toast } from "react-hot-toast";
-import QuizNotification from "./QuizNotification";
 
-const Toast = ({ color, title, explanation, handleNextQuestion, triggerToast }) => {
-  if (triggerToast) {
-    toast(
-      <QuizNotification
-        title={title}
-        explanation={explanation}
-        handleNextQuestion={handleNextQuestion}
-        color={color} 
-      />,
+const Toast = ({ open, children, duration, position, width }) => {
+  if (open) {
+    toast.custom(
+      (t) => (
+        <div
+          className={`toast `}
+          style={{
+            width: width,
+          }}
+        >
+          {children}
+        </div>
+      ),
       {
-        duration: Infinity,
-        position: "bottom-center",
+        duration: duration,
+        position: position,
       },
     );
+  } else {
+    toast.dismiss();
   }
 
   return null;

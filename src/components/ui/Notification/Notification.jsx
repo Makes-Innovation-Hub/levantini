@@ -1,18 +1,22 @@
-import { Toaster } from "react-hot-toast";
 import Toast from "./Toast";
+import { useState } from "react";
+import QuizNotification from "./QuizNotification";
 
 const Notification = ({ title, color, explanation, handleNextQuestion }) => {
+  const [isToastOpen, setIsToastOpen] = useState(true);
+
   return (
-    <>
-      <Toaster />
-      <Toast
+    <Toast open={isToastOpen} position="bottom-center" duration={Infinity}>
+      <QuizNotification
         color={color}
         title={title}
         explanation={explanation}
-        handleNextQuestion={handleNextQuestion}
-        triggerToast={true}
+        handleNextQuestion={() => {
+          handleNextQuestion();
+          setIsToastOpen(false);
+        }}
       />
-    </>
+    </Toast>
   );
 };
 

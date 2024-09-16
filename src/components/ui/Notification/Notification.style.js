@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 
 export const ToastContainer = styled.div`
-  width: 100dvw;
+  width: 0vw;
   padding: 20px;
   color: var(--white--);
   display: flex;
@@ -23,12 +23,12 @@ export const ToastTitle = styled.h2`
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: var(--white--);
+  color: var(--grey-black--);
 `;
 
 export const ToastText = styled.p`
   margin-bottom: 15px;
-  color: var(--white--);
+  color: var(--grey-black--);
 `;
 
 export const ToastButton = styled.button`
