@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { breakpoints } from "../../../styles/breakingpoints";
+import { breakpoints } from "../../../../styles/breakingpoints";
 
 export const TextQuestionType = styled.div`
   display: flex;

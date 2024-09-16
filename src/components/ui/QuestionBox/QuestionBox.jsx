@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 import * as S from "./QuestionBox.style.js";
 import dummyData from "../../../api/dummyData";
 
-import TextQuestion from "./../TextQuestionType/TextQuestionType.jsx";
+import TextQuestion from "../../../features/authentication/components/TextQuestionType/TextQuestionType.jsx";
 
 const QuestionBox = () => {
   const questionData = dummyData[0]?.questions[0];
