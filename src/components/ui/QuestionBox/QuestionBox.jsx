@@ -58,7 +58,7 @@ const QuestionBox = () => {
             handleClick={() => handleAnswerClick(index)}
             color={answerColors[index]}
           >
-            {answer}
+            <span>{answer}</span>
           </Button>
         ))}
       </S.QuestionBox>
