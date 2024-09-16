@@ -16,6 +16,6 @@ const dummyData = [
           "He played for Macabi Tel Aviv which is known for having jewish players",
       },
     ],
-  },];
-  export default dummyData;
-
+  },
+];
+export default dummyData;
