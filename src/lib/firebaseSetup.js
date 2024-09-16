@@ -1,15 +1,27 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFireBaseAPI } from "../utils/envUtils";
+import { getDomain } from "../utils/envUtils";
+import { getProjectID } from "../utils/envUtils";
+import { getBucket } from "../utils/envUtils";
+import { getSenderID } from "../utils/envUtils";
+import { getAppID } from "../utils/envUtils";
+const fireAPI = getFireBaseAPI();
+const domain = getDomain();
+const ProjectID = getProjectID();
+const Bucket = getBucket();
+const senderID = getSenderID();
+const IDApp = getAppID();
 const firebaseConfig = {
-  apiKey: "AIzaSyCsJwIi1kyoTjPOgxtvMka4wtfytTdJ0QA",
-  authDomain: "levnantini.firebaseapp.com",
-  projectId: "levnantini",
-  storageBucket: "levnantini.appspot.com",
-  messagingSenderId: "822517369151",
-  appId: "1:822517369151:web:13bb274f467473fbe96b8a",
+  apiKey: fireAPI,
+  authDomain: domain,
+  projectId: ProjectID,
+  storageBucket: Bucket,
+  messagingSenderId: senderID,
+  appId: IDApp,
 };
 
 // Initialize Firebase
-const App = initializeApp(firebaseConfig);
-export const auth = getAuth(App);
-export default App;
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export default app;

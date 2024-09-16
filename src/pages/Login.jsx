@@ -1,9 +1,9 @@
 import React from "react";
 import LoginForm from "@features/authentication/components/LoginForm";
 import { useAuth } from "@features/authentication/hooks/useAuth";
+import { GoogleSignInButton } from "../features/authentication/components/LoginForm/LoginForm.styles";
 const Login = () => {
-  const { login } = useAuth();
-  return <LoginForm onLogin={login} />;
+  return <LoginForm />;
 };
 
 export default Login;
