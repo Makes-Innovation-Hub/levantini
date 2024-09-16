@@ -8,7 +8,7 @@ const Login = React.lazy(() => import("@pages/Login"));
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: ROOT,
     element: <RootLayout />,
     children: [
       { index: true, element: <Home /> },
