@@ -5,6 +5,7 @@ export const CategoryContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  height: 100dvh;
 `;
 
 export const Title = styled.h2`
