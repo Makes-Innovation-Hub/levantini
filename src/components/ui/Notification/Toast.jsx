@@ -1,6 +1,6 @@
 import { toast } from "react-hot-toast";
 
-const Toast = ({ open, children, duration, position, width }) => {
+const Toast = ({ open, children, duration, position, width, toastId = "quiz" }) => {
   if (open) {
     toast.custom(
       (t) => (
@@ -16,6 +16,7 @@ const Toast = ({ open, children, duration, position, width }) => {
       {
         duration: duration,
         position: position,
+        id: toastId
       },
     );
   } else {
