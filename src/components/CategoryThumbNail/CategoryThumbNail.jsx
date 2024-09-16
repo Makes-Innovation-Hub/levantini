@@ -6,6 +6,7 @@ const CategoryThumbNail = ({ imgUrl, onClick, children }) => {
     <Card onClick={onClick}>
       <Image src={imgUrl} alt="Category Thumbnail" />
       <Overlay>
+        
         <p>{children}</p>
       </Overlay>
     </Card>

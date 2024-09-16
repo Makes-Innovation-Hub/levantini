@@ -32,7 +32,7 @@ export const Overlay = styled.div`
   justify-content: center;
   padding: 0;
   margin-left: 8px;
-  color: var(--white);
+  color: var(--white--);
 `;
 
 export const Text = styled.p`

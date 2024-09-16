@@ -1,8 +1,6 @@
 import styled from "styled-components/macro";
 
-
 export const Button = styled.button`
-
   margin: 10px 0;
   padding: 2px 0;
   padding-left: 17px;
@@ -16,11 +14,11 @@ export const Button = styled.button`
   text-align: left;
   height: 29px;
   font-weight: 500;
-  
 
   &:hover {
     opacity: 0.9;
   }
-    &:focus{
-    outline:none;}
+  &:focus {
+    outline: none;
+  }
 `;
