@@ -9,7 +9,7 @@ const router = createBrowserRouter([
   { path: ROOT, element: <Home /> },
   {
     path: QUESTION_PAGE,
-    element: <QuestionPage />,
+    element: <QuestionPage />, //{"questionCategory/:categoryId/", element: <QuestionPage />},
   },
   {
     path: LOGIN,
