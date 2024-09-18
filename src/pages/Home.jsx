@@ -20,6 +20,7 @@ const Home = () => {
   return (
     <>
       <h1>REACT TEMPLATE</h1>
+
       <Button handleClick={() => dispatch(setExample("changing redux state"))}>
         Click me
       </Button>
