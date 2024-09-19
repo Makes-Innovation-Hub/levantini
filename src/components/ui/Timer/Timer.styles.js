@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { CgTimer } from "react-icons/cg";
 
 export const Container = styled.div`
