@@ -92,7 +92,7 @@ export const AuthProvider = ({ children }) => {
         onSuccess(result.user);
       }
     } catch (error) {
-      console.error("Login failed:", error);
+      // console.error("Login failed:", error);
     }
   };
 
@@ -100,7 +100,7 @@ export const AuthProvider = ({ children }) => {
     try {
       await firebaseSignOut(auth);
     } catch (error) {
-      console.error("Logout failed:", error);
+      // console.error("Logout failed:", error);
     }
   };
 

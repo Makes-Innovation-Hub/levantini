@@ -1,6 +1,6 @@
 import CategoryThumbNail from "../../components/CategoryThumbNail/CategoryThumbNail";
-import data from "../../api/data.json";
 import * as S from "./Home.styles";
+import data from "../../api/data.json";
 
 const Home = () => {
   return (

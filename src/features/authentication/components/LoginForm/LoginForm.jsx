@@ -34,8 +34,8 @@ import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const { currentUser, signInWithGoogle, logout } = useAuth();
+  console.log(currentUser);
   const navigate = useNavigate();
-
   const handleGoogleSignIn = () => {
     signInWithGoogle(() => {
       navigate("/");

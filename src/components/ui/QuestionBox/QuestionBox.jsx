@@ -1,8 +1,7 @@
 // import React, { useState } from "react";
 //  import Button from "../Button/Button";
 //  import * as S from "./QuestionBox.style.js";
-// import dummyData from "../../../api/dummyData"; 
-
+// import dummyData from "../../../api/dummyData";
 
 //  const QuestionBox = () => {
 //   const questionData = dummyData[0].questions[0];
@@ -30,7 +29,7 @@
 
 //   return (
 //     <S.QuestionBox>
-        
+
 //       <p>{questionData.question}</p>
 //       {questionData.answers.map((answer, index) => (
 //         <Button
@@ -47,13 +46,12 @@
 
 // export default QuestionBox;
 
+import React, { useState } from "react";
+import Button from "../Button/Button";
+import * as S from "./QuestionBox.style.js";
+import dummyData from "../../../api/dummyData";
 
- import React, { useState } from "react";
-  import Button from "../Button/Button";
-  import * as S from "./QuestionBox.style.js";
-import dummyData from "../../../api/dummyData"; 
-
-import TextQuestion from "./../TextQuestionType/TextQuestionType.jsx";  
+import TextQuestion from "./../TextQuestionType/TextQuestionType.jsx";
 
 const QuestionBox = () => {
   const questionData = dummyData[0]?.questions[0];
@@ -75,15 +73,11 @@ const QuestionBox = () => {
   if (!questionData) return <p>No question data available</p>;
   return (
     <>
-    
       {(() => {
         switch (questionData.questionType) {
           case "text":
             return (
-              <TextQuestion
-                question={questionData.question}
-                text={questionData.text}
-              />
+              <TextQuestion question={questionData.question} text={questionData.text} />
             );
           case "image":
             return (
@@ -104,7 +98,7 @@ const QuestionBox = () => {
             return <p>Unsupported question type</p>;
         }
       })()}
-     
+
       <S.QuestionBox>
         {questionData.answers.map((answer, index) => (
           <Button
@@ -119,13 +113,4 @@ const QuestionBox = () => {
     </>
   );
 };
-export default QuestionBox; 
-
-
-
-
-
-
-
-
-
+export default QuestionBox;

@@ -6,6 +6,7 @@ import { getProjectID } from "../utils/envUtils";
 import { getBucket } from "../utils/envUtils";
 import { getSenderID } from "../utils/envUtils";
 import { getAppID } from "../utils/envUtils";
+import { getFirestore } from "firebase/firestore";
 const fireAPI = getFireBaseAPI();
 const domain = getDomain();
 const ProjectID = getProjectID();
@@ -25,3 +26,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export default app;
+export const db = getFirestore(app);
