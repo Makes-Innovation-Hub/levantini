@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const GoogleSignInButton = styled.button`
+export const GoogleSignInButton = styled.button.attrs(({ onClick }) => ({
+  onClick,
+}))`
   display: flex;
   align-items: center;
   justify-content: center;
