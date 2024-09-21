@@ -1,12 +1,12 @@
 import YouTube from "react-youtube";
 import * as S from "./VideoQuestion.styles.js";
 
-const YouTubePlayer = ({ videoId }) => {
+const YouTubePlayer = ({ videoId, height, width, autoplay }) => {
   const opts = {
-    height: "188",
-    width: "330",
+    height: height,
+    width: width,
     playerVars: {
-      autoplay: 0,
+      autoplay: autoplay,
     },
   };
 
