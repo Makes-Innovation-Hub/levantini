@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-export const Navbar = styled.div`
+export const Header = styled.header`
   width: 96px;
   height: 37px;
+  position: absolute;
   top: 16px;
   left: 688px;
   gap: 0px;
@@ -10,6 +11,16 @@ export const Navbar = styled.div`
 
   font-family: var(--font-redressed);
 `;
-export default function Navbar() {
-  return <div>Levantini</div>;
+
+export const Logo = styled.div`
+  font-size: 24px;
+  font-weight: bold;
+`;
+
+export default function HeaderComponent() {
+  return (
+    <Header>
+      <Logo>Levantini</Logo>
+    </Header>
+  );
 }
