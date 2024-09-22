@@ -36,8 +36,8 @@ import LogoutGoogle from "../LogoutButton/LogoutGoogle";
 
 const LoginForm = () => {
   const { currentUser, signInWithGoogle, logout } = useAuth();
-  console.log(currentUser);
   const navigate = useNavigate();
+
   const handleGoogleSignIn = () => {
     signInWithGoogle(() => {
       navigate("/");
@@ -45,16 +45,14 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
+    <Container>
       <Title>Levantini</Title>
-      <Container>
-        {!currentUser ? (
-          <SignInWithGoogle handleClick={handleGoogleSignIn} />
-        ) : (
-          <LogoutGoogle handleClick={logout} />
-        )}
-      </Container>
-    </div>
+      {!currentUser ? (
+        <SignInWithGoogle handleClick={handleGoogleSignIn} />
+      ) : (
+        <LogoutGoogle handleClick={logout} />
+      )}
+    </Container>
   );
 };
 

@@ -8,7 +8,7 @@ export const GoogleSignInButton = styled.button.attrs(({ onClick }) => ({
   justify-content: center;
   width: 100%;
   height: 42px;
-  margin-left: 40%;
+  margin-left: 10%;
   padding: 0 16px;
   background-color: #ffffff;
   border: 1px solid #dadce0;
@@ -43,6 +43,7 @@ export const GoogleSignInButton = styled.button.attrs(({ onClick }) => ({
   @media (max-width: 480px) {
     font-size: 12px;
     height: 36px;
+    margin-left: auto;
 
     img {
       width: 20px;
