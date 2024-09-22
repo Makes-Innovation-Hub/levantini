@@ -16,4 +16,3 @@ const TextQuestion = ({ question, text }) => {
 };
 
 export default TextQuestion;
-

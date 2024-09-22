@@ -113,5 +113,3 @@ const QuestionBox = () => {
   );
 };
 export default QuestionBox;
-
-export default QuestionBox;
