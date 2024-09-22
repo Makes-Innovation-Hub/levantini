@@ -38,7 +38,7 @@ export const Overlay = styled.div`
   justify-content: center;
   padding: 0;
   margin-left: 8px;
-  color: var(--white--);
+  color: var(--white);
   @media (max-width: 378px) {
     width: 104px;
     height: 41px;
