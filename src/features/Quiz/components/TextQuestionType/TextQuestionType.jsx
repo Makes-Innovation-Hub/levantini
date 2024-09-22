@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as S from "./TextQuestionType.styles";
 
 const TextQuestion = ({ question, text }) => {
   const [userAnswer, setUserAnswer] = useState("");
@@ -8,12 +9,11 @@ const TextQuestion = ({ question, text }) => {
   };
 
   return (
-    <div>
+    <S.TextQuestionType>
       <p>{question}</p>
-      {text}
-    </div>
+      <S.Text>{text}</S.Text>
+    </S.TextQuestionType>
   );
 };
 
 export default TextQuestion;
-

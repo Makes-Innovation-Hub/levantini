@@ -7,6 +7,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/react-query.js";
 import App from "./App.jsx";
 import router from "./routes/router.jsx";
+import "./styles/vendors/normalize.css";
 import "./index.css";
 import "./styles/colors.css";
 import "./styles/fonts.css";
