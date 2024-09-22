@@ -1,10 +1,10 @@
 :root {
   --color-my-example: #ffff;
 
-  --white--: #ffffff;
-  --grey-black--: #333333;
-  --green--: #58d39f;
-  --red--: #d35883;
-  --blue--: #4285f4;
-   --color-overlay-blur: rgba(255, 255, 255, 0.2);
+  --white: #ffffff;
+  --grey-black: #333333;
+  --green: #58d39f;
+  --red: #d35883;
+  --blue: #4285f4;
+  --color-overlay-blur: rgba(255, 255, 255, 0.2);
 }

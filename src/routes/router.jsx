@@ -15,7 +15,7 @@ const router = createBrowserRouter([
 
       {
         path: QUESTION_PAGE,
-        element: <QuestionPage />,
+        element: <QuestionPage />, //{"questionCategory/:categoryId/", element: <QuestionPage />},
       },
       {
         path: LOGIN,
