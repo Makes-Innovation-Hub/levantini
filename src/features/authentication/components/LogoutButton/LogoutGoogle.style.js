@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const LogoutGoogle = styled.button`
   /* padding: ; */
   background-color: #f5f5f5;
-  color: var(--grey-black--);
+  color: var(--grey-black);
   border: none;
   cursor: pointer;
   border-radius: 5px;

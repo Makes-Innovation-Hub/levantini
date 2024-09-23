@@ -15,10 +15,6 @@ const Home = () => {
     }
   }, [currentUser, navigate]);
 
-  if (!currentUser) {
-    return null;
-  }
-
   return (
     <>
       <S.CategoryContainer>

@@ -6,9 +6,9 @@ export const GoogleSignInButton = styled.button.attrs(({ onClick }) => ({
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 220px;
   height: 42px;
-  margin-left: 10%;
+  /* margin-left: 10%; */
   padding: 0 16px;
   background-color: #ffffff;
   border: 1px solid #dadce0;
