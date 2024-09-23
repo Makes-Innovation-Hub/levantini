@@ -3,7 +3,7 @@ import * as S from "./DoteSequence.styles"; // Importing the styles from the new
 
 const Dot = ({ backgroundColor, borderColor, bold, transparent }) => {
   return (
-    <S.StyledDot
+    <S.DotSequence
       backgroundColor={backgroundColor}
       borderColor={borderColor}
       bold={bold}

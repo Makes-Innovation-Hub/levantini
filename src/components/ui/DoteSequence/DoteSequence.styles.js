@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledDot = styled.div`
+export const DotSequence = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
