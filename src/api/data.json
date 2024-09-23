@@ -12,27 +12,35 @@
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/%D7%A2%D7%93%D7%9F_%D7%91%D7%9F_%D7%96%D7%A7%D7%9F.jpg/1200px-%D7%A2%D7%93%D7%9F_%D7%91%D7%9F_%D7%96%D7%A7%D7%9F.jpg",
           "answers": ["Eden ben Zaken", "Ada Yonat", "Keren Mor", "Yarden Gerbee"],
           "correctAnswer": 0,
-          "explanation": "Eden Pasia Ben Zaken (born June 8, 1994) is an Israeli singer-songwriter and composer.She gained fame through her participation in the first season of the TV show 'The X Factor Israel,  where she finished in second place. Ben Zaken also served as a guest judge in the third season and has released seven studio albums to date"
+          "explanation": [
+            "Eden Pasia Ben Zaken (born June 8, 1994) is an Israeli singer-songwriter and composer.",
+            "She gained fame through her participation in the first season of the TV show 'The X Factor Israel,  where she finished in second place.",
+            "Ben Zaken also served as a guest judge in the third season and has released seven studio albums to date."
+          ]
         },
         {
           "id": 1,
           "questionType": "video",
-          "question": "Which musical instrument is traditionally used in  Hasidic music?",
-
-          "videoId": "m62aWh_ypKI",
-
+          "question": "Which musical instrument is traditionally used in Hasidic music?",
+          "video": "https://www.youtube.com/watch?v=m62aWh_ypKI",
           "answers": ["Piano", "Chello", "Trumpet", "Clarinet"],
           "correctAnswer": 3,
-          "explanation": "The clarinet is a woodwind instrument with a single-reed mouthpiece, offering a versatile sound from warm to bright. It is also widely used in classical, jazz, and band music."
+          "explanation": [
+            "The clarinet is a woodwind instrument with a single-reed mouthpiece, offering a versatile sound from warm to bright.",
+            "It is also widely used in classical, jazz, and band music."
+          ]
         },
         {
           "id": 2,
           "questionType": "image",
-          "question": "Who is this Arab singer? ",
+          "question": "Who is this Arab singer?",
           "image": "https://media.newyorker.com/photos/590950de019dfc3494e9d765/master/pass/50344566-290.jpg",
-          "answers": ["Nancy Ajram", "Sherine Abd Al-Wahab", "Umm kalthoum ", "Fairouz"],
+          "answers": ["Nancy Ajram", "Sherine Abd Al-Wahab", "Umm Kalthoum", "Fairouz"],
           "correctAnswer": 2,
-          "explanation": "Umm Kulthum, often referred to as 'The Star of the East,' was one of the most iconic and influential singers in the Arab world. Born in Egypt in the early 20th century, she became famous for her powerful voice, emotional depth, and ability to captivate audiences across the Middle East and beyond"
+          "explanation": [
+            "Umm Kulthum, often referred to as 'The Star of the East,' was one of the most iconic and influential singers in the Arab world.",
+            "Born in Egypt in the early 20th century, she became famous for her powerful voice, emotional depth, and ability to captivate audiences across the Middle East and beyond."
+          ]
         }
       ]
     },
@@ -48,7 +56,11 @@
           "text": "Commemorating the giving of the Torah to the people of Israel at Mount Sinai",
           "answers": ["Shavuot", "Simhat-Torah", "Purim", "Asara-Be'Tevet"],
           "correctAnswer": 0,
-          "explanation": "Shavuot is a Jewish holiday that commemorates the giving of the Torah to the people of Israel at Mount Sinai, occurring seven weeks after Passover. It is customary to study Torah all night, read the Book of Ruth, and eat dairy foods."
+          "explanation": [
+            "Shavuot is a Jewish holiday that commemorates the giving of the Torah to the people of Israel at Mount Sinai.",
+            "It occurs seven weeks after Passover.",
+            "It is customary to study Torah all night, read the Book of Ruth, and eat dairy foods."
+          ]
         },
         {
           "id": 1,
@@ -57,30 +69,42 @@
           "image": "https://storage.hidabroot.org/articles/47521_tumb_750Xauto.jpg",
           "answers": ["Purim", "Asara-Be'Tevet", "Shavuot", "Sukkot"],
           "correctAnswer": 3,
-          "explanation": "This image represents Sukkot, a Jewish holiday that celebrates the harvest and commemorates the Israelites' time living in temporary shelters during their 40-year journey in the desert. The central custom of Sukkot is dwelling in a Sukkah, a temporary hut with natural roofing materials, which reminds people of the fragile shelters used by the Israelites."
+          "explanation": [
+            "This image represents Sukkot, a Jewish holiday that celebrates the harvest.",
+            "It commemorates the Israelites' time living in temporary shelters during their 40-year journey in the desert.",
+            "The central custom of Sukkot is dwelling in a Sukkah, a temporary hut with natural roofing materials, which reminds people of the fragile shelters used by the Israelites."
+          ]
         },
         {
           "id": 2,
           "questionType": "text",
-          "question": " In which month are the following customs observed:",
+          "question": "In which month are the following customs observed:",
           "text": "fasting from dawn until sunset, engaging in nightly Taraweeh prayers, and giving Zakat al-Fitr",
           "answers": ["Shawwal", "Muharram", "Rajab", "Ramadan"],
           "correctAnswer": 3,
-          "explanation": "The month of Ramadan is the ninth month of the Islamic calendar and is known for its practices of fasting from dawn until sunset, performing Taraweeh prayers, and giving Zakat al-Fitr. It is considered one of the holiest months in Islam."
+          "explanation": [
+            "The month of Ramadan is the ninth month of the Islamic calendar.",
+            "It is known for its practices of fasting from dawn until sunset, performing Taraweeh prayers, and giving Zakat al-Fitr.",
+            "It is considered one of the holiest months in Islam."
+          ]
         },
         {
           "id": 3,
           "questionType": "image",
-          "question": "  Which Muslim holiday does this image refer to? ",
+          "question": "Which Muslim holiday does this image refer to?",
           "image": "https://img.freepik.com/premium-photo/eid-al-adha-background-little-boy-holding-sheep-with-beautiful-mosque-traditional-lantern_752325-3907.jpg",
           "answers": [
             "New year’s eve",
             "Eid al-Fitr",
-            "Eid al-Adha ",
+            "Eid al-Adha",
             "The birth of the Prophet"
           ],
           "correctAnswer": 2,
-          "explanation": "Eid al-Adha, or the 'Festival of Sacrifice,' is a major Islamic holiday that honors Prophet Ibrahim's willingness to sacrifice his son in obedience to God. Celebrated with prayers, animal sacrifice, and sharing meat with the less fortunate, it marks the end of the Hajj pilgrimage and emphasizes faith, charity, and community"
+          "explanation": [
+            "Eid al-Adha, or the 'Festival of Sacrifice,' is a major Islamic holiday that honors Prophet Ibrahim's willingness to sacrifice his son in obedience to God.",
+            "It is celebrated with prayers, animal sacrifice, and sharing meat with the less fortunate.",
+            "It marks the end of the Hajj pilgrimage and emphasizes faith, charity, and community."
+          ]
         }
       ]
     },
@@ -93,31 +117,41 @@
           "id": 0,
           "questionType": "video",
           "question": "Which Israeli folk dance is this?",
-          "videoId": "LtqdqTlvXUQ",
+          "video": "https://www.youtube.com/watch?v=LtqdqTlvXUQ",
           "answers": ["Tza’ad Temani", "Debka", "Hora", "Mayim Mayim"],
           "correctAnswer": 2,
-          "explanation": "The Hora is a traditional Israeli folk dance where dancers hold hands or link arms and form a circle, moving together in unison. "
+          "explanation": [
+            "The Hora is a traditional Israeli folk dance where dancers hold hands or link arms and form a circle.",
+            "They move together in unison."
+          ]
         },
         {
           "id": 1,
           "questionType": "image",
-          "question": "What is this traditional market in many Arab cities called? ",
+          "question": "What is this traditional market in many Arab cities called?",
           "image": "https://english.palinfo.com/wp-content/uploads//Models/Media/Images/2022/10/16/1943354234.jpg",
           "answers": ["Bazaar", "Medina", "Khan", "Souk"],
           "correctAnswer": 3,
-          "explanation": "Souk  is an open-air marketplace or commercial quarter in an Arab city. A souk or souq is a free-market where vendors can say the going market price for their products. The term is often used for the market in any Arab or Muslim city."
+          "explanation": [
+            "A Souk is an open-air marketplace or commercial quarter in an Arab city.",
+            "It is a free-market where vendors can set the market price for their products."
+          ]
         },
         {
           "id": 2,
           "questionType": "image",
-          "question": "Which traditional Arab dance is this? ",
+          "question": "Which traditional Arab dance is this?",
           "image": "https://365daysoflebanon.com/wp-content/uploads/2016/06/18381.jpg?w=499&h=312",
-          "answers": ["Belly Dance", "Dabkeh", "Zaffa ", "Raqs Sharqi"],
+          "answers": ["Belly Dance", "Dabkeh", "Zaffa", "Raqs Sharqi"],
           "correctAnswer": 1,
-          "explanation": "Dabkeh is a traditional Arab folk dance popular in several Middle Eastern countries, particularly Lebanon, Palestine, Syria, and Jordan. It is performed in a line or circle, with dancers stomping, jumping, and moving in unison to rhythmic music."
+          "explanation": [
+            "Dabkeh is a traditional Arab folk dance popular in several Middle Eastern countries, particularly Lebanon, Palestine, Syria, and Jordan.",
+            "It is performed in a line or circle, with dancers stomping, jumping, and moving in unison to rhythmic music."
+          ]
         }
       ]
     },
+
     {
       "id": 3,
       "category": "Clothing",
@@ -135,34 +169,49 @@
             "Tefillin - תפילי"
           ],
           "correctAnswer": 0,
-          "explanation": "Tallit - Jewish prayer garment. In the Torah, the men are ordered to wrap themselves in a small tallit - a tassel. is intended to remind a person of the mitzvot of the Torah "
+          "explanation": [
+            "Tallit is a Jewish prayer garment.",
+            "In the Torah, men are ordered to wrap themselves in a small tallit—a tassel.",
+            "It is intended to remind a person of the mitzvot of the Torah."
+          ]
         },
         {
           "id": 1,
           "questionType": "image",
-          "question": "What is this head covering worn by religious Jewish men called? ",
+          "question": "What is this head covering worn by religious Jewish men called?",
           "image": "https://static.wixstatic.com/media/6ce9f2_491e980b7c134fecb47b04ee265414f3~mv2.jpg/v1/fill/w_480,h_458,al_c,lg_1,q_80,enc_auto/6ce9f2_491e980b7c134fecb47b04ee265414f3~mv2.jpg",
           "answers": ["Shtreimel", "Kippah", "Adi", "Parochet"],
           "correctAnswer": 1,
-          "explanation": "A kippah (also spelled 'kipah') or yarmulke is a small, rounded cap worn by Jewish men and boys as a sign of respect and reverence for God. The kippah is typically worn during prayers, religious study, and while eating, though some Jewish men choose to wear it at all times. The practice varies among different Jewish communities, with some wearing it more consistently than others. "
+          "explanation": [
+            "A kippah (also spelled 'kipah') or yarmulke is a small, rounded cap worn by Jewish men and boys.",
+            "It is a sign of respect and reverence for God.",
+            "The kippah is typically worn during prayers, religious study, and while eating, though some men choose to wear it at all times."
+          ]
         },
         {
           "id": 2,
           "questionType": "image",
           "question": "What is this head covering worn by traditional Arab women called?",
           "image": "https://png.pngtree.com/png-clipart/20210510/ourmid/pngtree-greyish-brown-hijab-style-illustration-png-image_3259351.jpg",
-          "answers": ["Kippah", "Turban", "Sari ", "Hijab"],
+          "answers": ["Kippah", "Turban", "Sari", "Hijab"],
           "correctAnswer": 3,
-          "explanation": "The hijab is a traditional head covering worn by many Muslim women as a symbol of modesty and privacy. It typically covers the hair, neck, and sometimes the shoulders, while leaving the face visible."
+          "explanation": [
+            "The hijab is a traditional head covering worn by many Muslim women.",
+            "It symbolizes modesty and privacy, covering the hair, neck, and sometimes shoulders, while leaving the face visible."
+          ]
         },
         {
           "id": 3,
           "questionType": "image",
-          "question": "What is this head covering worn by men in Arab culture called? ",
+          "question": "What is this head covering worn by men in Arab culture called?",
           "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTqllSGDGgYXgyr-6FZoAITCGB6-Y63RZIJrDzyX-rEktXEiLGI",
-          "answers": ["Turban", "Keffiyeh", "Fez ", "Yarmulke"],
+          "answers": ["Turban", "Keffiyeh", "Fez", "Yarmulke"],
           "correctAnswer": 1,
-          "explanation": "The keffiyeh is a traditional Middle Eastern headscarf, commonly worn by men, especially in Palestinian culture. It is typically made of cotton and features a distinctive black-and-white checkered pattern. The keffiyeh is both a practical garment, providing protection from the sun and dust, and a symbol of Palestinian identity and resistance. It has become an iconic cultural item, recognized worldwide."
+          "explanation": [
+            "The keffiyeh is a traditional Middle Eastern headscarf, commonly worn by men, especially in Palestinian culture.",
+            "It is typically made of cotton with a distinctive black-and-white checkered pattern.",
+            "It provides protection from the sun and dust and has become a symbol of Palestinian identity."
+          ]
         }
       ]
     },
@@ -183,25 +232,34 @@
             "Shmuel Yosef Agnon"
           ],
           "correctAnswer": 1,
-          "explanation": "Chaim Nachman Bialik Did not win the Nobel Prize in Literature. Bialik was a prominent Hebrew poet and scholar but was not a Nobel laureate."
+          "explanation": [
+            "Chaim Nachman Bialik was a prominent Hebrew poet and scholar.",
+            "He did not win the Nobel Prize in Literature."
+          ]
         },
         {
           "id": 1,
           "questionType": "image",
-          "question": "Who is this Jewish female author and songwriter that is renowned for her significant contributions to Israeli culture and literature? ",
+          "question": "Who is this Jewish female author and songwriter that is renowned for her significant contributions to Israeli culture and literature?",
           "image": "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Naomi_Shemer.jpg/220px-Naomi_Shemer.jpg",
           "answers": ["Esther Hautzig", "Naomi Neuman", "Naomi Shemer", "Dvora Omer"],
           "correctAnswer": 2,
-          "explanation": "Naomi Shemer is celebrated for her influential contributions to Israeli music and literature, particularly her impactful songs and poems that have shaped Israeli culture. While Esther Hautzig, Dvora Omer, and Naomi Neuman have made notable contributions in their fields, Shemer is especially recognized for her combined literary and musical achievements"
+          "explanation": [
+            "Naomi Shemer is celebrated for her influential contributions to Israeli music and literature.",
+            "She is especially recognized for her combined literary and musical achievements."
+          ]
         },
         {
           "id": 2,
           "questionType": "video",
           "question": "Who is the poet of this poem?",
-          "videoId": "82duWho-iHQ",
-          "answers": ["Nizar Qabbani", "Adonis", "Jalaluddin Rumi ", "Mahmoud Darwish"],
+          "video": "https://www.youtube.com/watch?v=82duWho-iHQ",
+          "answers": ["Nizar Qabbani", "Adonis", "Jalaluddin Rumi", "Mahmoud Darwish"],
           "correctAnswer": 3,
-          "explanation": "Mahmoud Darwish was a prominent Palestinian poet known for his evocative work on exile, identity, and resistance. His poetry, including famous pieces like 'Identity Card,' captures the Palestinian experience and has made him a significant voice in globalliterature, symbolizing the resilience of the human spirit."
+          "explanation": [
+            "Mahmoud Darwish was a prominent Palestinian poet known for his evocative work on exile, identity, and resistance.",
+            "His poetry captures the Palestinian experience and resilience of the human spirit."
+          ]
         }
       ]
     },
@@ -213,37 +271,46 @@
         {
           "id": 0,
           "questionType": "image",
-          "question": " Who is this Jewish director who directed the film 'Schindler's List'? ",
+          "question": "Who is this Jewish director who directed the film 'Schindler's List'?",
           "image": "https://static.timesofisrael.com/www/uploads/2023/01/AP23011130908844.jpg",
           "answers": [
             "Woody Allen",
             "Steven Spielberg",
-            "Joel and Ethan Coen (the cohen borthers)",
+            "Joel and Ethan Coen (the Coen brothers)",
             "Martin Scorsese"
           ],
           "correctAnswer": 1,
-          "explanation": "Steven Spielberg is an iconic American film director and producer, celebrated for his pioneering work in cinema. His career spans several decades, with groundbreaking films like E.T. the Extra-Terrestrial, Jurassic Park, and Schindler's List. Spielberg is renowned for his storytelling prowess and ability to capture both the wonder and depth of human experience. His influence on modern filmmaking is profound and enduring."
+          "explanation": [
+            "Steven Spielberg is an iconic American film director and producer.",
+            "His career spans several decades, with groundbreaking films like E.T., Jurassic Park, and Schindler's List.",
+            "Spielberg is renowned for his storytelling prowess and influence on modern filmmaking."
+          ]
         },
         {
           "id": 1,
           "questionType": "text",
-          "question": "From which Egyptian play is this quote taken? ",
+          "question": "From which Egyptian play is this quote taken?",
           "text": "Taʿraf eh ʿan el-manṭeq (تعرف إيه عن المنطق؟)",
           "answers": [
             "Alial Kibret",
             "Madrasat Al-Mushaghibin",
-            "El Eyal Rayaha Fein ",
+            "El Eyal Rayaha Fein",
             "Afoah w Aranab"
           ],
-          "correctAnswer": 0,
-          "explanation": "'Madraset Al-Mushaghibin' (مدرسة المشاغبين) is a famous Egyptian comedy play from the 1970s. It humorously follows the antics of a group of mischievous students who cause chaos in their school, frustrating their teachers. The play’s witty dialogue, unforgettable characters, and sharp social commentary have made it a beloved classic in Egyptian and Arab pop culture."
+          "correctAnswer": 1,
+          "explanation": [
+            "'Madraset Al-Mushaghibin' (مدرسة المشاغبين) is a famous Egyptian comedy play from the 1970s.",
+            "It humorously follows a group of mischievous students causing chaos in their school.",
+            "The play’s witty dialogue and sharp social commentary have made it a beloved classic in Egyptian and Arab pop culture."
+          ]
         }
       ]
     },
+
     {
       "id": 50,
       "category": "Science",
-      "categoryImage": "https://nabulsi.com/images/20230119172052_ogImage_49.jpg",
+      "categoryImage": "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "questions": [
         {
           "id": 0,
@@ -257,25 +324,37 @@
             "Dan Schechtman"
           ],
           "correctAnswer": 2,
-          "explanation": "*Aaron Ciechanover* - Nobel Prize in Chemistry (2004) *Robert Aumann* - Nobel Memorial Prize in Economic Sciences (2005) *Dan Schechtman* - Nobel Prize in Chemistry (2011)"
+          "explanation": [
+            "*Aaron Ciechanover* - Nobel Prize in Chemistry (2004)",
+            "*Robert Aumann* - Nobel Memorial Prize in Economic Sciences (2005)",
+            "*Dan Schechtman* - Nobel Prize in Chemistry (2011)"
+          ]
         },
         {
           "id": 1,
           "questionType": "text",
-          "question": "who is the Muslim scientist that this sentence is taken from? ",
+          "question": "Who is the Muslim scientist that this sentence is taken from?",
           "text": "‘The eye receives light and transmits it to the brain, where it is processed into vision.’",
-          "answers": ["Al-Farabi", "Ibn Sina", "Ḥasan Ibn al-Haytham ", "Al-Khwarizmi"],
-          "correctAnswer": 0,
-          "explanation": "Ḥasan Ibn al-Haytham, also known as Alhazen, was a pioneering Arab scientist and mathematician from the 10th century. He is often regarded as the father of modern optics for his significant contributions to the understanding of vision, light, and lenses. His work, particularly the Book of Optics, laid the foundation for the scientific method and influenced many later scientists in both the Islamic world and Europe."
+          "answers": ["Al-Farabi", "Ibn Sina", "Ḥasan Ibn al-Haytham", "Al-Khwarizmi"],
+          "correctAnswer": 2,
+          "explanation": [
+            "Ḥasan Ibn al-Haytham, also known as Alhazen, was a pioneering Arab scientist and mathematician from the 10th century.",
+            "He is often regarded as the father of modern optics for his significant contributions to the understanding of vision, light, and lenses.",
+            "His work, particularly the *Book of Optics*, laid the foundation for the scientific method and influenced many later scientists in both the Islamic world and Europe."
+          ]
         },
         {
           "id": 2,
           "questionType": "image",
           "question": "Who is this famous Arab scientist who contributed significantly to the development of medicine?",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Hazan.png/220px-Hazan.png",
-          "answers": ["Al-Farabi", "Ibn Sina", "Al-Kindi ", "Ibn Khaldun"],
+          "answers": ["Al-Farabi", "Ibn Sina", "Al-Kindi", "Ibn Khaldun"],
           "correctAnswer": 1,
-          "explanation": "Ibn Sina, also known as Avicenna, was a Persian scholar and a key figure in medicine during the Islamic Golden Age. His most famous work, 'The Canon of Medicine,' became a foundational medical text in both the Islamic world and Europe. He is often called the 'Father of Early Modern Medicine'"
+          "explanation": [
+            "Ibn Sina, also known as Avicenna, was a Persian scholar and a key figure in medicine during the Islamic Golden Age.",
+            "His most famous work, *The Canon of Medicine*, became a foundational medical text in both the Islamic world and Europe.",
+            "He is often called the 'Father of Early Modern Medicine.'"
+          ]
         }
       ]
     },
@@ -287,47 +366,69 @@
         {
           "id": 0,
           "questionType": "image",
-          "question": "What is this traditional dish eaten on Shabbat? ",
+          "question": "What is this traditional dish eaten on Shabbat?",
           "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR5d9d73ZuBxcwT_ibvZ3D83qDAGM9snwrOlm9_jX0_eBCfZDQk",
           "answers": ["Shakshuka", "Gefilte Fish", "Jachnun", "Challah"],
           "correctAnswer": 3,
-          "explanation": "Challah is a traditional Jewish bread, often enjoyed during Shabbat and Jewish holidays. It features a slightly sweet, soft texture with a distinctive braided appearance. Typically made with eggs, it symbolizes the double portion of manna received by the Israelites in the desert. Challah is both a culinary staple and a symbol of celebration and togetherness in Jewish tradition"
+          "explanation": [
+            "Challah is a traditional Jewish bread, often enjoyed during Shabbat and Jewish holidays.",
+            "It features a slightly sweet, soft texture with a distinctive braided appearance.",
+            "Typically made with eggs, it symbolizes the double portion of manna received by the Israelites in the desert.",
+            "Challah is both a culinary staple and a symbol of celebration and togetherness in Jewish tradition."
+          ]
         },
         {
           "id": 1,
           "questionType": "image",
           "question": "What is this traditional food eaten during Hanukkah?",
           "image": "https://www.foodisgood.co.il/wp-content/uploads/2017/11/hanukkah-sufganiyot-300x200.jpg",
-          "answers": ["Matzah", "Sufganiyot", "Fish ", "Charoset"],
+          "answers": ["Matzah", "Sufganiyot", "Fish", "Charoset"],
           "correctAnswer": 1,
-          "explanation": "Sufganiyot are traditional jelly-filled doughnuts eaten during Hanukkah. These deep-fried treats are typically coated in powdered sugar and filled with sweet fruit jam or jelly. Their oily preparation commemorates the miracle of the oil that lasted eight days in the Hanukkah story. Sufganiyot are a popular and festive delicacy enjoyed during the holiday season"
+          "explanation": [
+            "Sufganiyot are traditional jelly-filled doughnuts eaten during Hanukkah.",
+            "These deep-fried treats are typically coated in powdered sugar and filled with sweet fruit jam or jelly.",
+            "Their oily preparation commemorates the miracle of the oil that lasted eight days in the Hanukkah story.",
+            "Sufganiyot are a popular and festive delicacy enjoyed during the holiday season."
+          ]
         },
         {
           "id": 2,
           "questionType": "image",
-          "question": "What is this traditional Palestinian dish that is  made of rice, meat, and fried vegetables, and often flipped upside down before serving?",
+          "question": "What is this traditional Palestinian dish that is made of rice, meat, and fried vegetables, and often flipped upside down before serving?",
           "image": "https://i.ytimg.com/vi/LVX_2JNJw08/mqdefault.jpg",
-          "answers": ["Musakhan", "Knafeh", "Mansaf ", "Maqluba"],
+          "answers": ["Musakhan", "Knafeh", "Mansaf", "Maqluba"],
           "correctAnswer": 3,
-          "explanation": "Maqluba is a traditional Middle Eastern dish, popular in Palestinian cuisine. Its name means 'upside-down,'' which reflects the cooking method: rice, meat, and vegetables are layered in a pot, cooked together, and then flipped onto a plate before serving. This flavorful dish is often enjoyed during family gatherings and special occasions"
+          "explanation": [
+            "Maqluba is a traditional Middle Eastern dish, popular in Palestinian cuisine.",
+            "Its name means 'upside-down,' which reflects the cooking method: rice, meat, and vegetables are layered in a pot, cooked together, and then flipped onto a plate before serving.",
+            "This flavorful dish is often enjoyed during family gatherings and special occasions."
+          ]
         },
         {
           "id": 3,
           "questionType": "image",
           "question": "What is this traditional Palestinian dish that is made with roasted chicken, sumac, onions, and pine nuts, typically served on flatbread?",
           "image": "https://falasteenifoodie.com/wp-content/uploads/2022/11/IMG-20221027-WA0218-1.jpg",
-          "answers": ["Musakhan", "Knafeh", "Mansaf ", "Maqluba"],
+          "answers": ["Musakhan", "Knafeh", "Mansaf", "Maqluba"],
           "correctAnswer": 0,
-          "explanation": "Musakhan is a traditional Palestinian dish made with roasted chicken, sumac, onions, and pine nuts, served on flatbread. It's known for its rich, tangy flavor and is often enjoyed during family gatherings and special occasions, symbolizing Palestinian heritage and hospitality."
+          "explanation": [
+            "Musakhan is a traditional Palestinian dish made with roasted chicken, sumac, onions, and pine nuts, served on flatbread.",
+            "It is known for its rich, tangy flavor and is often enjoyed during family gatherings and special occasions, symbolizing Palestinian heritage and hospitality."
+          ]
         },
         {
           "id": 4,
           "questionType": "image",
           "question": "What is this spice which is often referred to as 'the king of spices,' and is commonly used in Arab cuisine to add a warm, earthy flavor to dishes?",
           "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQWlu8D5MK-hHJ14fBYvMfKBX6o4ZAZnIMNaOVBVmN2QtAZgX-g",
-          "answers": ["Cinnamon", "Saffron", "Cumin ", "Cardamom"],
+          "answers": ["Cinnamon", "Saffron", "Cumin", "Cardamom"],
           "correctAnswer": 2,
-          "explanation": "Cumin is a widely used spice in Middle Eastern and global cuisine, known for its warm, earthy flavor and aromatic scent. It is often used in dishes like curries, stews, and soups, adding depth and richness. Cumin is a staple in many spice blends and plays a key role in traditional recipes across various cultures."
+          "explanation": [
+            "Cumin is a widely used spice in Middle Eastern and global cuisine.",
+            "It is known for its warm, earthy flavor and aromatic scent.",
+            "Cumin is often used in dishes like curries, stews, and soups, adding depth and richness.",
+            "It plays a key role in traditional recipes across various cultures."
+          ]
         }
       ]
     }
