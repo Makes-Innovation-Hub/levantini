@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 export const ToastContainer = styled.div`
   width: 100%;
-  height: 50%;
-  padding: 20px;
+  /* height: 50%; */
+  /* padding: 20px; */
   color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  /* opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   transition: opacity 0.5s ease-in-out;
-  pointer-events: ${({ isVisible }) => (isVisible ? "auto" : "none")};
+  pointer-events: ${({ isVisible }) => (isVisible ? "auto" : "none")}; */
 `;
 
 export const ToastCorrect = styled.div`
