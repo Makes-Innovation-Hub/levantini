@@ -19,7 +19,7 @@
           "questionType": "video",
           "question": "Which musical instrument is traditionally used in  Hasidic music?",
 
-          "video": "https://www.youtube.com/watch?v=m62aWh_ypKI",
+          "videoId": "m62aWh_ypKI",
 
           "answers": ["Piano", "Chello", "Trumpet", "Clarinet"],
           "correctAnswer": 3,
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "id": 1,
+      "id": 100,
       "category": "Holidays",
       "categoryImage": "https://images.news18.com/webstories/2024/03/pexels-leeloo-the-first-6487203-2024-03-45799de92804bf12f25192433341b637-scaled.jpg",
       "questions": [
@@ -93,7 +93,7 @@
           "id": 0,
           "questionType": "video",
           "question": "Which Israeli folk dance is this?",
-          "video": "https://www.youtube.com/watch?v=LtqdqTlvXUQ",
+          "videoId": "LtqdqTlvXUQ",
           "answers": ["Tza’ad Temani", "Debka", "Hora", "Mayim Mayim"],
           "correctAnswer": 2,
           "explanation": "The Hora is a traditional Israeli folk dance where dancers hold hands or link arms and form a circle, moving together in unison. "
@@ -198,7 +198,7 @@
           "id": 2,
           "questionType": "video",
           "question": "Who is the poet of this poem?",
-          "video": "https://www.youtube.com/watch?v=82duWho-iHQ",
+          "videoId": "82duWho-iHQ",
           "answers": ["Nizar Qabbani", "Adonis", "Jalaluddin Rumi ", "Mahmoud Darwish"],
           "correctAnswer": 3,
           "explanation": "Mahmoud Darwish was a prominent Palestinian poet known for his evocative work on exile, identity, and resistance. His poetry, including famous pieces like 'Identity Card,' captures the Palestinian experience and has made him a significant voice in globalliterature, symbolizing the resilience of the human spirit."
@@ -241,9 +241,9 @@
       ]
     },
     {
-      "id": 5,
+      "id": 50,
       "category": "Science",
-      "categoryImage": "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoryImage": "https://nabulsi.com/images/20230119172052_ogImage_49.jpg",
       "questions": [
         {
           "id": 0,

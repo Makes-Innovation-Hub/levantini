@@ -1,12 +1,8 @@
-import styled from "styled-components";
-
-const DotContainer = styled.div`
-  display: flex;
-  gap: 10px;
-`;
+import React from "react";
+import * as S from "./QuestionsSequence.styles"; // Importing the styles from the new file
 
 const QuestionsSequence = ({ children }) => {
-  return <DotContainer>{children}</DotContainer>;
+  return <S.DotContainer>{children}</S.DotContainer>;
 };
 
 export default QuestionsSequence;
