@@ -5,7 +5,8 @@ const QuizNotification = ({ title, explanation, handleNextQuestion, color }) => 
   <S.ToastContainer style={{ backgroundColor: color }}>
     <S.ToastTitle>{title}</S.ToastTitle>
     <S.ToastText>{explanation}</S.ToastText>
-    <QuizButton handleClick={handleNextQuestion}>Next Question</QuizButton>
+    hello i am here
+    <QuizButton handleClick={handleNextQuestion}> ha ha ha Next Question</QuizButton>
   </S.ToastContainer>
 );
 

@@ -16,7 +16,7 @@ const Toast = ({ open, children, duration, position, width, toastId = "quiz" }) 
       {
         duration: duration,
         position: position,
-        id: toastId
+        id: toastId,
       },
     );
   } else {

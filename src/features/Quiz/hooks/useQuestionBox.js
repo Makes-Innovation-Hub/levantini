@@ -1,4 +1,34 @@
-// // src/hooks/useQuestionBox.js
+// import { useState } from "react";
+// import data from "../../../api/data.json";
+
+// const useQuestionBox = () => {
+//   const questionData = data?.data[0]?.questions[0]; // Update the path to select the appropriate question from data.json
+//   const [answerColors, setAnswerColors] = useState(Array(4).fill("var(--blue)"));
+//   const [isAnswered, setIsAnswered] = useState(false);
+
+//   const handleAnswerClick = (index) => {
+//     if (isAnswered) return; // If already answered, do nothing
+//     const updatedColors = [...answerColors];
+//     if (index === questionData.correctAnswer) {
+//       updatedColors[index] = "var(--green)";
+//     } else {
+//       updatedColors[index] = "var(--red)";
+//       updatedColors[questionData.correctAnswer] = "var(--green)";
+//     }
+//     setAnswerColors(updatedColors);
+//     setIsAnswered(true);
+//   };
+
+//   return {
+//     questionData,
+//     answerColors,
+//     handleAnswerClick,
+//   };
+// };
+
+// export default useQuestionBox;
+
+//////////////////////////////////////////////////////////////////////////////
 // import { useState } from "react";
 // import dummyData from "../../../api/dummyData";
 
@@ -29,11 +59,16 @@
 
 // export default useQuestionBox;
 
+////////////////////////////////////////////////////////////////////////////////
 // src/hooks/useQuestionBox.js
 
 // src/hooks/useQuestionBox.js
 
 // src/hooks/useQuestionBox.js
+
+///////////////////////////////////////////
+///////////////////////////////////////
+///////////////////////////////////////
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import data from "../../../api/data.json";
@@ -73,22 +108,24 @@ const useQuestionBox = () => {
     setAnswerColors(updatedColors);
     setIsAnswered(true);
   };
-
+  const handleQuestionTimeout = () => {
+    setNotification({
+      title: "Time Is Out!",
+      color: "var(--red)",
+      explanation: questionData.explanation,
+    });
+  };
   // Handle Time Out
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!isAnswered) {
-        setTimeOut(true);
-        setNotification({
-          title: "Time Is Out!",
-          color: "var(--red)",
-          explanation: questionData.explanation,
-        });
-      }
-    }, 10000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (!isAnswered) {
+  //       setTimeOut(true);
 
-    return () => clearTimeout(timer);
-  }, [isAnswered, questionData]);
+  //     }
+  //   }, 10000);
+
+  //   return () => clearTimeout(timer);
+  // }, [isAnswered, questionData]);
 
   const handleNextQuestion = () => {
     if (currentQuestionIndex < currentCategory.questions.length - 1) {
@@ -109,6 +146,7 @@ const useQuestionBox = () => {
     answerColors,
     handleAnswerClick,
     notification,
+    handleQuestionTimeout,
     handleNextQuestion,
     timeOut,
   };

@@ -1,19 +1,22 @@
 import styled from "styled-components";
 
 export const ToastContainer = styled.div`
-  width: 390px;
-  height: 261px;
+  width: 100%;
+  height: 50%;
   padding: 20px;
   color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
-  opacity: 1;
-  transition: opacity 0.5s;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: ${({ isVisible }) => (isVisible ? "auto" : "none")};
 `;
 
 export const ToastCorrect = styled.div`
   background-color: var(--green);
+  width: 100%;
+  height: 50%;
 `;
 
 export const ToastIncorrect = styled.div`
@@ -30,6 +33,9 @@ export const ToastTitle = styled.h2`
 export const ToastText = styled.p`
   margin-bottom: 15px;
   color: var(--grey-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const ToastButton = styled.button`

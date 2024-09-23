@@ -1,115 +1,65 @@
-// import React from "react";
-// import Button from "../Button/Button";
-// import * as S from "./QuestionBox.style.js";
-// import TextQuestion from "../../../features/authentication/components/TextQuestionType/TextQuestionType.jsx";
-// import useQuestionBox from "../../../features/authentication/hooks/useQuestionBox.js";
-
-// const QuestionBox = () => {
-//   const { questionData, answerColors, handleAnswerClick } = useQuestionBox();
-
-//   if (!questionData) return <p>No question data available</p>;
-
-//   return (
-//     <>
-//       {(() => {
-//         switch (questionData.questionType) {
-//           case "text":
-//             return (
-//               <TextQuestion question={questionData.question} text={questionData.text} />
-//             );
-//           case "image":
-//             return (
-//               <div>
-//                 <img src={questionData.image} alt="question" />
-//               </div>
-//             );
-//           case "video":
-//             return (
-//               <div>
-//                 <video width="320" height="240" controls>
-//                   <source src={questionData.video} type="video/mp4" />
-//                   Your browser does not support the video tag.
-//                 </video>
-//               </div>
-//             );
-//           default:
-//             return <p>Unsupported question type</p>;
-//         }
-//       })()}
-
-//       <S.QuestionBox>
-//         {questionData.answers.map((answer, index) => (
-//           <Button
-//             key={index}
-//             handleClick={() => handleAnswerClick(index)}
-//             color={answerColors[index]}
-//           >
-//             <span>{answer}</span>
-//           </Button>
-//         ))}
-//       </S.QuestionBox>
-//     </>
-//   );
-// };
-
-// export default QuestionBox;
-
-// src/components/ui/QuestionBox.jsx
-
-// src/components/ui/QuestionBox.jsx
 import React from "react";
 import Button from "../Button/Button";
 import * as S from "./QuestionBox.style.js";
-import TextQuestion from "../../../features/Quiz/components/TextQuestionType/TextQuestionType.jsx";
-import useQuestionBox from "../../../features/Quiz/hooks/useQuestionBox.js";
 
-const QuestionBox = () => {
-  const { questionData, answerColors, handleAnswerClick, notification } =
-    useQuestionBox();
-
+const QuestionBox = ({
+  handleOnClick,
+  questionData,
+  answerColors,
+  notification,
+  handleNextQuestion,
+  handleQuestionTimeOut,
+}) => {
   if (!questionData) return <p>No question data available</p>;
+  console.log({ notification });
 
+  // Function to render explanation with each sentence on a new line without gaps
+  const renderExplanation = (explanation) => {
+    return explanation.map((sentence, index) => (
+      <span key={index}>
+        {sentence}
+        <br /> {/* Add a line break between sentences */}
+      </span>
+    ));
+  };
   return (
-    <>
-      {(() => {
-        switch (questionData.questionType) {
-          case "text":
-            return (
-              <TextQuestion question={questionData.question} text={questionData.text} />
-            );
-          case "image":
-            return (
-              <div>
-                <S.Image src={questionData.image} alt="question" />
-              </div>
-            );
-          case "video":
-            return (
-              <div>
-                <video width="320" height="240" controls>
-                  <source src={questionData.video} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            );
-          default:
-            return <p>Unsupported question type</p>;
-        }
-      })()}
+    <S.QuestionBoxFirst>
+      <S.QuestionBoxSecond>
+        <h2>{questionData.question}</h2>
 
-      <S.QuestionBox>
-        {questionData.answers.map((answer, index) => (
-          <Button
-            key={index}
-            handleClick={() => handleAnswerClick(index)}
-            color={answerColors[index]}
-            disabled={notification} // Disable buttons if a notification is shown
-          >
-            <span>{answer}</span>
-          </Button>
-        ))}
-      </S.QuestionBox>
-    </>
+        {questionData.questionType === "image" && (
+          <S.Image src={questionData.image} alt="Question" />
+        )}
+        {questionData.questionType === "text" && <p>{questionData.text}</p>}
+        {questionData.questionType === "video" && (
+          <video width="320" height="240" controls>
+            <source src={questionData.video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )}
+
+        <div className="answers">
+          {questionData.answers.map((answer, index) => (
+            <Button
+              key={index}
+              handleClick={() => handleOnClick(index)}
+              color={answerColors[index]}
+            >
+              {answer}
+            </Button>
+          ))}
+        </div>
+      </S.QuestionBoxSecond>
+
+      {/* {notification && (
+        <Notification
+          title={notification.title}
+          color={notification.color}
+          explanation={notification.explanation}
+          handleNextQuestion={handleNextQuestion}
+        />
+      )} */}
+    </S.QuestionBoxFirst>
   );
 };
 

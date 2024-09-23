@@ -12,7 +12,11 @@
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/%D7%A2%D7%93%D7%9F_%D7%91%D7%9F_%D7%96%D7%A7%D7%9F.jpg/1200px-%D7%A2%D7%93%D7%9F_%D7%91%D7%9F_%D7%96%D7%A7%D7%9F.jpg",
           "answers": ["Eden ben Zaken", "Ada Yonat", "Keren Mor", "Yarden Gerbee"],
           "correctAnswer": 0,
-          "explanation": "Eden Pasia Ben Zaken (born June 8, 1994) is an Israeli singer-songwriter and composer.She gained fame through her participation in the first season of the TV show 'The X Factor Israel,  where she finished in second place. Ben Zaken also served as a guest judge in the third season and has released seven studio albums to date"
+          "explanation": [
+            "Eden Pasia Ben Zaken (born June 8, 1994) is an Israeli singer-songwriter and composer.",
+            "She gained fame through her participation in the first season of the TV show 'The X Factor Israel,  where she finished in second place.",
+            "Ben Zaken also served as a guest judge in the third season and has released seven studio albums to date"
+          ]
         },
         {
           "id": 1,
