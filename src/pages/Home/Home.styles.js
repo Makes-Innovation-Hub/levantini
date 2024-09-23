@@ -13,6 +13,7 @@ export const Title = styled.h2`
   font-size: 14px;
   margin-bottom: 30px;
   text-align: center;
+  color: var(--grey-black);
 `;
 
 export const GridContainer = styled.div`
