@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import AnimatedNumbers from "react-animated-numbers";
 import * as S from "./LogoHeader.styles";
 
-export default function LogoHeader() {
-  const [points, setPoints] = useState(0);
-
+export default function LogoHeader({ points = 0 }) {
   return (
     <S.LogoContainer>
       <S.LogoSvgContainer>
@@ -21,7 +20,21 @@ export default function LogoHeader() {
         </svg>
         <S.LogoText>L</S.LogoText>
       </S.LogoSvgContainer>
-      <S.CounterContainer>{points.toLocaleString()}</S.CounterContainer>
+
+      <S.CounterContainer>
+        <AnimatedNumbers
+          includeComma
+          animateToNumber={points}
+          fontStyle={{
+            fontSize: 15,
+            color: "var(--white)",
+          }}
+          transitions={(index) => ({
+            type: "spring",
+            duration: index * 0.3,
+          })}
+        />
+      </S.CounterContainer>
     </S.LogoContainer>
   );
 }
