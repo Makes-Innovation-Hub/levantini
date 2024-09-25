@@ -20,7 +20,8 @@ export const QuestionBoxSecond = styled.div`
     font-style: italic;
     font-size: 14px;
     line-height: 18.62px;
-    margin-top: 8.875rem;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
   }
   .answers {
     display: flex;
