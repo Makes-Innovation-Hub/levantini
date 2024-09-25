@@ -13,12 +13,11 @@ const QuestionBox = ({
   if (!questionData) return <p>No question data available</p>;
   console.log({ notification });
 
-  // Function to render explanation with each sentence on a new line without gaps
   const renderExplanation = (explanation) => {
     return explanation.map((sentence, index) => (
       <span key={index}>
         {sentence}
-        <br /> {/* Add a line break between sentences */}
+        <br />
       </span>
     ));
   };
