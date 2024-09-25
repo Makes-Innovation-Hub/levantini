@@ -4,6 +4,7 @@ import Notification from "../components/ui/Notification/Notification";
 import useQuestionBox from "../features/Quiz/hooks/useQuestionBox";
 import QuizButton from "../components/ui/Notification/QuizButton";
 import Timer from "../components/ui/Timer/Timer";
+import Dot from "../components/ui/DoteSequence/DoteSequence";
 
 const QuestionPage = () => {
   const {
@@ -28,6 +29,7 @@ const QuestionPage = () => {
         handleNextQuestion={handleNextQuestion}
       />
       <Timer duration={10} onTimerEnd={handleQuestionTimeOut} />
+      <Dot />
 
       {notification && (
         <Notification
