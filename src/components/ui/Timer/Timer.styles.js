@@ -3,7 +3,9 @@ import { CgTimer } from "react-icons/cg";
 
 export const Container = styled.div`
   width: 310px;
+ 
   margin: 0 auto;
+ 
 `;
 
 export const TimerContainer = styled.div`
@@ -11,7 +13,9 @@ export const TimerContainer = styled.div`
   height: 15px;
   border-radius: 50px;
   overflow: hidden;
+ 
   background-color: #d3d3d3;
+ 
 `;
 
 export const ProgressBar = styled.div`
