@@ -11,6 +11,7 @@ export const TimerContainer = styled.div`
   height: 15px;
   border-radius: 50px;
   overflow: hidden;
+  background-color: #d3d3d3;
 `;
 
 export const ProgressBar = styled.div`
