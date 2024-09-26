@@ -13,7 +13,6 @@ export const CounterContainer = styled.div`
   padding: 5px 10px;
   color: var(--white);
   font-size: 16px;
-  margin-top: 10px;
 `;
 
 export const LogoSvgContainer = styled.div`

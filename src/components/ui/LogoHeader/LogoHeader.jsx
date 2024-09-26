@@ -1,8 +1,14 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import AnimatedNumbers from "react-animated-numbers";
 import * as S from "./LogoHeader.styles";
 
-export default function LogoHeader({ points = 0 }) {
+export default function ScoreDisplay({ points = 0 }) {
+  const [totalPoints, setTotalPoints] = useState(points);
+
+  useEffect(() => {
+    setTotalPoints((prevPoints) => prevPoints + points);
+  }, [points]);
+
   return (
     <S.LogoContainer>
       <S.LogoSvgContainer>
@@ -24,7 +30,7 @@ export default function LogoHeader({ points = 0 }) {
       <S.CounterContainer>
         <AnimatedNumbers
           includeComma
-          animateToNumber={points}
+          animateToNumber={totalPoints}
           fontStyle={{
             fontSize: 15,
             color: "var(--white)",
