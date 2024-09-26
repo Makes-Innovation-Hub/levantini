@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 
 const Timer = ({ duration, onTimerEnd }) => {
   const [progress, setProgress] = useState(100);
-
+  console.log({ onTimerEnd });
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev <= 0) {
           clearInterval(interval);
           if (onTimerEnd) {
+            console.log("in timer");
             onTimerEnd();
           }
           return 0;

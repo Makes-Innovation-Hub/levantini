@@ -37,13 +37,16 @@ const useQuestionBox = () => {
     setAnswerColors(updatedColors);
     setIsAnswered(true);
   };
-  const handleQuestionTimeout = () => {
+  const handleQuestionTimeOut = () => {
+    console.log("invoked");
+
     setNotification({
       title: "Time Is Out!",
       color: "var(--red)",
       explanation: questionData.explanation,
     });
   };
+  console.log({ notification });
   // Handle Time Out
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -75,7 +78,7 @@ const useQuestionBox = () => {
     answerColors,
     handleAnswerClick,
     notification,
-    handleQuestionTimeout,
+    handleQuestionTimeOut,
     handleNextQuestion,
     timeOut,
   };
