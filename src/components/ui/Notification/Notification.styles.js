@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const ToastContainer = styled.div`
-  width: auto;
+  min-width: 100%;
   height: 240px;
-  overflow: hidden;
 
   color: var(--white);
   display: flex;

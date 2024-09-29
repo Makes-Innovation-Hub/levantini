@@ -72,6 +72,7 @@ const useQuestionBox = () => {
       navigate("/");
     }
   };
+  console.log("line 75", { notification });
 
   return {
     questionData,
