@@ -15,9 +15,10 @@ const QuestionPage = () => {
     answerColors,
     handleNextQuestion,
   } = useQuestionBox();
-  console.log({ notification });
-  console.log({ answerColors });
-  console.log({ questionData });
+  console.log("we are here", { notification });
+  // console.log({ answerColors });
+  // console.log({ questionData });
+  console.log({ handleQuestionTimeOut });
   return (
     <main>
       <QuestionBox
@@ -28,7 +29,7 @@ const QuestionPage = () => {
         handleQuestionTimeOut={handleQuestionTimeOut}
         handleNextQuestion={handleNextQuestion}
       />
-      <Timer duration={10} onTimerEnd={handleQuestionTimeOut} />
+      <Timer duration={1} onTimerEnd={handleQuestionTimeOut} />
       <Dot />
 
       {notification && (
