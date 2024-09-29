@@ -17,6 +17,7 @@ const Home = () => {
 
   return (
     <>
+     
       <S.CategoryContainer>
         <S.Title>Choose your category of game</S.Title>
         <S.GridContainer>
