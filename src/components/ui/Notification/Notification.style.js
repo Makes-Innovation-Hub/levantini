@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ToastContainer = styled.div`
   width: 100%;
-  /* height: 50%; */
+  height: 200px;
   /* padding: 20px; */
   color: var(--white);
   display: flex;
