@@ -57,7 +57,7 @@ import styled from "styled-components";
 export const ToastContainer = styled.div`
   width: 100vw;
   height: 312px;
-
+  overflow-y: auto;
   color: var(--white);
   display: flex;
   flex-direction: column;
