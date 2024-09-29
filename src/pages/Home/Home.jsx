@@ -4,7 +4,6 @@ import data from "../../api/data.json";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../features/authentication/context/AuthContext";
-import Status from "../../components/ui/Status/Status";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -18,7 +17,6 @@ const Home = () => {
 
   return (
     <>
-      <Status />
       <S.CategoryContainer>
         <S.Title>Choose your category of game</S.Title>
         <S.GridContainer>
