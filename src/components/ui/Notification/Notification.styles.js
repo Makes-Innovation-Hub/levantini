@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ToastContainer = styled.div`
-  min-width: 100%;
+  width: 100vw;
   height: 240px;
 
   color: var(--white);
