@@ -37,7 +37,7 @@ const QuestionPage = () => {
           title={notification.title}
           color={notification.color}
           explanation={notification.explanation}
-          // handleNextQuestion={handleNextQuestion}
+          handleNextQuestion={handleNextQuestion}
         >
           {" "}
         </Notification>
