@@ -12,7 +12,8 @@ const useQuestionBox = () => {
   const [isAnswered, setIsAnswered] = useState(false);
   const [notification, setNotification] = useState(null);
   const [timeOut, setTimeOut] = useState(false);
-
+  console.log(answerColors);
+  console.log(isAnswered);
   const handleAnswerClick = (index) => {
     if (isAnswered || timeOut) return;
 
@@ -65,6 +66,7 @@ const useQuestionBox = () => {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       setIsAnswered(false);
       setAnswerColors(Array(4).fill("var(--blue)"));
+
       setNotification(null);
       setTimeOut(false);
     } else {
@@ -72,7 +74,7 @@ const useQuestionBox = () => {
       navigate("/");
     }
   };
-  console.log("line 75", { notification });
+  // console.log("line 75", { notification });
 
   return {
     questionData,

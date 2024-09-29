@@ -11,7 +11,7 @@ const QuestionBox = ({
   handleQuestionTimeOut,
 }) => {
   if (!questionData) return <p>No question data available</p>;
-  console.log({ notification });
+  // console.log({ notification });
 
   const renderExplanation = (explanation) => {
     return explanation.map((sentence, index) => (
