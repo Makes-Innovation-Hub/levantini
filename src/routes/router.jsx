@@ -4,7 +4,7 @@ import { LOGIN, QUESTION_PAGE, ROOT } from "./routeConstants";
 import Home from "@/pages/Home/Home";
 import QuestionPage from "../pages/QuestionPage";
 import RootLayout from "../layouts/RootLayout";
-const Login = React.lazy(() => import("@pages/login/login"));
+const Login = React.lazy(() => import("@pages/Login/Login"));
 
 const router = createBrowserRouter([
   {
