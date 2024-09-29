@@ -38,7 +38,7 @@ const useQuestionBox = () => {
     setIsAnswered(true);
   };
   const handleQuestionTimeOut = () => {
-    console.log("invoked");
+    // console.log("invoked");
 
     setNotification({
       title: "Time Is Out!",
@@ -46,7 +46,7 @@ const useQuestionBox = () => {
       explanation: questionData.explanation,
     });
   };
-  console.log({ notification });
+  // console.log({ notification });
   // Handle Time Out
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -72,6 +72,7 @@ const useQuestionBox = () => {
       navigate("/");
     }
   };
+  console.log("line 75", { notification });
 
   return {
     questionData,

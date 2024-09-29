@@ -68,3 +68,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+div[style*="position: fixed"][style*="z-index: 9999"] {
+  inset: 0 !important; /* Or any other inset value you need */
+}
