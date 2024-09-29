@@ -4,14 +4,13 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100vh; 
-  width: 100vw; 
+  min-height: inherit;
   padding: 20px;
   background-color: #f8f8f8;
-  overflow: hidden; 
+  overflow: hidden;
 
   @media (max-width: 768px) {
-    flex-direction: column; 
+    flex-direction: column;
     text-align: center;
     justify-content: center;
   }

@@ -83,15 +83,15 @@ const QuestionBox = () => {
                 <S.Image src={questionData.image} alt="question" />
               </div>
             );
-          case "video":
-            return (
-              <div>
-                <video width="320" height="240" controls>
-                  <source src={questionData.video} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            );
+          // case "video":
+          //   return (
+          //     <div>
+          //       <video width="320" height="240" controls>
+          //         <source src={questionData.video} type="video/mp4" />
+          //         Your browser does not support the video tag.
+          //       </video>
+          //     </div>
+          //   );
           default:
             return <p>Unsupported question type</p>;
         }
@@ -112,5 +112,4 @@ const QuestionBox = () => {
     </>
   );
 };
-
 export default QuestionBox;
