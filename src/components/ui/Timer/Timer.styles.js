@@ -4,6 +4,7 @@ import { CgTimer } from "react-icons/cg";
 export const Container = styled.div`
   width: 310px;
   margin: 0 auto;
+  text-align: center;
   margin-top: 134px;
 `;
 
