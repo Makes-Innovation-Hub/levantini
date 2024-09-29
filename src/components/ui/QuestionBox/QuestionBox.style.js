@@ -20,7 +20,7 @@ export const QuestionBoxSecond = styled.div`
     font-style: italic;
     font-size: 14px;
     line-height: 18.62px;
-    margin-top: 5rem;
+    margin-top: 3rem;
     margin-bottom: 1rem;
   }
   .answers {
