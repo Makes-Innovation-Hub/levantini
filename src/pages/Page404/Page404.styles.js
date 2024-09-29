@@ -5,7 +5,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   min-height: inherit;
-  padding: 20px;
+  padding: 0 20px 0 20px;
   background-color: #f8f8f8;
   overflow: hidden;
 
@@ -50,7 +50,7 @@ export const SubTitle = styled.h2`
   margin-bottom: 15px;
 
   @media (max-width: 768px) {
-    font-size: 32px;
+    font-size: 22px;
     line-height: 1.2;
   }
 `;
@@ -64,7 +64,7 @@ export const Description = styled.p`
   margin-bottom: 30px;
 
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 1.2;
   }
 `;
@@ -81,7 +81,7 @@ export const Button = styled.a`
   margin-top: 20px;
 
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 20px;
     padding: 10px 20px;
   }
 
