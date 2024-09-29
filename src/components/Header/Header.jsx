@@ -1,14 +1,14 @@
 import Logo from "../ui/Logo/Logo";
 import * as S from "./Header.styles";
-import LogoHeader from "../ui/LogoHeader/LogoHeader"
+import ScoreDisplay from "../ui/ScoreDisplay/ScoreDisplay";
 
 export default function Header() {
   return (
     <S.Header>
-      <S.LogoContainer>
-        <LogoHeader />
-        <Logo />
-      </S.LogoContainer>
+      <ScoreDisplay />
+      <Logo />
+      {/* hamburger menu and google image component below */}
+      <div></div>
     </S.Header>
   );
 }

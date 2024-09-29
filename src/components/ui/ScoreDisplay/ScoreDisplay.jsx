@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import AnimatedNumbers from "react-animated-numbers";
-import * as S from "./LogoHeader.styles";
+import * as S from "./ScoreDisplay.styles";
 
 export default function ScoreDisplay({ points = 0 }) {
   const [totalPoints, setTotalPoints] = useState(points);
@@ -13,8 +13,8 @@ export default function ScoreDisplay({ points = 0 }) {
     <S.LogoContainer>
       <S.LogoSvgContainer>
         <svg
-          width="39"
-          height="38"
+          width="25"
+          height="25"
           viewBox="0 0 19 18"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ export default function ScoreDisplay({ points = 0 }) {
           includeComma
           animateToNumber={totalPoints}
           fontStyle={{
-            fontSize: 15,
+            fontSize: 12,
             color: "var(--white)",
           }}
           transitions={(index) => ({

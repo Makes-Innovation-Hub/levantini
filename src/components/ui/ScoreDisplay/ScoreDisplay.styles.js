@@ -5,20 +5,19 @@ export const LogoContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 2px;
 `;
 
 export const CounterContainer = styled.div`
   background-color: #47434d;
   border-radius: 12px;
-  padding: 5px 10px;
+  padding: 0px 4px;
   color: var(--white);
-  font-size: 16px;
+  font-size: 8px;
 `;
 
 export const LogoSvgContainer = styled.div`
   position: relative;
-  width: 48px;
-  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +26,7 @@ export const LogoSvgContainer = styled.div`
 export const LogoText = styled.div`
   position: absolute;
   font-family: var(--font-rubik);
-  font-size: 20px;
+  font-size: 13px;
   font-style: italic;
   font-weight: 400;
   line-height: 13.3px;
