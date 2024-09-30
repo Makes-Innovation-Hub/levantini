@@ -43,7 +43,6 @@ export const GoogleSignInButton = styled.button.attrs(({ onClick }) => ({
   @media (max-width: 480px) {
     font-size: 12px;
     height: 36px;
-    margin-left: auto;
 
     img {
       width: 20px;

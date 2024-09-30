@@ -1,10 +1,10 @@
-import React from "react";
-import { Button, LockMessage } from "./CategoryStatus.styles";
+import * as S from "./CategoryStatus.styles";
+
 const CategoryStatus = () => {
   return (
     <div>
       <div>
-        <Button status="completed">
+        <S.Button status="completed">
           Completed{" "}
           <svg
             width="16"
@@ -18,10 +18,10 @@ const CategoryStatus = () => {
               fill="white"
             />
           </svg>
-        </Button>
+        </S.Button>
       </div>
       <div>
-        <Button status="started">
+        <S.Button status="started">
           Start{" "}
           <svg
             width="16"
@@ -41,10 +41,10 @@ const CategoryStatus = () => {
               stroke="#58B2D3"
             />
           </svg>
-        </Button>
+        </S.Button>
       </div>
       <div>
-        <Button status="in-progress">
+        <S.Button status="in-progress">
           In Progress{" "}
           <svg
             width="14"
@@ -64,10 +64,10 @@ const CategoryStatus = () => {
               fill="#F7F7F7"
             />
           </svg>
-        </Button>
+        </S.Button>
       </div>
       <div>
-        <Button status="locked" disabled>
+        <S.Button status="locked" disabled>
           Locked{" "}
           <svg
             width="14"
@@ -87,10 +87,10 @@ const CategoryStatus = () => {
               fill="#F7F7F7"
             />
           </svg>
-        </Button>
-        <LockMessage>Complete the previous category to unlock this one!</LockMessage>
+        </S.Button>
       </div>
     </div>
   );
 };
+
 export default CategoryStatus;

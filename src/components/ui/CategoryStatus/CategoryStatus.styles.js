@@ -1,8 +1,6 @@
 import styled from "styled-components";
+
 export const Button = styled.button`
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -29,16 +27,16 @@ export const Button = styled.button`
     fill: white;
   }
 `;
+
 export const LockMessage = styled.div`
-margin-top: 20px;
+  margin-top: 20px;
   padding: 20px;
-  border: 2px dashed #FF4081;
-  color: #FF4081;
-  font-family: var(--inter)
+  border: 2px dashed #ff4081;
+  color: #ff4081;
+  font-family: var(--inter);
   font-size: 10px;
   font-weight: 700;
   border-radius: 10px;
   text-align: center;
   max-width: 300px;
-  }
 `;
