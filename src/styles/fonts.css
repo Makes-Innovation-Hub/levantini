@@ -2,7 +2,7 @@
   --font-rubik: "Rubik", "Arial", sans-serif;
   --font-abeezee-italic: "ABeeZee", "Arial", sans-serif;
 }
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 /* ******************************************************************************************************* */
 @font-face {
   font-family: "Redressed";
@@ -12,7 +12,14 @@
     local("Redressed"),
     url("https://fonts.googleapis.com/css2?family=Redressed&display=swap") format("woff2");
 }
-
+.inter-unique-class {
+  font-family: var(--inter);
+  font-weight: 400;
+  font-optical-sizing: auto;
+  font-size: 24px;
+  color: #222;
+}
 :root {
   --font-Redressed: "Redressed", "Arial", sans-serif;
+  --inter: "Inter", sans-serif;
 }
