@@ -45,16 +45,16 @@ const Dot = ({ status }) => {
 
   switch (status) {
     case "correct":
-      backgroundColor = "green"; // Correct answer
-      borderColor = "green";
+      backgroundColor = "var(--green)";
+      borderColor = "var(--green)";
       break;
     case "incorrect":
-      backgroundColor = "red"; // Incorrect answer
-      borderColor = "red";
+      backgroundColor = "var(--red)";
+      borderColor = "var(--red)";
       break;
     default:
-      backgroundColor = "grey"; // Unanswered
-      borderColor = "grey";
+      backgroundColor = "var(--grey)";
+      borderColor = "var(--grey)";
       break;
   }
 

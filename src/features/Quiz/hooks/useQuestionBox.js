@@ -84,6 +84,7 @@ const useQuestionBox = () => {
     handleQuestionTimeOut,
     handleNextQuestion,
     timeOut,
+    currentCategory,
   };
 };
 
