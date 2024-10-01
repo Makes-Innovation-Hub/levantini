@@ -211,6 +211,9 @@ import Notification from "../components/ui/Notification/Notification";
 import useQuestionBox from "../features/Quiz/hooks/useQuestionBox";
 import Timer from "../components/ui/Timer/Timer";
 import Dot from "../components/ui/DoteSequence/DoteSequence";
+import QuestionsSequence from "../components/ui/QuestionsSequence/QuestionsSequence.jsx";
+import { DotSequence } from "../components/ui/DoteSequence/DoteSequence.styles.js";
+import DotsContainer from "../components/ui/DotContainer/DotContainer.jsx";
 
 const QuestionPage = () => {
   const {
@@ -220,6 +223,7 @@ const QuestionPage = () => {
     questionData,
     answerColors,
     handleNextQuestion,
+    currentCategory,
   } = useQuestionBox();
 
   // State to track the status of each question (correct, incorrect, unanswered)
@@ -296,12 +300,20 @@ const QuestionPage = () => {
       {/* Use the currentQuestionIndex as a key to remount Timer on each new question */}
       <Timer
         key={currentQuestionIndex} // Forces remount of Timer when this key changes
-        duration={10}
+        duration={100000000}
         onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
       />
+      <QuestionsSequence>
+        {currentCategory.questions.map((question, index) => (
+          <DotSequence
+            key={index}
+            status={questionStatus[index]}
+            isCorrect={question.correctAnswer === index}
+          ></DotSequence>
+        ))}
+      </QuestionsSequence>
 
-      {/* Pass the questionStatus state to Dot component */}
-      <Dot questionStatus={questionStatus} />
+      <DotsContainer dotStatuses={dotStatuses} />
 
       <Notification
         isOpen={!!notification}
