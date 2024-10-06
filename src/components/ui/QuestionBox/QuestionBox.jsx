@@ -63,5 +63,4 @@ const QuestionBox = ({
     </S.QuestionBoxFirst>
   );
 };
-
 export default QuestionBox;

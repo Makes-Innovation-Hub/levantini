@@ -1,43 +1,29 @@
-//presentational component
-import React, { useState } from "react";
-import FormInput from "@components/form/FormInput";
-import Button from "@components/ui/Button";
+import React from "react";
+import { Title } from "./LoginForm.styles";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import SignInWithGoogle from "../SignInButton/SignInWithGoogle";
+import LogoutGoogle from "../LogoutButton/LogoutGoogle";
 
-const LoginForm = ({ onLogin }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const LoginForm = () => {
+  const { currentUser, signInWithGoogle, logout } = useAuth();
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onLogin(username, password);
+  const handleGoogleSignIn = () => {
+    signInWithGoogle(() => {
+      navigate("/");
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <FormInput
-          label="Username"
-          value={username}
-          onInputChange={setUsername}
-          type="text"
-          id="username"
-          placeholder="Enter your username"
-          autoComplete="username"
-        />
-      </div>
-      <div>
-        <FormInput
-          label="password"
-          value={password}
-          onInputChange={setPassword}
-          type="password"
-          id="password"
-          placeholder="Enter your password"
-          autoComplete="current-password"
-        />
-      </div>
-      <Button type="submit">Login</Button>
-    </form>
+    <>
+      <Title>Levantini</Title>
+      {!currentUser ? (
+        <SignInWithGoogle handleClick={handleGoogleSignIn} />
+      ) : (
+        <LogoutGoogle handleClick={logout} />
+      )}
+    </>
   );
 };
 
