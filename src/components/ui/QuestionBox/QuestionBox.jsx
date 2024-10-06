@@ -29,7 +29,6 @@ const QuestionBox = ({
     ));
   };
 
-  // Extract video ID if it's a YouTube link
   const videoId =
     questionData.questionType === "video" && questionData.video
       ? extractYouTubeVideoId(questionData.video)
@@ -45,7 +44,7 @@ const QuestionBox = ({
         )}
         {questionData.questionType === "text" && <p>{questionData.text}</p>}
         {questionData.questionType === "video" && videoId && (
-          <YouTubePlayer videoId={videoId} width="330" height="255" /> // Render YouTubePlayer with extracted video ID
+          <YouTubePlayer videoId={videoId} width="330" height="255" />
         )}
 
         <div className="answers">
