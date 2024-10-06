@@ -1,9 +1,8 @@
-import YouTubePlayer from "./YouTubePlayer";
-import { useState } from "react";
+import YouTubePlayer from "../VideoQuestion/YouTubePlayer.jsx";
 import * as S from "./VideoQuestion.styles.js";
+import { useState } from "react";
 
-
-const VideoQuestion = ({ question, videoId, height, width, autoplay }) => {
+const VideoQuestion = ({ question, videoId, height, width }) => {
   const [userAnswer, setUserAnswer] = useState("");
 
   const handleInputChange = (e) => {
@@ -12,14 +11,16 @@ const VideoQuestion = ({ question, videoId, height, width, autoplay }) => {
 
   return (
     <div>
-      <S.question>{question}</S.question>
+      <S.Question>{question}</S.Question>
       <YouTubePlayer
         videoId={videoId}
         height={height}
         width={width}
-        autoplay={autoplay}
+        autoplay={1}
+        mute={1}
       />
     </div>
   );
 };
+
 export default VideoQuestion;

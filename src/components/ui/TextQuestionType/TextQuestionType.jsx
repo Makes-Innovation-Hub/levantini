@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./TextQuestionType.styles";
 const TextQuestion = ({ question, text }) => {
-  const [userAnswer, setUserAnswer] = useState("");
-  const handleInputChange = (e) => {
-    setUserAnswer(e.target.value);
-  };
+  // const [userAnswer, setUserAnswer] = useState("");
+  // const handleInputChange = (e) => {
+  //   setUserAnswer(e.target.value);
+  // };
   return (
     <S.TextQuestionType>
       <p>{question}</p>

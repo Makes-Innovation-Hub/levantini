@@ -1,4 +1,4 @@
-import * as S from "./Notification.style.js";
+import * as S from "./Notification.styles.js";
 import QuizButton from "./QuizButton.jsx";
 
 const QuizNotification = ({ title, explanation, handleNextQuestion, color }) => (

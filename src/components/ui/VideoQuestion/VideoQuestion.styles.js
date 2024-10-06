@@ -9,7 +9,7 @@ export const PlayerContainer = styled.div`
   overflow: hidden;
 `;
 
-export const question = styled.p`
+export const Question = styled.p`
   font-family: var(--font-rubik-regular);
   font-style: italic;
   font-size: 14px;

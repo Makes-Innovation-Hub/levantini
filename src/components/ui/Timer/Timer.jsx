@@ -10,6 +10,7 @@ const Timer = ({ duration, onTimerEnd }) => {
         if (prev <= 0) {
           clearInterval(interval);
           if (onTimerEnd) {
+            console.log("im inside");
             onTimerEnd();
           }
           return 0;
