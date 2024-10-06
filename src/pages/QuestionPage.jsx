@@ -213,7 +213,6 @@ import Timer from "../components/ui/Timer/Timer";
 import Dot from "../components/ui/DoteSequence/DoteSequence";
 import QuestionsSequence from "../components/ui/QuestionsSequence/QuestionsSequence.jsx";
 import { DotSequence } from "../components/ui/DoteSequence/DoteSequence.styles.js";
-import DotsContainer from "../components/ui/DotContainer/DotContainer.jsx";
 
 const QuestionPage = () => {
   const {
@@ -312,8 +311,6 @@ const QuestionPage = () => {
           ></DotSequence>
         ))}
       </QuestionsSequence>
-
-      <DotsContainer dotStatuses={dotStatuses} />
 
       <Notification
         isOpen={!!notification}
