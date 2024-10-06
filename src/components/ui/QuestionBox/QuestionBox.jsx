@@ -1,6 +1,14 @@
 import React from "react";
 import Button from "../Button/Button";
+import YouTubePlayer from "../VideoQuestion/YouTubePlayer.jsx";
 import * as S from "./QuestionBox.style.js";
+
+// Utility to extract the video ID from YouTube URL
+const extractYouTubeVideoId = (url) => {
+  const regExp = /^.*(youtu.be\/|v\/|\/u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+};
 
 const QuestionBox = ({
   handleOnClick,
@@ -11,7 +19,6 @@ const QuestionBox = ({
   handleQuestionTimeOut,
 }) => {
   if (!questionData) return <p>No question data available</p>;
-  // console.log({ notification });
 
   const renderExplanation = (explanation) => {
     return explanation.map((sentence, index) => (
@@ -21,6 +28,13 @@ const QuestionBox = ({
       </span>
     ));
   };
+
+  // Extract video ID if it's a YouTube link
+  const videoId =
+    questionData.questionType === "video" && questionData.video
+      ? extractYouTubeVideoId(questionData.video)
+      : null;
+
   return (
     <S.QuestionBoxFirst>
       <S.QuestionBoxSecond>
@@ -30,11 +44,8 @@ const QuestionBox = ({
           <S.Image src={questionData.image} alt="Question" />
         )}
         {questionData.questionType === "text" && <p>{questionData.text}</p>}
-        {questionData.questionType === "video" && (
-          <video width="320" height="240" controls>
-            <source src={questionData.video} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+        {questionData.questionType === "video" && videoId && (
+          <YouTubePlayer videoId={videoId} width="330" height="255" /> // Render YouTubePlayer with extracted video ID
         )}
 
         <div className="answers">
@@ -49,15 +60,6 @@ const QuestionBox = ({
           ))}
         </div>
       </S.QuestionBoxSecond>
-
-      {/* {notification && (
-        <Notification
-          title={notification.title}
-          color={notification.color}
-          explanation={notification.explanation}
-          handleNextQuestion={handleNextQuestion}
-        />
-      )} */}
     </S.QuestionBoxFirst>
   );
 };

@@ -1,19 +1,15 @@
-import YouTube from "react-youtube";
-import * as S from "./VideoQuestion.styles.js";
+import React from "react";
 
-const YouTubePlayer = ({ videoId, height, width, autoplay }) => {
-  const opts = {
-    height: height,
-    width: width,
-    playerVars: {
-      autoplay: autoplay,
-    },
-  };
-
+const YouTubePlayer = ({ videoId, height, width, autoplay = 1, mute = 0 }) => {
   return (
-    <S.PlayerContainer>
-      <YouTube videoId={videoId} opts={opts} />
-    </S.PlayerContainer>
+    <iframe
+      width={width}
+      height={height}
+      src={`https://www.youtube.com/embed/${videoId}?autoplay=${autoplay}&mute=${mute}`}
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    />
   );
 };
 
