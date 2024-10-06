@@ -1,16 +1,15 @@
-import { useFirestoreQuery } from "@react-query-firebase/database";
-import CategoryThumbNail from "../../components/CategoryThumbNail/CategoryThumbNail";
-import * as S from "./Home.styles";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../features/authentication/context/AuthContext";
+import CategoryThumbNail from "../../components/CategoryThumbNail/CategoryThumbNail";
+import * as S from "./Home.styles";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../lib/Firebase/firebaseSetup";
-import { LEVANTINI_KEY } from "../../lib/react-query/constant";
-import { LEVANTINI_COLLECTION } from "../../lib/Firebase/constants";
-import Loading from "../../components/ui/Spinner/Spinner.style";
-import { collection } from "firebase/firestore";
+import Spinner from "../../components/ui/Spinner/Spinner";
 
 const Home = () => {
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const { currentUser } = useAuth();
 
@@ -20,36 +19,45 @@ const Home = () => {
     }
   }, [currentUser, navigate]);
 
-  const categoriesRef = collection(db, LEVANTINI_COLLECTION);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      setIsLoading(true);
+      try {
+        const categoriesCollection = collection(
+          db,
+          "Levnantini-Real-Data-Events-Collection",
+        );
+        const categorySnapshot = await getDocs(categoriesCollection);
+        const categoryList = categorySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setData(categoryList);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  const categoriesQuery = useFirestoreQuery([LEVANTINI_KEY], categoriesRef);
+    fetchCategories();
+  }, []);
 
-  if (categoriesQuery.isLoading)
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
-  if (categoriesQuery.isError) return <div>Error fetching categories</div>;
-
-  const categories = categoriesQuery.data.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
-    <>
-      <S.CategoryContainer>
-        <S.Title>Choose your category of game</S.Title>
-        <S.GridContainer>
-          {categories.map((category) => (
-            <CategoryThumbNail key={category.id} imgUrl={category.categoryImage}>
-              <S.Label>{category.category}</S.Label>
-            </CategoryThumbNail>
-          ))}
-        </S.GridContainer>
-      </S.CategoryContainer>
-    </>
+    <S.CategoryContainer>
+      <S.Title>Choose your category of game</S.Title>
+      <S.GridContainer>
+        {data.map((category) => (
+          <CategoryThumbNail key={category.id} imgUrl={category.categoryImage}>
+            <S.Label>{category.category}</S.Label>
+          </CategoryThumbNail>
+        ))}
+      </S.GridContainer>
+    </S.CategoryContainer>
   );
 };
 

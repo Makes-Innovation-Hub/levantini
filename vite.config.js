@@ -21,10 +21,6 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "src/assets"),
       "@types": path.resolve(__dirname, "src/types"),
       "@api": path.resolve(__dirname, "src/api"),
-      "@react-query-firebase/firestore": path.resolve(
-        __dirname,
-        "node_modules/@react-query-firebase/firestore",
-      ),
     },
   },
 });
