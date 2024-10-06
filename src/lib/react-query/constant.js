@@ -1,1 +1,1 @@
-export const LEVANTINI_KEY = "categories";
+export const LEVANTINI_KEY = "data";
