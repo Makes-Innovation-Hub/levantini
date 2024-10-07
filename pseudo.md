@@ -24,7 +24,7 @@ setCurrentIndex(currentIndex + 1)
 
 <Question currentQuestion>
 currentQuestion to display the question
-<QuestionOptions currentQuestion answers onClickAnswer> -> as children of question
+<QuestionOptions currentQuestion answers onClickAnswer> -> as children of question or maybe inside depends on how complicated it will get
 * currentQuestion to iterate over question.answers
 * answers to see if it is the right or wrong answer and change color
 * if answered wrong then highlight also the correct answer
