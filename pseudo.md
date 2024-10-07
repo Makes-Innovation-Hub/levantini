@@ -6,9 +6,20 @@ Questions = [{},{},{},{}]
 Notfication = null
 
 function onClickAnswer(index) => {
+//might split them into 4 different functions or add comments
+
+    // determins if the question is correct
+
 const isCorrect = index === currentAnswer.correctAnswer
+
+// changes answers
 answers[index] = correct,incorrect
+
+//invokes notification
 setNotfication() -> green if correct, red if not correct and message
+
+//changes to next question
+setCurrentIndex(currentIndex + 1)
 }
 
 <Question currentQuestion>
