@@ -6,7 +6,6 @@
   width: 100vw; 
   position: absolute; 
   z-index: 1; 
-  
 }
 
 .menu-icon {
@@ -15,20 +14,20 @@
   margin-left: 1650px;
   margin-top: 30px;
   background-color: #f0f0f0; 
-   
+}
 
+.name {
+   font-family: Redressed;
+   font-size: 28px;
+   text-align: center;
 }
-.name{
-  font-family: Redressed;
-  font-size: 28px;
-  text-align: center;
-}
+
 .side-menu {
   position: fixed;
   top: 0;
   right: 0;
   width: 300px;
-  height: 100%;
+  height: 100vh; 
   background-color: white;
   border-left: 1px solid #ccc;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
@@ -39,12 +38,10 @@
 .close-button {
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 35px;
   cursor: pointer;
   margin-bottom: 20px;
-   z-index: 1001; 
-  position: relative; 
-  
+  z-index: 1001; 
 }
 
 .menu-options {
@@ -65,5 +62,4 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5); 
   z-index: 999; 
-  
 }
