@@ -1,11 +1,9 @@
-s;
-
 import React, { useState, useCallback } from "react";
 import QuestionBox from "../components/ui/QuestionBox";
 import Notification from "../components/ui/Notification/Notification";
 import useQuestionBox from "../features/Quiz/hooks/useQuestionBox";
 import Timer from "../components/ui/Timer/Timer";
-import Dot from "../components/ui/DoteSequence/DoteSequence";
+
 import QuestionsSequence from "../components/ui/QuestionsSequence/QuestionsSequence.jsx";
 import { DotSequence } from "../components/ui/DoteSequence/DoteSequence.styles.js";
 
@@ -22,7 +20,7 @@ const QuestionPage = () => {
 
   // State to track the status of each question (correct, incorrect, unanswered)
   const [questionStatus, setQuestionStatus] = useState(
-    Array(questionData.length).fill("unanswered"),
+    Array(currentCategory.questions.length).fill("unanswered"),
   );
 
   // State to track if an answer is clicked
@@ -49,26 +47,36 @@ const QuestionPage = () => {
   };
 
   // Update the question status on answer click (either correct or incorrect)
-  const handleAnswerClickWithStatus = (isCorrect, questionIndex) => {
+  const handleAnswerClickWithStatus = (questionIndex) => {
+    const isCorrect = questionIndex === questionData.correctAnswer;
+    console.log({ isCorrect });
+
     const updatedStatus = [...questionStatus];
-    updatedStatus[questionIndex] = isCorrect ? "correct" : "incorrect";
+    console.log("before", updatedStatus);
+
+    updatedStatus[currentQuestionIndex] = isCorrect ? "correct" : "incorrect";
+    console.log("after", updatedStatus);
     setQuestionStatus(updatedStatus);
+
+    console.log("Updated status after click:", updatedStatus);
 
     // Mark that an answer has been clicked
     setIsAnswerClicked(true);
 
     // Proceed with original answer click handling
-    handleAnswerClick(isCorrect, questionIndex);
+    handleAnswerClick(isCorrect, currentQuestionIndex);
   };
 
-  // Update the status if the time runs out
   const handleQuestionTimeOutWithStatus = useCallback(
     (questionIndex) => {
       if (!isAnswerClicked) {
         const updatedStatus = [...questionStatus];
-        updatedStatus[questionIndex] = "incorrect"; // If time runs out, consider incorrect
+        updatedStatus[questionIndex] = "timeout"; // Mark the status as timeout
         setQuestionStatus(updatedStatus);
-        handleQuestionTimeOut(questionIndex);
+
+        console.log("Updated status after timeout:", updatedStatus);
+
+        handleQuestionTimeOut(questionIndex); // Proceed with original logic
       }
     },
     [isAnswerClicked, questionStatus, handleQuestionTimeOut],
@@ -101,9 +109,10 @@ const QuestionPage = () => {
         {currentCategory.questions.map((question, index) => (
           <DotSequence
             key={index}
-            status={questionStatus[index]}
-            isCorrect={question.correctAnswer === index}
-          ></DotSequence>
+            status={
+              index === currentQuestionIndex ? "current" : questionStatus[index] // Set status based on answer or current question
+            }
+          />
         ))}
       </QuestionsSequence>
 

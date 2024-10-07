@@ -14,11 +14,11 @@ const useQuestionBox = () => {
   const [timeOut, setTimeOut] = useState(false);
   console.log(answerColors);
   console.log(isAnswered);
-  const handleAnswerClick = (index) => {
+  const handleAnswerClick = (isCorrect, index) => {
     if (isAnswered || timeOut) return;
 
     const updatedColors = [...answerColors];
-    if (index === questionData.correctAnswer) {
+    if (isCorrect) {
       updatedColors[index] = "var(--green)";
       setNotification({
         title: "YES! Right Answer",
@@ -85,6 +85,7 @@ const useQuestionBox = () => {
     handleNextQuestion,
     timeOut,
     currentCategory,
+    currentQuestionIndex,
   };
 };
 
