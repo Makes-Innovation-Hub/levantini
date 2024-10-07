@@ -28,7 +28,7 @@ const Menu = () => {
               </button>
               <h1 className='name'>Levantini</h1>
               <ul className="menu-options">
-                <li><MdHome /> Home1</li>
+                <li><MdHome /> Home</li>
                 <li><LiaCrownSolid /> Leaderboard</li>
                 <li><IoIosLogOut /> Log out</li>
               </ul>
