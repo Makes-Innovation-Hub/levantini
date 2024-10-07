@@ -26,8 +26,9 @@
           "answers": ["Piano", "Chello", "Trumpet", "Clarinet"],
           "correctAnswer": 3,
           "explanation": [
-            "The clarinet is a woodwind instrument with a single-reed mouthpiece, offering a versatile sound from warm to bright.",
-            "It is also widely used in classical, jazz, and band music."
+            "The clarinet is a woodwind instrument with a single-reed mouthpiece",
+            " offering a versatile sound from warm to bright.",
+            "It is also widely used in classical,jazz,and band music."
           ]
         },
         {
@@ -38,8 +39,12 @@
           "answers": ["Nancy Ajram", "Sherine Abd Al-Wahab", "Umm Kalthoum", "Fairouz"],
           "correctAnswer": 2,
           "explanation": [
-            "Umm Kulthum, often referred to as 'The Star of the East,' was one of the most iconic and influential singers in the Arab world.",
-            "Born in Egypt in the early 20th century, she became famous for her powerful voice, emotional depth, and ability to captivate audiences across the Middle East and beyond."
+            "Umm Kulthum",
+            " often referred to as 'The Star of the East,",
+            "was one of the most iconic and influential singers in the Arab world.",
+            "Born in Egypt in the early 20th century",
+            "she became famous for her powerful voice emotional depth",
+            "and ability to captivate audiences across the Middle East and beyond."
           ]
         }
       ]
