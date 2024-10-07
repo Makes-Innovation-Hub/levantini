@@ -22,8 +22,8 @@ import styled from "styled-components";
 export const DotSequence = styled.div.attrs((props) => ({
   status: props.status, // This prevents `status` from being forwarded to the DOM
 }))`
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   margin: 0 5px;
 
