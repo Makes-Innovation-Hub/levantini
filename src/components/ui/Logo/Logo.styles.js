@@ -7,4 +7,6 @@ export const Logo = styled.div`
   font-weight: 400;
   line-height: 37.24px;
   color: var(--grey-black);
+  margin-left: auto;
+  margin-right: auto;
 `;
