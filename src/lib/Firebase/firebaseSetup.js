@@ -1,11 +1,11 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFireBaseAPI } from "../utils/envUtils";
-import { getDomain } from "../utils/envUtils";
-import { getProjectID } from "../utils/envUtils";
-import { getBucket } from "../utils/envUtils";
-import { getSenderID } from "../utils/envUtils";
-import { getAppID } from "../utils/envUtils";
+import { getFireBaseAPI } from "../../utils/envUtils";
+import { getDomain } from "../../utils/envUtils";
+import { getProjectID } from "../../utils/envUtils";
+import { getBucket } from "../../utils/envUtils";
+import { getSenderID } from "../../utils/envUtils";
+import { getAppID } from "../../utils/envUtils";
 import { getFirestore } from "firebase/firestore";
 const fireAPI = getFireBaseAPI();
 const domain = getDomain();

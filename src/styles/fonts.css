@@ -1,18 +1,5 @@
 :root {
   --font-rubik: "Rubik", "Arial", sans-serif;
-  --font-abeezee-italic: "ABeeZee", "Arial", sans-serif;
-}
-
-/* ******************************************************************************************************* */
-@font-face {
-  font-family: "Redressed";
-  font-weight: 400;
-  font-display: swap;
-  src:
-    local("Redressed"),
-    url("https://fonts.googleapis.com/css2?family=Redressed&display=swap") format("woff2");
-}
-
-:root {
   --font-Redressed: "Redressed", "Arial", sans-serif;
+  --font-abeezee-italic: "ABeeZee", "Arial", sans-serif;
 }
