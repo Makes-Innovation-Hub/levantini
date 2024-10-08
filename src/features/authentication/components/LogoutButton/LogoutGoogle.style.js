@@ -2,13 +2,11 @@ import styled from "styled-components";
 
 export const LogoutGoogle = styled.button`
   /* padding: ; */
-  background-color: #f5f5f5;
   color: var(--grey-black);
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  margin-top: 1rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;

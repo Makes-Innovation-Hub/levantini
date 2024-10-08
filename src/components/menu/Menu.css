@@ -1,31 +1,31 @@
 .menu-container {
   display: flex;
-  justify-content: space-between;
-  background-color: #f0f0f0; 
+  justify-content: flex-end; 
+  align-items: flex-start; 
   height: 100vh; 
   width: 100vw; 
   position: absolute; 
   z-index: 1; 
+  padding: 20px; 
 }
 
 .menu-icon {
-  font-size: 30px;
+  font-size: 40px;
   cursor: pointer;
-  margin-left: 1650px;
-  margin-top: 30px;
-  background-color: #f0f0f0; 
+  margin: 0; 
+  margin-right: 30px;
 }
 
 .name {
    font-family: Redressed;
-   font-size: 28px;
+   font-size: 40px;
    text-align: center;
 }
 
 .side-menu {
   position: fixed;
-  top: 0;
   right: 0;
+  top: 0;
   width: 300px;
   height: 100vh; 
   background-color: white;
@@ -40,13 +40,13 @@
   border: none;
   font-size: 35px;
   cursor: pointer;
-  margin-bottom: 20px;
-  z-index: 1001; 
+  margin-bottom: 20px; 
 }
 
 .menu-options {
   list-style-type: none;
   padding: 0;
+  font-size: 1.5rem;
 }
 
 .menu-options li {
@@ -55,11 +55,13 @@
 }
 
 .overlay {
-  position: fixed; 
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); 
+   height: 100vh; 
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 999; 
+  transition: opacity 0.3s ease; 
+  opacity: 0.5; 
+  position: fixed;
 }

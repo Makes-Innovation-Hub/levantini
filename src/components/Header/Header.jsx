@@ -16,8 +16,10 @@ export default function Header() {
     <S.Header>
       <ScoreDisplay />
       <Logo />
+     <menu />
       {/* hamburger menu and google image component below */}
-      <LogoutGoogle handleClick={logout} />
+      {/*<LogoutGoogle handleClick={logout} />*/}
+       
     </S.Header>
   );
 }

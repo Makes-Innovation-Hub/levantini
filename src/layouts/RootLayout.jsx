@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Header from "../components/Header/Header";
+import Menu from "../components/menu/Menu"; 
 import { motion } from "framer-motion";
 
 const layoutVariants = {
@@ -16,16 +17,16 @@ const RootLayout = () => (
     initial="initial"
     animate="enter"
     exit="exit"
-    transition={{ duration: 0.3 }} 
+    transition={{ duration: 1 }}
   >
     <Header />
+    <Menu /> 
     <Toaster />
-    <Outlet /> {/* Render the child routes here */}
+    <Outlet />
   </motion.div>
 );
 
 export default RootLayout;
-
 
 
 
