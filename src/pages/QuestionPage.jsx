@@ -88,7 +88,7 @@ const QuestionPage = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1); // Increment to the next question
     handleNextQuestion(); // Call the existing next question handler
   };
-
+  console.log(" hiiii", notification);
   return (
     <main>
       <QuestionBox

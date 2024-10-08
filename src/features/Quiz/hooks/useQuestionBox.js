@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import data from "../../../api/data.json";
+import { toast } from "react-hot-toast";
 
 const useQuestionBox = () => {
   const navigate = useNavigate();
@@ -60,6 +61,12 @@ const useQuestionBox = () => {
   //   return () => clearTimeout(timer);
   // }, [isAnswered, questionData]);
 
+  useEffect(() => {
+    if ((currentQuestionIndex > currentCategory.questions.length - 1) & !notification) {
+      navigate("/");
+    }
+  }, [notification]);
+
   const handleNextQuestion = () => {
     if (currentQuestionIndex < currentCategory.questions.length - 1) {
       // Move to the next question
@@ -71,7 +78,9 @@ const useQuestionBox = () => {
       setTimeOut(false);
     } else {
       //  navigate to the home page
-      navigate("/");
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      setNotification(null);
+      // navigate("/");
     }
   };
   // console.log("line 75", { notification });
