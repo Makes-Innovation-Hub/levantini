@@ -14,16 +14,12 @@ export default function Header() {
   }
   return (
     <S.Header>
-      <S.LeftWrapper>
-        <ScoreDisplay />
-      </S.LeftWrapper>
-      <S.CenterWarpper>
-        <Logo />
-      </S.CenterWarpper>
+      <ScoreDisplay />
+      <Logo />
+     <menu />
       {/* hamburger menu and google image component below */}
-      <S.RightWrapper>
-        <LogoutGoogle handleClick={logout} />
-      </S.RightWrapper>
+      {/*<LogoutGoogle handleClick={logout} />*/}
+       
     </S.Header>
   );
 }
