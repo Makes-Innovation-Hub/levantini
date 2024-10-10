@@ -52,6 +52,10 @@ const Dot = ({ status }) => {
       backgroundColor = "var(--red)";
       borderColor = "var(--red)";
       break;
+    case "current":
+      backgroundColor = "var(--grey)";
+      borderColor = "var(--grey)";
+      break;
     default:
       backgroundColor = "var(--grey)";
       borderColor = "var(--grey)";

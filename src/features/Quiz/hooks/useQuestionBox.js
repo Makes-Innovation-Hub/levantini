@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import data from "../../../api/data.json";
+import { toast } from "react-hot-toast";
 
 const useQuestionBox = () => {
   const navigate = useNavigate();
@@ -14,11 +15,11 @@ const useQuestionBox = () => {
   const [timeOut, setTimeOut] = useState(false);
   console.log(answerColors);
   console.log(isAnswered);
-  const handleAnswerClick = (index) => {
+  const handleAnswerClick = (isCorrect, index) => {
     if (isAnswered || timeOut) return;
 
     const updatedColors = [...answerColors];
-    if (index === questionData.correctAnswer) {
+    if (isCorrect) {
       updatedColors[index] = "var(--green)";
       setNotification({
         title: "YES! Right Answer",
@@ -60,6 +61,12 @@ const useQuestionBox = () => {
   //   return () => clearTimeout(timer);
   // }, [isAnswered, questionData]);
 
+  useEffect(() => {
+    if ((currentQuestionIndex > currentCategory.questions.length - 1) & !notification) {
+      navigate("/");
+    }
+  }, [notification]);
+
   const handleNextQuestion = () => {
     if (currentQuestionIndex < currentCategory.questions.length - 1) {
       // Move to the next question
@@ -71,7 +78,9 @@ const useQuestionBox = () => {
       setTimeOut(false);
     } else {
       //  navigate to the home page
-      navigate("/");
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      setNotification(null);
+      // navigate("/");
     }
   };
   // console.log("line 75", { notification });
@@ -85,6 +94,7 @@ const useQuestionBox = () => {
     handleNextQuestion,
     timeOut,
     currentCategory,
+    currentQuestionIndex,
   };
 };
 

@@ -19,6 +19,7 @@ const QuestionBox = ({
   handleQuestionTimeOut,
 }) => {
   if (!questionData) return <p>No question data available</p>;
+  console.log({ questionData });
 
   const renderExplanation = (explanation) => {
     return explanation.map((sentence, index) => (
@@ -48,15 +49,18 @@ const QuestionBox = ({
         )}
 
         <div className="answers">
-          {questionData.answers.map((answer, index) => (
-            <Button
-              key={index}
-              handleClick={() => handleOnClick(index)}
-              color={answerColors[index]}
-            >
-              {answer}
-            </Button>
-          ))}
+          {questionData.answers.map((answer, index) => {
+            console.log({ index });
+            return (
+              <Button
+                key={index}
+                handleClick={() => handleOnClick(index)}
+                color={answerColors[index]}
+              >
+                {answer}
+              </Button>
+            );
+          })}
         </div>
       </S.QuestionBoxSecond>
     </S.QuestionBoxFirst>
