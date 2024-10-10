@@ -14,6 +14,7 @@ export const Title = styled.h2`
   margin-bottom: 30px;
   text-align: center;
   color: var(--grey-black);
+  margin-top:130px;
 `;
 
 export const GridContainer = styled.div`
