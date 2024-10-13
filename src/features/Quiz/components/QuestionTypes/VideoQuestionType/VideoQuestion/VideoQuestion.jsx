@@ -1,4 +1,4 @@
-import YouTubePlayer from "../VideoQuestion/YouTubePlayer.jsx";
+import YouTubePlayer from "../../../../../../lib/YouTubePlayer/YouTubePlayer.jsx";
 import * as S from "./VideoQuestion.styles.js";
 import { useState } from "react";
 

@@ -1,9 +1,9 @@
 import React from "react";
-import Button from "../../../../components/ui/Button/Button.jsx";
+
 import YouTubePlayer from "../../../../lib/YouTubePlayer/YouTubePlayer.jsx";
 import * as S from "./QuestionBox.style.js";
 
-const QuestionBox = ({
+export const QuestionBox = ({
   handleOnClick,
   questionData,
   answerColors,
@@ -36,7 +36,12 @@ const QuestionBox = ({
       case "image":
         return (
           <div>
-            <img src={questionData.image} alt={questionData.explanation} />
+            <img
+              src={questionData.image}
+              alt={questionData.explanation}
+              width="330"
+              height="255"
+            />
           </div>
         );
 
@@ -58,7 +63,21 @@ const QuestionBox = ({
         <h2>{questionData.question}</h2>
         {renderQuestionType()}
 
-        <div className="answers">{children}</div>
+        <div className="answers">
+          {children}
+          {/* {questionData.answers.map((answer, index) => {
+            console.log({ index });
+            return (
+              <Button
+                key={index}
+                handleClick={() => handleOnClick(index)}
+                color={answerColors[index]}
+              >
+                {answer}
+              </Button>
+            );
+          })} */}
+        </div>
       </S.QuestionBoxSecond>
     </S.QuestionBoxFirst>
   );

@@ -1,13 +1,15 @@
 import React, { useState, useCallback } from "react";
-import QuestionBox from "../components/ui/QuestionBox";
-import Notification from "../components/ui/Notification/Notification";
-import useQuestionBox from "../features/Quiz/hooks/useQuestionBox";
-import Timer from "../components/ui/Timer/Timer";
+import * as S from "./Quiz.styles.js";
+import QuestionBox from "../../../features/Quiz/components/QuestionBox/index.js";
+import Notification from "../../../components/ui/Notification/Notification.jsx";
+import useQuestionBox from "../../../features/Quiz/hooks/useQuestionBox.js";
+import Timer from "../../../features/Quiz/components/Timer/Timer.jsx";
+import Button from "../../../components/ui/Button/Button.jsx";
 
-import QuestionsSequence from "../components/ui/QuestionsSequence/QuestionsSequence.jsx";
-import { DotSequence } from "../components/ui/DoteSequence/DoteSequence.styles.js";
+import QuestionsSequence from "../../../features/Quiz/components/QuestionsSequence/QuestionsSequence.jsx";
+import { DotSequence } from "../../../features/Quiz/components/DoteSequence/DoteSequence.styles.js";
 
-const QuestionPage = () => {
+const Quiz = () => {
   const {
     notification,
     handleQuestionTimeOut,
@@ -18,28 +20,25 @@ const QuestionPage = () => {
     currentCategory,
   } = useQuestionBox();
 
-  // State to track the status of each question (correct, incorrect, unanswered)
   const [questionStatus, setQuestionStatus] = useState(
     Array(currentCategory.questions.length).fill("unanswered"),
   );
 
-  // State to track if an answer is clicked
   const [isAnswerClicked, setIsAnswerClicked] = useState(false);
 
-  // State to track current question index
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const handleOnClick = (index) => {
+    handleAnswerClickWithStatus(index);
+  };
 
-  // Function to split explanation at commas and display on new lines without extra gaps
   const renderExplanation = (explanation) => {
     if (!explanation || !Array.isArray(explanation)) return null;
 
     return explanation.map((sentence, index) => {
-      // Split each sentence at commas and map them to new lines without gaps
       const splitSentences = sentence.split(",").map((part, i) => (
         <span key={`${index}-${i}`}>
           {part.trim()}
           {i !== sentence.split(",").length - 1 && <br />}{" "}
-          {/* Adds line break except for the last part */}
         </span>
       ));
       return <div key={index}>{splitSentences}</div>;
@@ -49,16 +48,16 @@ const QuestionPage = () => {
   // Update the question status on answer click (either correct or incorrect)
   const handleAnswerClickWithStatus = (questionIndex) => {
     const isCorrect = questionIndex === questionData.correctAnswer;
-    console.log({ isCorrect });
+    // console.log({ isCorrect });
 
     const updatedStatus = [...questionStatus];
-    console.log("before", updatedStatus);
+    // console.log("before", updatedStatus);
 
     updatedStatus[currentQuestionIndex] = isCorrect ? "correct" : "incorrect";
     console.log("after", updatedStatus);
     setQuestionStatus(updatedStatus);
 
-    console.log("Updated status after click:", updatedStatus);
+    // console.log("Updated status after click:", updatedStatus);
 
     // Mark that an answer has been clicked
     setIsAnswerClicked(true);
@@ -85,24 +84,38 @@ const QuestionPage = () => {
   // Function to move to the next question and reset states
   const handleNextQuestionWithReset = () => {
     setIsAnswerClicked(false); // Reset answer clicked state
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1); // Increment to the next question
-    handleNextQuestion(); // Call the existing next question handler
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    handleNextQuestion();
   };
   console.log(" hiiii", notification);
   return (
-    <main>
+    <S.main>
       <QuestionBox
+        // handleOnClick={handleOnClick}
         handleOnClick={handleAnswerClickWithStatus}
         questionData={questionData}
         answerColors={answerColors}
         notification={notification}
         handleQuestionTimeOut={handleQuestionTimeOutWithStatus}
         handleNextQuestion={handleNextQuestionWithReset}
-      />
+      >
+        {questionData?.answers?.map((answer, index) => {
+          console.log({ index });
+          return (
+            <Button
+              key={index}
+              handleClick={() => handleAnswerClickWithStatus(index)}
+              color={answerColors[index]}
+            >
+              {answer}
+            </Button>
+          );
+        })}
+      </QuestionBox>
       {/* Use the currentQuestionIndex as a key to remount Timer on each new question */}
       <Timer
         key={currentQuestionIndex} // Forces remount of Timer when this key changes
-        duration={100000000}
+        duration={10}
         onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
       />
       <QuestionsSequence>
@@ -120,11 +133,11 @@ const QuestionPage = () => {
         isOpen={!!notification}
         title={notification?.title}
         color={notification?.color}
-        explanation={renderExplanation(notification?.explanation)} // Using renderExplanation function here
+        explanation={renderExplanation(notification?.explanation)}
         handleNextQuestion={handleNextQuestionWithReset}
       />
-    </main>
+    </S.main>
   );
 };
 
-export default QuestionPage;
+export default Quiz;
