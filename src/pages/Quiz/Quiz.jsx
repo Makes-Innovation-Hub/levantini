@@ -1,13 +1,13 @@
 import React, { useState, useCallback } from "react";
-import * as S from "./Quiz.styles.js";
-import QuestionBox from "../../../features/Quiz/components/QuestionBox/index.js";
-import Notification from "../../../components/ui/Notification/Notification.jsx";
-import useQuestionBox from "../../../features/Quiz/hooks/useQuestionBox.js";
-import Timer from "../../../features/Quiz/components/Timer/Timer.jsx";
-import Button from "../../../components/ui/Button/Button.jsx";
+import * as S from "../Quiz/Quiz.styled.js";
+import QuestionBox from "../../features/Quiz/components/QuestionBox/index.js";
+import Notification from "../../components/ui/Notification/Notification.jsx";
+import useQuestionBox from "../../features/Quiz/hooks/useQuestionBox.js";
+import Timer from "../../features/Quiz/components/Timer/Timer.jsx";
+import Button from "../../components/ui/Button/Button.jsx";
 
-import QuestionsSequence from "../../../features/Quiz/components/QuestionsSequence/QuestionsSequence.jsx";
-import { DotSequence } from "../../../features/Quiz/components/DoteSequence/DoteSequence.styles.js";
+import QuestionsSequence from "../../features/Quiz/components/QuestionsSequence/QuestionsSequence.jsx";
+import { DotSequence } from "../../features/Quiz/components/DoteSequence/DoteSequence.styles.js";
 
 const Quiz = () => {
   const {
@@ -18,6 +18,8 @@ const Quiz = () => {
     answerColors,
     handleNextQuestion,
     currentCategory,
+    currentQuestionIndex,
+    setCurrentQuestionIndex,
   } = useQuestionBox();
 
   const [questionStatus, setQuestionStatus] = useState(
@@ -26,7 +28,7 @@ const Quiz = () => {
 
   const [isAnswerClicked, setIsAnswerClicked] = useState(false);
 
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  // const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const handleOnClick = (index) => {
     handleAnswerClickWithStatus(index);
   };
@@ -46,8 +48,8 @@ const Quiz = () => {
   };
 
   // Update the question status on answer click (either correct or incorrect)
-  const handleAnswerClickWithStatus = (questionIndex) => {
-    const isCorrect = questionIndex === questionData.correctAnswer;
+  const handleAnswerClickWithStatus = (answerIndex) => {
+    const isCorrect = answerIndex === questionData.correctAnswer;
     // console.log({ isCorrect });
 
     const updatedStatus = [...questionStatus];
@@ -60,33 +62,27 @@ const Quiz = () => {
     // console.log("Updated status after click:", updatedStatus);
 
     // Mark that an answer has been clicked
-    setIsAnswerClicked(true);
+    // setIsAnswerClicked(true);
 
     // Proceed with original answer click handling
-    handleAnswerClick(isCorrect, currentQuestionIndex);
+    handleAnswerClick(isCorrect, answerIndex);
   };
 
   const handleQuestionTimeOutWithStatus = useCallback(
     (questionIndex) => {
-      if (!isAnswerClicked) {
-        const updatedStatus = [...questionStatus];
-        updatedStatus[questionIndex] = "timeout"; // Mark the status as timeout
-        setQuestionStatus(updatedStatus);
+      // if (!isAnswerClicked) {
+      const updatedStatus = [...questionStatus];
+      updatedStatus[questionIndex] = "timeout"; // Mark the status as timeout
+      setQuestionStatus(updatedStatus);
 
-        console.log("Updated status after timeout:", updatedStatus);
+      console.log("Updated status after timeout:", updatedStatus);
 
-        handleQuestionTimeOut(questionIndex); // Proceed with original logic
-      }
+      handleQuestionTimeOut(questionIndex); // Proceed with original logic
+      // }
     },
     [isAnswerClicked, questionStatus, handleQuestionTimeOut],
   );
 
-  // Function to move to the next question and reset states
-  const handleNextQuestionWithReset = () => {
-    setIsAnswerClicked(false); // Reset answer clicked state
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-    handleNextQuestion();
-  };
   console.log(" hiiii", notification);
   return (
     <S.main>
@@ -97,7 +93,7 @@ const Quiz = () => {
         answerColors={answerColors}
         notification={notification}
         handleQuestionTimeOut={handleQuestionTimeOutWithStatus}
-        handleNextQuestion={handleNextQuestionWithReset}
+        // handleNextQuestion={handleNextQuestionWithReset}
       >
         {questionData?.answers?.map((answer, index) => {
           console.log({ index });
@@ -115,7 +111,7 @@ const Quiz = () => {
       {/* Use the currentQuestionIndex as a key to remount Timer on each new question */}
       <Timer
         key={currentQuestionIndex} // Forces remount of Timer when this key changes
-        duration={10}
+        duration={2}
         onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
       />
       <QuestionsSequence>
@@ -134,7 +130,7 @@ const Quiz = () => {
         title={notification?.title}
         color={notification?.color}
         explanation={renderExplanation(notification?.explanation)}
-        handleNextQuestion={handleNextQuestionWithReset}
+        handleNextQuestion={handleNextQuestion}
       />
     </S.main>
   );

@@ -39,8 +39,8 @@ export const QuestionBox = ({
             <img
               src={questionData.image}
               alt={questionData.explanation}
-              width="330"
-              height="255"
+              width="182px"
+              height="255px"
             />
           </div>
         );
