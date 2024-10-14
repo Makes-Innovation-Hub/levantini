@@ -70,6 +70,7 @@ const Quiz = () => {
 
   const handleQuestionTimeOutWithStatus = useCallback(
     (questionIndex) => {
+      console.log("IM INVOKED");
       // if (!isAnswerClicked) {
       const updatedStatus = [...questionStatus];
       updatedStatus[questionIndex] = "timeout"; // Mark the status as timeout
@@ -109,11 +110,13 @@ const Quiz = () => {
         })}
       </QuestionBox>
       {/* Use the currentQuestionIndex as a key to remount Timer on each new question */}
-      <Timer
-        key={currentQuestionIndex} // Forces remount of Timer when this key changes
-        duration={2}
-        onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
-      />
+      {questionStatus[currentQuestionIndex] === "unanswered" && (
+        <Timer
+          key={currentQuestionIndex} // Forces remount of Timer when this key changes
+          duration={2}
+          onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
+        />
+      )}
       <QuestionsSequence>
         {currentCategory.questions.map((question, index) => (
           <DotSequence

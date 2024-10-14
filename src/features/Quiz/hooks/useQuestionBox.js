@@ -37,11 +37,14 @@ const useQuestionBox = () => {
     }
 
     setAnswerColors(updatedColors);
+    // console.log("set is answered ", setIsAnswered);
     setIsAnswered(true);
   };
   const handleQuestionTimeOut = () => {
+    const updatedColors = [...answerColors];
     // console.log("invoked");
-
+    updatedColors[questionData.correctAnswer] = "var(--green)";
+    setAnswerColors(updatedColors);
     setNotification({
       title: "Time Is Out!",
       color: "var(--red)",
