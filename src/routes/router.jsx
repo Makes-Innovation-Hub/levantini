@@ -1,10 +1,11 @@
 import * as React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { LOGIN, QUESTION_PAGE, ROOT } from "./routeConstants";
+import { LEADER_BOARD, LOGIN, QUESTION_PAGE, ROOT } from "./routeConstants";
 import Home from "@/pages/Home/Home";
 import QuestionPage from "../pages/QuestionPage";
 import RootLayout from "../layouts/RootLayout";
 import Page404 from "@/pages/Page404/Page404";
+import LeaderBoard from "@/pages/LeaderBoard/LeaderBoard";
 const Login = React.lazy(() => import("@pages/Login/Login"));
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: LOGIN,
         element: <Login />,
+      },
+      {
+        path: LEADER_BOARD,
+        element: <LeaderBoard />,
       },
     ],
   },

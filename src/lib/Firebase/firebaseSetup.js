@@ -1,29 +1,33 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFireBaseAPI } from "../../utils/envUtils";
-import { getDomain } from "../../utils/envUtils";
-import { getProjectID } from "../../utils/envUtils";
-import { getBucket } from "../../utils/envUtils";
-import { getSenderID } from "../../utils/envUtils";
-import { getAppID } from "../../utils/envUtils";
 import { getFirestore } from "firebase/firestore";
-const fireAPI = getFireBaseAPI();
-const domain = getDomain();
-const ProjectID = getProjectID();
-const Bucket = getBucket();
-const senderID = getSenderID();
-const IDApp = getAppID();
+import {
+  getFireBaseAPI,
+  getDomain,
+  getProjectID,
+  getBucket,
+  getSenderID,
+  getAppID,
+} from "../../utils/envUtils";
+import { getStorage } from "firebase/storage";
+
 const firebaseConfig = {
-  apiKey: fireAPI,
-  authDomain: domain,
-  projectId: ProjectID,
-  storageBucket: Bucket,
-  messagingSenderId: senderID,
-  appId: IDApp,
+  apiKey: getFireBaseAPI(),
+  authDomain: getDomain(),
+  projectId: getProjectID(),
+  storageBucket: getBucket(),
+  messagingSenderId: getSenderID(),
+  appId: getAppID(),
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+let app;
+try {
+  app = initializeApp(firebaseConfig);
+} catch (error) {
+  console.error("Error initializing Firebase:", error);
+  throw error;
+}
+
 export const auth = getAuth(app);
-export default app;
 export const db = getFirestore(app);
+export const storage = getStorage(app);
