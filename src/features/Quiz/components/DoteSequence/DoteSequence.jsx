@@ -66,8 +66,8 @@ const Dot = ({ status }) => {
     <S.DotSequence
       backgroundColor={backgroundColor}
       borderColor={borderColor}
-      bold={status !== "unanswered"} // Bold for answered questions
-      transparent={status === "unanswered"} // Transparent for unanswered
+      bold={!!status} // Bold for answered questions
+      transparent={!status} // Transparent for null
     />
   );
 };
