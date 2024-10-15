@@ -7,6 +7,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createOrGetUser, getLeaderboard } from "../../lib/Firebase/userService";
 import Spinner from "../../components/ui/Spinner/Spinner";
 import LeaderboardRow from "../../components/LeaderboardRow/LeaderboardRow";
+import { LEVANTINI_LEADERBOARD } from "../../lib/Firebase/constants";
 
 const Leaderboard = () => {
   const { currentUser } = useAuth();
@@ -24,14 +25,14 @@ const Leaderboard = () => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["leaderboard"],
+    queryKey: [LEVANTINI_LEADERBOARD],
     queryFn: getLeaderboard,
   });
 
   const createOrGetUserMutation = useMutation({
     mutationFn: createOrGetUser,
     onSuccess: (newUser) => {
-      queryClient.setQueryData(["leaderboard"], (oldData) => {
+      queryClient.setQueryData([LEVANTINI_LEADERBOARD], (oldData) => {
         if (!oldData) return [newUser];
         const existingUserIndex = oldData.findIndex((user) => user.id === newUser.id);
         if (existingUserIndex !== -1) {

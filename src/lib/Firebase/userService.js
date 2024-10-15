@@ -20,8 +20,9 @@ export const createOrGetUser = async (user) => {
         id: user.uid,
         name: user.displayName,
         points: 0,
-        photoURL: user.photoURL || null,
+        photoURL: user.photoURL,
       };
+      console.log(userSnap);
       await setDoc(userRef, newUser);
       return newUser;
     } else {
@@ -30,6 +31,7 @@ export const createOrGetUser = async (user) => {
         ...existingUser,
         photoURL: user.photoURL || existingUser.photoURL,
       };
+      console.log(updatedUser);
       await setDoc(userRef, updatedUser, { merge: true });
       return updatedUser;
     }
