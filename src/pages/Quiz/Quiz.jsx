@@ -12,26 +12,15 @@ import { DotSequence } from "../../features/Quiz/components/DoteSequence/DoteSeq
 const Quiz = () => {
   const {
     notification,
-    handleQuestionTimeOut,
-    handleAnswerClick,
     questionData,
     answerColors,
     handleNextQuestion,
     currentCategory,
     currentQuestionIndex,
-    setCurrentQuestionIndex,
+    handleAnswerClickWithStatus,
+    handleQuestionTimeOutWithStatus,
+    questionStatus,
   } = useQuestionBox();
-
-  const [questionStatus, setQuestionStatus] = useState(
-    Array(currentCategory.questions.length).fill("unanswered"),
-  );
-
-  const [isAnswerClicked, setIsAnswerClicked] = useState(false);
-
-  // const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const handleOnClick = (index) => {
-    handleAnswerClickWithStatus(index);
-  };
 
   const renderExplanation = (explanation) => {
     if (!explanation || !Array.isArray(explanation)) return null;
@@ -40,67 +29,22 @@ const Quiz = () => {
       const splitSentences = sentence.split(",").map((part, i) => (
         <span key={`${index}-${i}`}>
           {part.trim()}
-          {i !== sentence.split(",").length - 1 && <br />}{" "}
+          {i !== sentence.split(",").length - 1 && <br />}
         </span>
       ));
       return <div key={index}>{splitSentences}</div>;
     });
   };
 
-  // Update the question status on answer click (either correct or incorrect)
-  const handleAnswerClickWithStatus = (answerIndex) => {
-    const isCorrect = answerIndex === questionData.correctAnswer;
-    // console.log({ isCorrect });
-
-    const updatedStatus = [...questionStatus];
-    // console.log("before", updatedStatus);
-
-    updatedStatus[currentQuestionIndex] = isCorrect ? "correct" : "incorrect";
-    console.log("after", updatedStatus);
-    setQuestionStatus(updatedStatus);
-
-    // console.log("Updated status after click:", updatedStatus);
-
-    // Mark that an answer has been clicked
-    // setIsAnswerClicked(true);
-
-    // Proceed with original answer click handling
-    handleAnswerClick(isCorrect, answerIndex);
-  };
-
-  const handleQuestionTimeOutWithStatus = useCallback(
-    (questionIndex) => {
-      console.log("IM INVOKED");
-      // if (!isAnswerClicked) {
-      const updatedStatus = [...questionStatus];
-      updatedStatus[questionIndex] = "timeout"; // Mark the status as timeout
-      setQuestionStatus(updatedStatus);
-
-      console.log("Updated status after timeout:", updatedStatus);
-
-      handleQuestionTimeOut(questionIndex); // Proceed with original logic
-      // }
-    },
-    [isAnswerClicked, questionStatus, handleQuestionTimeOut],
-  );
-
-  console.log(" hiiii", notification);
   return (
     <S.main>
-      <QuestionBox
-        // handleOnClick={handleOnClick}
-        handleOnClick={handleAnswerClickWithStatus}
-        questionData={questionData}
-        answerColors={answerColors}
-        notification={notification}
-        handleQuestionTimeOut={handleQuestionTimeOutWithStatus}
-        // handleNextQuestion={handleNextQuestionWithReset}
-      >
+      <QuestionBox questionData={questionData}>
         {questionData?.answers?.map((answer, index) => {
           console.log({ index });
           return (
             <Button
               key={index}
+              isDisabled={questionStatus[currentQuestionIndex]}
               handleClick={() => handleAnswerClickWithStatus(index)}
               color={answerColors[index]}
             >
@@ -109,24 +53,24 @@ const Quiz = () => {
           );
         })}
       </QuestionBox>
-      {/* Use the currentQuestionIndex as a key to remount Timer on each new question */}
-      {questionStatus[currentQuestionIndex] === "unanswered" && (
+
+      {!questionStatus[currentQuestionIndex] && (
         <Timer
-          key={currentQuestionIndex} // Forces remount of Timer when this key changes
-          duration={2}
+          key={currentQuestionIndex}
+          duration={10}
           onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
         />
       )}
-      <QuestionsSequence>
-        {currentCategory.questions.map((question, index) => (
-          <DotSequence
-            key={index}
-            status={
-              index === currentQuestionIndex ? "current" : questionStatus[index] // Set status based on answer or current question
-            }
-          />
-        ))}
-      </QuestionsSequence>
+      {!notification && (
+        <QuestionsSequence>
+          {currentCategory.questions.map((_, index) => (
+            <DotSequence
+              key={index}
+              status={index === currentQuestionIndex ? "current" : questionStatus[index]}
+            />
+          ))}
+        </QuestionsSequence>
+      )}
 
       <Notification
         isOpen={!!notification}

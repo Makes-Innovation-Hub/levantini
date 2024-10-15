@@ -3,15 +3,7 @@ import React from "react";
 import YouTubePlayer from "../../../../lib/YouTubePlayer/YouTubePlayer.jsx";
 import * as S from "./QuestionBox.style.js";
 
-export const QuestionBox = ({
-  handleOnClick,
-  questionData,
-  answerColors,
-  notification,
-  handleNextQuestion,
-  handleQuestionTimeOut,
-  children,
-}) => {
+export const QuestionBox = ({ questionData, children }) => {
   if (!questionData) return <p>No question data available</p>;
   console.log({ questionData });
 

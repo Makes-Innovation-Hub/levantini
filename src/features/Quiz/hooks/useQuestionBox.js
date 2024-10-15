@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import data from "../../../api/data.json";
 import { toast } from "react-hot-toast";
@@ -8,16 +8,15 @@ const useQuestionBox = () => {
   const [currentCategory, setCurrentCategory] = useState(data.data[0]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const questionData = currentCategory.questions[currentQuestionIndex];
+  const [questionStatus, setQuestionStatus] = useState(
+    Array(currentCategory.questions.length).fill(null),
+  );
 
   const [answerColors, setAnswerColors] = useState(Array(4).fill("var(--blue)"));
-  const [isAnswered, setIsAnswered] = useState(false);
   const [notification, setNotification] = useState(null);
-  const [timeOut, setTimeOut] = useState(false);
   console.log(answerColors);
-  console.log(isAnswered);
-  const handleAnswerClick = (isCorrect, index) => {
-    if (isAnswered || timeOut) return;
 
+  const handleAnswerClick = (isCorrect, index) => {
     const updatedColors = [...answerColors];
     if (isCorrect) {
       updatedColors[index] = "var(--green)";
@@ -38,9 +37,9 @@ const useQuestionBox = () => {
 
     setAnswerColors(updatedColors);
     // console.log("set is answered ", setIsAnswered);
-    setIsAnswered(true);
   };
   const handleQuestionTimeOut = () => {
+    //we need to REFACTOR IT ONE SOURCE OF TRUTH becuase it has a duppilcation
     const updatedColors = [...answerColors];
     // console.log("invoked");
     updatedColors[questionData.correctAnswer] = "var(--green)";
@@ -51,6 +50,26 @@ const useQuestionBox = () => {
       explanation: questionData.explanation,
     });
   };
+  const handleAnswerClickWithStatus = (answerIndex) => {
+    const isCorrect = answerIndex === questionData.correctAnswer;
+    // console.log({ isCorrect });
+
+    const updatedStatus = [...questionStatus];
+    // console.log("before", updatedStatus);
+
+    updatedStatus[currentQuestionIndex] = isCorrect ? "correct" : "incorrect";
+    console.log("after", updatedStatus);
+    setQuestionStatus(updatedStatus);
+
+    // console.log("Updated status after click:", updatedStatus);
+
+    // Mark that an answer has been clicked
+    // setIsAnswerClicked(true);
+
+    // Proceed with original answer click handling
+    handleAnswerClick(isCorrect, answerIndex);
+  };
+
   // console.log({ notification });
   // Handle Time Out
   // useEffect(() => {
@@ -74,11 +93,10 @@ const useQuestionBox = () => {
     if (currentQuestionIndex < currentCategory.questions.length - 1) {
       // Move to the next question
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-      setIsAnswered(false);
+
       setAnswerColors(Array(4).fill("var(--blue)"));
 
       setNotification(null);
-      setTimeOut(false);
     } else {
       //  navigate to the home page
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
@@ -86,6 +104,20 @@ const useQuestionBox = () => {
       // navigate("/");
     }
   };
+  const handleQuestionTimeOutWithStatus = useCallback(
+    (questionIndex) => {
+      console.log("IM INVOKED");
+
+      const updatedStatus = [...questionStatus];
+      updatedStatus[questionIndex] = "timeout"; // Mark the status as timeout
+      setQuestionStatus(updatedStatus);
+
+      console.log("Updated status after timeout:", updatedStatus);
+
+      handleQuestionTimeOut(questionIndex); // Proceed with original logic
+    },
+    [questionStatus, handleQuestionTimeOut],
+  );
   // console.log("line 75", { notification });
 
   return {
@@ -95,9 +127,11 @@ const useQuestionBox = () => {
     notification,
     handleQuestionTimeOut,
     handleNextQuestion,
-    timeOut,
     currentCategory,
     currentQuestionIndex,
+    handleAnswerClickWithStatus,
+    handleQuestionTimeOutWithStatus,
+    questionStatus,
   };
 };
 
