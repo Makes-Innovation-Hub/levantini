@@ -2,6 +2,12 @@ import styled from "styled-components";
 import "../../styles/colors.css";
 import "../../styles/fonts.css";
 
+export const CategoryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const Card = styled.div`
   position: relative;
   width: 149px;
@@ -54,4 +60,14 @@ export const Text = styled.p`
   color: white;
   margin: 0;
   padding: 0;
+`;
+
+export const StatusContainer = styled.div`
+  margin-top: 10px;  /* Add spacing between the image and button */
+  text-align: center;
+  width: 149px;
+
+  @media (max-width: 378px) {
+    width: 120px;
+  }
 `;
