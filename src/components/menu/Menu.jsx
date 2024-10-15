@@ -46,7 +46,7 @@ const Menu = () => {
               </li>
               <li><LiaCrownSolid /> Leaderboard</li>
               <li style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={logout}>
-                <IoIosLogOut style={{ marginRight: '8px' }} /> 
+                <IoIosLogOut /> 
                 <LogoutGoogle handleClick={logout} />
               </li>
             </ul>
