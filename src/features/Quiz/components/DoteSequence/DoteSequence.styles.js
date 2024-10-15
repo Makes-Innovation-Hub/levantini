@@ -30,12 +30,12 @@ export const DotSequence = styled.div.attrs((props) => ({
   background-color: ${({ status }) => {
     if (status === "correct") return "var(--green)"; // Correct answer
     if (status === "incorrect" || status === "timeout") return "var(--red)"; // Incorrect/timeout
-    return "transparent"; // Unanswered or future question
+    return "transparent"; //  null or future question
   }};
 
   border: 3px solid var(--green); // All dots have green border regardless of status
   font-weight: ${({ status }) =>
     status === "current" ? "bold" : "normal"}; // Bold border for current question
   opacity: ${({ status }) =>
-    status === "unanswered" ? 0.4 : 1}; // Unanswered are slightly transparent
+    status === null ? 0.4 : 1}; // null are slightly transparent
 `;
