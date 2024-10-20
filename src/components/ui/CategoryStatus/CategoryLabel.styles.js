@@ -5,10 +5,10 @@ export const Category = styled.div`
   font-size: 10px;
   border: none;
   width: 88px;
-  padding: 3px 1px 3px 3px;
+
   display: flex;
   justify-content: space-evenly;
-  line-height: 12.1px;
+  line-height: 19px;
   font-weight: 700;
   text-transform: capitalize;
 

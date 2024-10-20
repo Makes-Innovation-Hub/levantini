@@ -5,13 +5,12 @@ export const ToolTipWrapper = styled.div`
   bottom: 32px;
   left: 0;
   padding: 10px;
-  background: transparent;
+  background-color: #f7f7f7;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 191.62px;
+  width: 200px;
   height: 88.9px;
-  backgroundcolor: #f7f7f7;
-  transform:
-
+  z-index: 10;
+  transform: translateX(0);
 `;
