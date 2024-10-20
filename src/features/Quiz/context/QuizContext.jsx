@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import data from "../../../api/data.json";
 import { toast } from "react-hot-toast";
 
-const QuizQuestionBoxContext = createContext();
+const QuizContext = createContext();
 
 export const QuizProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -91,7 +91,7 @@ export const QuizProvider = ({ children }) => {
   );
 
   return (
-    <QuizQuestionBoxContext.Provider
+    <QuizContext.Provider
       value={{
         questionData,
         answerColors,
@@ -105,12 +105,12 @@ export const QuizProvider = ({ children }) => {
       }}
     >
       {children}
-    </QuizQuestionBoxContext.Provider>
+    </QuizContext.Provider>
   );
 };
 
-export const useQuizQuestionBoxContext = () => {
-  const context = useContext(QuizQuestionBoxContext);
+export const useQuizContext = () => {
+  const context = useContext(QuizContext);
 
   if (!context) {
     throw new Error("useQuizContext must be used within an QuizProvider");

@@ -2,10 +2,10 @@ import React from "react";
 
 import YouTubePlayer from "../../../../lib/YouTubePlayer/YouTubePlayer.jsx";
 import * as S from "./QuestionBox.style.js";
-import { useQuizQuestionBoxContext } from "../../context/QuizQuestionBoxContext.jsx";
+import { useQuizContext } from "../../context/QuizContext.jsx";
 
 export const QuestionBox = ({ children }) => {
-  const { questionData } = useQuizQuestionBoxContext();
+  const { questionData } = useQuizContext();
   if (!questionData) return <p>No question data available</p>;
   console.log({ questionData });
 
