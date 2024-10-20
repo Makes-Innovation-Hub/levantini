@@ -1,13 +1,11 @@
 import CategoryThumbNail from "../../components/CategoryThumbNail/CategoryThumbNail";
 import * as S from "./Home.styles";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../features/authentication/context/AuthContext";
 import CategoryLabel from "../../components/ui/CategoryStatus/CategoryLabel";
-import ToolTip from "../../components/ui/ToolTip/ToolTip";
-import CatgoeryToolTip from "../../components/ui/CategoryToolTip/CatgoeryToolTip";
 
-import useFetchData from "../../api/hooks/usefetchData";
+import useFetchData from "../../api/hooks/useFetchData";
 import Spinner from "../../components/ui/Spinner/Spinner";
 
 const Home = () => {
@@ -23,7 +21,6 @@ const Home = () => {
   if (isLoading) {
     return <Spinner />;
   }
-  console.log(data);
 
   if (isError) return <div>Error fetching posts</div>;
 
