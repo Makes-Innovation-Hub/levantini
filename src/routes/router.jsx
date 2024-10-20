@@ -2,10 +2,12 @@ import * as React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { LOGIN, QUIZ, ROOT } from "./routeConstants";
 import Home from "@/pages/Home/Home";
-import Quiz from "../pages/Quiz/Quiz.jsx";
+
 import RootLayout from "../layouts/RootLayout";
 import Page404 from "@/pages/Page404/Page404";
+import { QuizProvider } from "../features/Quiz/hooks/QuizQuestionBoxContext.jsx";
 const Login = React.lazy(() => import("@pages/Login/Login"));
+const Quiz = React.lazy(() => import("../pages/Quiz/Quiz.jsx"));
 
 const router = createBrowserRouter([
   {
@@ -16,7 +18,11 @@ const router = createBrowserRouter([
 
       {
         path: QUIZ,
-        element: <Quiz />,
+        element: (
+          <QuizProvider>
+            <Quiz />
+          </QuizProvider>
+        ),
       },
       {
         path: LOGIN,
