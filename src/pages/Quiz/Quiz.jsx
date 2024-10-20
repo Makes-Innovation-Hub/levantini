@@ -93,7 +93,7 @@ import Timer from "../../features/Quiz/components/Timer/Timer.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import QuestionsSequence from "../../features/Quiz/components/QuestionsSequence/QuestionsSequence.jsx";
 import { DotSequence } from "../../features/Quiz/components/DoteSequence/DoteSequence.styles.js";
-import { useQuizQuestionBoxContext } from "../../features/Quiz/hooks/QuizQuestionBoxContext.jsx";
+import { useQuizQuestionBoxContext } from "../../features/Quiz/context/QuizQuestionBoxContext.jsx";
 
 const Quiz = () => {
   const {
@@ -124,7 +124,7 @@ const Quiz = () => {
 
   return (
     <S.main>
-      <QuestionBox questionData={questionData}>
+      <QuestionBox>
         {questionData?.answers?.map((answer, index) => (
           <Button
             key={index}

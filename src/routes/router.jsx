@@ -5,7 +5,7 @@ import Home from "@/pages/Home/Home";
 
 import RootLayout from "../layouts/RootLayout";
 import Page404 from "@/pages/Page404/Page404";
-import { QuizProvider } from "../features/Quiz/hooks/QuizQuestionBoxContext.jsx";
+import { QuizProvider } from "../features/Quiz/context/QuizQuestionBoxContext.jsx";
 const Login = React.lazy(() => import("@pages/Login/Login"));
 const Quiz = React.lazy(() => import("../pages/Quiz/Quiz.jsx"));
 
