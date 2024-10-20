@@ -146,7 +146,7 @@ const Quiz = () => {
       )}
       {!notification && (
         <QuestionsSequence>
-          {currentCategory.questions.map((_, index) => (
+          {currentCategory?.questions.map((_, index) => (
             <DotSequence
               key={index}
               status={index === currentQuestionIndex ? "current" : questionStatus[index]}

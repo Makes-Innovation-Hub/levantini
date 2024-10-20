@@ -17,7 +17,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
 
       {
-        path: QUIZ,
+        path: `${QUIZ}/:categoryId`,
         element: (
           <QuizProvider>
             <Quiz />

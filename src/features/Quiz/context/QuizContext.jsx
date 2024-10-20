@@ -5,7 +5,7 @@ import React, {
   useCallback,
   useEffect,
 } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import data from "../../../api/data.json";
 import { toast } from "react-hot-toast";
 
@@ -13,14 +13,23 @@ const QuizContext = createContext();
 
 export const QuizProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [currentCategory, setCurrentCategory] = useState(data.data[0]);
+  const { categoryId } = useParams();
+
+  const [currentCategory, setCurrentCategory] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const questionData = currentCategory.questions[currentQuestionIndex];
+  const questionData = currentCategory?.questions[currentQuestionIndex];
   const [questionStatus, setQuestionStatus] = useState(
-    Array(currentCategory.questions.length).fill(null),
+    Array(currentCategory?.questions.length).fill(null),
   );
   const [answerColors, setAnswerColors] = useState(Array(4).fill("var(--blue)"));
   const [notification, setNotification] = useState(null);
+
+  useEffect(() => {
+    const category = data.data.filter((el) => {
+      return el.id === Number(categoryId);
+    });
+    setCurrentCategory(category[0]);
+  }, [categoryId]);
 
   const handleAnswerClick = (isCorrect, index) => {
     const updatedColors = [...answerColors];
@@ -29,7 +38,7 @@ export const QuizProvider = ({ children }) => {
       setNotification({
         title: "YES! Right Answer",
         color: "var(--green)",
-        explanation: questionData.explanation,
+        explanation: questionData?.explanation,
       });
     } else {
       updatedColors[index] = "var(--red)";
@@ -64,13 +73,13 @@ export const QuizProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if ((currentQuestionIndex > currentCategory.questions.length - 1) & !notification) {
+    if ((currentQuestionIndex > currentCategory?.questions.length - 1) & !notification) {
       navigate("/");
     }
   }, [notification]);
 
   const handleNextQuestion = () => {
-    if (currentQuestionIndex < currentCategory.questions.length - 1) {
+    if (currentQuestionIndex < currentCategory?.questions.length - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       setAnswerColors(Array(4).fill("var(--blue)"));
       setNotification(null);
