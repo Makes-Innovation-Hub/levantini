@@ -1,22 +1,28 @@
 import React from "react";
 import * as S from "./ToolTip.styles";
 
-const ToolTip = ({ children, postion }) => {
-  let transformValuel;
-  let carrotValue;
-  switch (postion) {
+const ToolTip = ({ children, position }) => {
+  let leftPosition;
+  let carrotPosition;
+  switch (position) {
     case "left":
-      transformValuel = "-100px";
-      carrotValue = "-50px";
+      leftPosition = "49px";
+      carrotPosition = "6%";
       break;
     case "right":
-      transformValuel = "400px";
-      carrotValue = "150px";
+      leftPosition = "-117px";
+      carrotPosition = "86%";
       break;
     default:
       null;
   }
-  return <S.ToolTipWrapper postion={postion}> {children}</S.ToolTipWrapper>;
+  console.log({ leftPosition });
+  return (
+    <S.ToolTipWrapper left={leftPosition} carrotPosition={carrotPosition}>
+      {" "}
+      {children}
+    </S.ToolTipWrapper>
+  );
 };
 
 export default ToolTip;

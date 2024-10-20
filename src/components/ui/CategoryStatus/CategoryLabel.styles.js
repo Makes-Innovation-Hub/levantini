@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Category = styled.div`
   position: relative;
   font-size: 10px;
+  margin-top:7px;
   border: none;
   width: 88px;
 

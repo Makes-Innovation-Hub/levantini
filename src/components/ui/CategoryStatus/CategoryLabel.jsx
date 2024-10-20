@@ -2,16 +2,11 @@ import { useState } from "react";
 import check from "../../../../public/images/check.svg";
 import locked from "../../../../public/images/locked.svg";
 import arrow from "../../../../public/images/arrow.svg";
-import { useState } from "react";
-import check from "../../../../public/images/check.svg";
-import locked from "../../../../public/images/locked.svg";
-import arrow from "../../../../public/images/arrow.svg";
-import * as S from "./CategoryLabel.styles";
 import ToolTip from "../ToolTip/ToolTip";
-import { CategoryToolTipContainer } from "../ToolTip/CatgoeryToolTip.styles";
-import CatgoeryToolTip from "../ToolTip/CatgoeryToolTip";
+import CatgoeryToolTip from "../CategoryToolTip/CatgoeryToolTip";
+import * as S from "./CategoryLabel.styles";
 
-const CategoryLabel = ({ status }) => {
+const CategoryLabel = ({ status, position }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const getStatusImage = () => {
@@ -38,7 +33,7 @@ const CategoryLabel = ({ status }) => {
       {status}
       <img src={getStatusImage()} alt={status} />
       {status === "locked" && isHovered && (
-        <ToolTip position="left">
+        <ToolTip position={position}>
           <CatgoeryToolTip />
         </ToolTip>
       )}

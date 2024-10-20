@@ -8,7 +8,8 @@ import {
 } from "./CategoryThumbNail.styles";
 import CategoryStatus from "../ui/CategoryStatus/CategoryLabel";
 
-const CategoryThumbNail = ({ imgUrl, onClick, children, status }) => {
+const CategoryThumbNail = ({ imgUrl, onClick, children }) => {
+
   return (
     <CategoryContainer>
       <Card onClick={onClick}>
@@ -17,9 +18,6 @@ const CategoryThumbNail = ({ imgUrl, onClick, children, status }) => {
           <p>{children}</p>
         </Overlay>
       </Card>
-      <StatusContainer>
-        <CategoryStatus status={status} />
-      </StatusContainer>
     </CategoryContainer>
   );
 };
