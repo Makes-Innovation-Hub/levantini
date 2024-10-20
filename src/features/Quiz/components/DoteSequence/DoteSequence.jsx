@@ -52,6 +52,10 @@ const Dot = ({ status }) => {
       backgroundColor = "var(--red)";
       borderColor = "var(--red)";
       break;
+    case "current":
+      backgroundColor = "var(--grey)";
+      borderColor = "var(--grey)";
+      break;
     default:
       backgroundColor = "var(--grey)";
       borderColor = "var(--grey)";
@@ -62,8 +66,8 @@ const Dot = ({ status }) => {
     <S.DotSequence
       backgroundColor={backgroundColor}
       borderColor={borderColor}
-      bold={status !== "unanswered"} // Bold for answered questions
-      transparent={status === "unanswered"} // Transparent for unanswered
+      bold={!!status} // Bold for answered questions
+      transparent={!status} // Transparent for null
     />
   );
 };

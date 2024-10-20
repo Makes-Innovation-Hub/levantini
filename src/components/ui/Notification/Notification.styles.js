@@ -1,82 +1,52 @@
-// import styled from "styled-components";
-
-// export const ToastContainer = styled.div`
-//   width: 100vw;
-//   height: 270px;
-
-//   color: var(--white);
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   /* opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-//   transition: opacity 0.5s ease-in-out;
-//   pointer-events: ${({ isVisible }) => (isVisible ? "auto" : "none")}; */
-// `;
-
-// export const ToastCorrect = styled.div`
-//   background-color: var(--green);
-//   width: 100%;
-//   height: 50%;
-// `;
-
-// export const ToastIncorrect = styled.div`
-//   background-color: var(--red);
-// `;
-
-// export const ToastTitle = styled.h2`
-//   font-size: 18px;
-//   font-weight: bold;
-//   margin-bottom: 10px;
-//   color: var(--grey-black);
-// `;
-
-// export const ToastText = styled.p`
-//   margin-bottom: 15px;
-//   color: var(--grey-black);
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
-
-// export const ToastButton = styled.button`
-//   background-color: var(--white);
-//   color: var(--grey-black);
-//   font-weight: 700;
-//   size: 20px;
-//   text-align: center;
-//   border: none;
-//   cursor: pointer;
-//   border-radius: 10px;
-//   width: 338px;
-//   height: 57px;
-//   font-size: 20px;
-//   line-height: 22px;
-// `;
 import styled from "styled-components";
+
+export const breakpoints = {
+  mobile: "600px",
+  tablet: "1024px",
+  laptop: "1366px",
+  desktop: "1920px",
+};
 
 export const ToastContainer = styled.div`
   width: 100vw;
-  height: 312px;
+  height: 270px;
   overflow-y: auto;
   color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  transition: opacity 0.5s ease-in-out;
-  pointer-events: ${({ isVisible }) => (isVisible ? "auto" : "none")}; */
-  /*overflow-y: auto;  Enable vertical scrolling */
-  /*overflow-x: hidden;  Prevent horizontal scrolling */
+
+  /* Responsive styles 
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 275px; 
+  }
+
+  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
+    height: 240px; 
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    height: 300px; 
+  }*/
 `;
 
 export const ToastCorrect = styled.div`
   background-color: var(--green);
   width: 100%;
   height: 50%;
-`;
 
-export const ToastIncorrect = styled.div`
-  background-color: var(--red);
+  /* Responsive styles 
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 275px; 
+  }
+
+  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
+    height: 240px; 
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    height: 300px; 
+  }*/
 `;
 
 export const ToastTitle = styled.h2`
@@ -84,7 +54,20 @@ export const ToastTitle = styled.h2`
   font-weight: bold;
   margin-bottom: 10px;
   color: var(--grey-black);
-  text-align: center; /* Center the text */
+  text-align: center;
+
+  /* Responsive styles 
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 275px; 
+  }
+
+  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
+    height: 240px; 
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    height: 300px; 
+  }*/
 `;
 
 export const ToastText = styled.p`
@@ -93,15 +76,27 @@ export const ToastText = styled.p`
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center; /* Center the text */
+  text-align: center;
+
+  /* Responsive styles 
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 275px; 
+  }
+
+  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
+    height: 240px; 
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    height: 300px; 
+  }*/
 `;
 
 export const ToastButton = styled.button`
   background-color: var(--white);
   color: var(--grey-black);
   font-weight: 700;
-  size: 20px;
-  text-align: center; /* Center the button text */
+  text-align: center;
   border: none;
   cursor: pointer;
   border-radius: 10px;
@@ -109,4 +104,17 @@ export const ToastButton = styled.button`
   height: 57px;
   font-size: 20px;
   line-height: 22px;
+
+  /* Responsive styles 
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 275px; 
+  }
+
+  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
+    height: 240px; 
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    height: 300px; 
+  }*/
 `;

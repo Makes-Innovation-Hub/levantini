@@ -1,17 +1,11 @@
 import React from "react";
-import Button from "../../../../components/ui/Button/Button.jsx";
+
 import YouTubePlayer from "../../../../lib/YouTubePlayer/YouTubePlayer.jsx";
 import * as S from "./QuestionBox.style.js";
+import { useQuizContext } from "../../context/QuizContext.jsx";
 
-const QuestionBox = ({
-  handleOnClick,
-  questionData,
-  answerColors,
-  notification,
-  handleNextQuestion,
-  handleQuestionTimeOut,
-  children,
-}) => {
+export const QuestionBox = ({ children }) => {
+  const { questionData } = useQuizContext();
   if (!questionData) return <p>No question data available</p>;
   console.log({ questionData });
 
@@ -36,7 +30,12 @@ const QuestionBox = ({
       case "image":
         return (
           <div>
-            <img src={questionData.image} alt={questionData.explanation} />
+            <img
+              src={questionData.image}
+              alt={questionData.explanation}
+              width="182px"
+              height="255px"
+            />
           </div>
         );
 
@@ -58,7 +57,21 @@ const QuestionBox = ({
         <h2>{questionData.question}</h2>
         {renderQuestionType()}
 
-        <div className="answers">{children}</div>
+        <div className="answers">
+          {children}
+          {/* {questionData.answers.map((answer, index) => {
+            console.log({ index });
+            return (
+              <Button
+                key={index}
+                handleClick={() => handleOnClick(index)}
+                color={answerColors[index]}
+              >
+                {answer}
+              </Button>
+            );
+          })} */}
+        </div>
       </S.QuestionBoxSecond>
     </S.QuestionBoxFirst>
   );

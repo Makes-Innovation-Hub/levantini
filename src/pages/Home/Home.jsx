@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../features/authentication/context/AuthContext";
 import CategoryLabel from "../../components/ui/CategoryStatus/CategoryLabel";
+import { QUIZ } from "../../routes/routeConstants.js";
 
 import useFetchData from "../../api/hooks/useFetchData";
 import Spinner from "../../components/ui/Spinner/Spinner";
@@ -23,7 +24,9 @@ const Home = () => {
   }
 
   if (isError) return <div>Error fetching posts</div>;
-
+  const handleOnClick = (categoryId) => {
+    navigate(`${QUIZ}/${categoryId}`);
+  };
   return (
     <>
       <S.CategoryContainer>
@@ -33,7 +36,7 @@ const Home = () => {
             const position = index % 2 === 0 ? "left" : "right";
 
             return (
-              <S.Container key={category.id}>
+              <S.Container key={category.id} onClick={() => handleOnClick(category.id)}>
                 <CategoryThumbNail imgUrl={category.categoryImage}>
                   <S.Label>{category.category}</S.Label>
                 </CategoryThumbNail>

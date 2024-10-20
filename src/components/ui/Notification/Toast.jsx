@@ -22,8 +22,11 @@ const Toast = ({ open, children, duration, position, width, toastId = "quiz" }) 
         },
       );
     } else {
-      toast.dismiss(toastId);
+      toast.remove(toastId);
     }
+    // return () => {
+    //   toast.dismiss(toastId);
+    // };
   }, [open, children, duration, position, width, toastId]);
 
   return null;
