@@ -16,34 +16,51 @@ export function useAuth() {
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const [Authenticated, setIsAuthenticated] = useState(true);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log(user);
-      setCurrentUser(user);
+      if (user) {
+        setCurrentUser({
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL, // Store profile image URL
+        });
+      } else {
+        setCurrentUser(null);
+      }
       setLoading(false);
     });
 
-    return () => unsubscribe;
+    return () => unsubscribe();
   }, []);
 
   const signInWithGoogle = async (onSuccess) => {
     const provider = new GoogleAuthProvider();
     try {
       const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      setCurrentUser({
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+      });
+
       if (onSuccess) {
-        onSuccess(result.user);
+        onSuccess(user);
       }
     } catch (error) {
-      // console.error("Login failed:", error);
+      console.error("Login failed:", error);
     }
   };
 
   const logout = async () => {
     try {
       await firebaseSignOut(auth);
+      setCurrentUser(null); // Reset user state after logout
     } catch (error) {
-      // console.error("Logout failed:", error);
+      console.error("Logout failed:", error);
     }
   };
 
