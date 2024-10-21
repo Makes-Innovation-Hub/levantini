@@ -7,6 +7,7 @@ import Button from "../../components/ui/Button/Button.jsx";
 import QuestionsSequence from "../../features/Quiz/components/QuestionsSequence/QuestionsSequence.jsx";
 import { DotSequence } from "../../features/Quiz/components/DoteSequence/DoteSequence.styles.js";
 import { useQuizContext } from "../../features/Quiz/context/QuizContext.jsx";
+import Spinner from "../../components/ui/Spinner/Spinner.jsx";
 
 const Quiz = () => {
   const {
@@ -19,8 +20,10 @@ const Quiz = () => {
     questionStatus,
     currentQuestionIndex,
     currentCategory,
+    isLoading,
   } = useQuizContext();
-  if (!questionData) return null;
+
+  if (isLoading) return <Spinner />;
 
   const renderExplanation = (explanation) => {
     if (!explanation || !Array.isArray(explanation)) return null;

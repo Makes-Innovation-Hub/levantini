@@ -16,7 +16,7 @@ const ToolTip = ({ children, position }) => {
     default:
       null;
   }
-  console.log({ leftPosition });
+
   return (
     <S.ToolTipWrapper left={leftPosition} carrotPosition={carrotPosition}>
       {" "}

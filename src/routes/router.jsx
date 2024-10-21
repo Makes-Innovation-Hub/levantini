@@ -7,8 +7,8 @@ import Home from "@/pages/Home/Home";
 import RootLayout from "../layouts/RootLayout";
 import Page404 from "@/pages/Page404/Page404";
 import { QuizProvider } from "../features/Quiz/context/QuizContext.jsx";
+import Quiz from "@/pages/Quiz/Quiz";
 const Login = React.lazy(() => import("@pages/Login/Login"));
-const Quiz = React.lazy(() => import("../pages/Quiz/Quiz.jsx"));
 const LeaderBoard = React.lazy(() => import("../pages/LeaderBoard/LeaderBoard.jsx"));
 const router = createBrowserRouter([
   {
