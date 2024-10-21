@@ -53,24 +53,27 @@ const Quiz = () => {
           </Button>
         ))}
       </QuestionBox>
-
-      {!questionStatus[currentQuestionIndex] && (
-        <Timer
-          key={currentQuestionIndex}
-          duration={10}
-          onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
-        />
-      )}
-      {!notification && (
-        <QuestionsSequence>
-          {currentCategory?.questions.map((_, index) => (
-            <DotSequence
-              key={index}
-              status={index === currentQuestionIndex ? "current" : questionStatus[index]}
-            />
-          ))}
-        </QuestionsSequence>
-      )}
+      <S.BottomWrapper>
+        {!questionStatus[currentQuestionIndex] && (
+          <Timer
+            key={currentQuestionIndex}
+            duration={1000000}
+            onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
+          />
+        )}
+        {!notification && (
+          <QuestionsSequence>
+            {currentCategory?.questions.map((_, index) => (
+              <DotSequence
+                key={index}
+                status={
+                  index === currentQuestionIndex ? "current" : questionStatus[index]
+                }
+              />
+            ))}
+          </QuestionsSequence>
+        )}
+      </S.BottomWrapper>
 
       <Notification
         isOpen={!!notification}
