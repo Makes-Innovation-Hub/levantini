@@ -1,17 +1,11 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  useEffect,
-} from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import data from "../../../api/data.json";
-import { toast } from "react-hot-toast";
+import useFetchData from "../../../api/hooks/useFetchData";
 
 const QuizContext = createContext();
 
 export const QuizProvider = ({ children }) => {
+  const { data, isLoading } = useFetchData();
   const navigate = useNavigate();
   const { categoryId } = useParams();
 
@@ -21,15 +15,19 @@ export const QuizProvider = ({ children }) => {
   const [questionStatus, setQuestionStatus] = useState(
     Array(currentCategory?.questions.length).fill(null),
   );
+
   const [answerColors, setAnswerColors] = useState(Array(4).fill("var(--blue)"));
   const [notification, setNotification] = useState(null);
 
   useEffect(() => {
-    const category = data.data.filter((el) => {
+    if (!data) return;
+
+    const category = data.filter((el) => {
       return el.id === Number(categoryId);
     });
+
     setCurrentCategory(category[0]);
-  }, [categoryId]);
+  }, [categoryId, data]);
 
   const handleAnswerClick = (isCorrect, index) => {
     const updatedColors = [...answerColors];
@@ -55,6 +53,7 @@ export const QuizProvider = ({ children }) => {
 
   const handleQuestionTimeOut = () => {
     const updatedColors = [...answerColors];
+
     updatedColors[questionData.correctAnswer] = "var(--green)";
     setAnswerColors(updatedColors);
     setNotification({
@@ -66,6 +65,7 @@ export const QuizProvider = ({ children }) => {
 
   const handleAnswerClickWithStatus = (answerIndex) => {
     const isCorrect = answerIndex === questionData.correctAnswer;
+
     const updatedStatus = [...questionStatus];
     updatedStatus[currentQuestionIndex] = isCorrect ? "correct" : "incorrect";
     setQuestionStatus(updatedStatus);
@@ -89,15 +89,12 @@ export const QuizProvider = ({ children }) => {
     }
   };
 
-  const handleQuestionTimeOutWithStatus = useCallback(
-    (questionIndex) => {
-      const updatedStatus = [...questionStatus];
-      updatedStatus[questionIndex] = "timeout";
-      setQuestionStatus(updatedStatus);
-      handleQuestionTimeOut();
-    },
-    [questionStatus],
-  );
+  const handleQuestionTimeOutWithStatus = (questionIndex) => {
+    const updatedStatus = [...questionStatus];
+    updatedStatus[questionIndex] = "timeout";
+    setQuestionStatus(updatedStatus);
+    handleQuestionTimeOut();
+  };
 
   return (
     <QuizContext.Provider
@@ -111,6 +108,7 @@ export const QuizProvider = ({ children }) => {
         questionStatus,
         currentQuestionIndex,
         currentCategory,
+        isLoading,
       }}
     >
       {children}

@@ -7,6 +7,7 @@ import Button from "../../components/ui/Button/Button.jsx";
 import QuestionsSequence from "../../features/Quiz/components/QuestionsSequence/QuestionsSequence.jsx";
 import { DotSequence } from "../../features/Quiz/components/DoteSequence/DoteSequence.styles.js";
 import { useQuizContext } from "../../features/Quiz/context/QuizContext.jsx";
+import Spinner from "../../components/ui/Spinner/Spinner.jsx";
 
 const Quiz = () => {
   const {
@@ -19,7 +20,10 @@ const Quiz = () => {
     questionStatus,
     currentQuestionIndex,
     currentCategory,
+    isLoading,
   } = useQuizContext();
+
+  if (isLoading) return <Spinner />;
 
   const renderExplanation = (explanation) => {
     if (!explanation || !Array.isArray(explanation)) return null;
@@ -38,35 +42,40 @@ const Quiz = () => {
   return (
     <S.main>
       <QuestionBox>
-        {questionData?.answers?.map((answer, index) => (
-          <Button
-            key={index}
-            isDisabled={questionStatus[currentQuestionIndex]}
-            handleClick={() => handleAnswerClickWithStatus(index)}
-            color={answerColors[index]}
-          >
-            {answer}
-          </Button>
-        ))}
-      </QuestionBox>
-
-      {!questionStatus[currentQuestionIndex] && (
-        <Timer
-          key={currentQuestionIndex}
-          duration={10}
-          onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
-        />
-      )}
-      {!notification && (
-        <QuestionsSequence>
-          {currentCategory?.questions.map((_, index) => (
-            <DotSequence
+        <S.ButtonsWrapper>
+          {questionData?.answers?.map((answer, index) => (
+            <Button
               key={index}
-              status={index === currentQuestionIndex ? "current" : questionStatus[index]}
-            />
+              isDisabled={questionStatus[currentQuestionIndex]}
+              handleClick={() => handleAnswerClickWithStatus(index)}
+              color={answerColors[index]}
+            >
+              {answer}
+            </Button>
           ))}
-        </QuestionsSequence>
-      )}
+        </S.ButtonsWrapper>
+      </QuestionBox>
+      <S.BottomWrapper>
+        {!questionStatus[currentQuestionIndex] && (
+          <Timer
+            key={currentQuestionIndex}
+            duration={1000000}
+            onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
+          />
+        )}
+        {!notification && (
+          <QuestionsSequence>
+            {currentCategory?.questions.map((_, index) => (
+              <DotSequence
+                key={index}
+                status={
+                  index === currentQuestionIndex ? "current" : questionStatus[index]
+                }
+              />
+            ))}
+          </QuestionsSequence>
+        )}
+      </S.BottomWrapper>
 
       <Notification
         isOpen={!!notification}
