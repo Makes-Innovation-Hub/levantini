@@ -50,7 +50,7 @@
       ]
     },
     {
-      "id": 100,
+      "id": 1,
       "category": "Holidays",
       "categoryImage": "https://images.news18.com/webstories/2024/03/pexels-leeloo-the-first-6487203-2024-03-45799de92804bf12f25192433341b637-scaled.jpg",
       "questions": [
@@ -313,7 +313,7 @@
     },
 
     {
-      "id": 50,
+      "id": 6,
       "category": "Science",
       "categoryImage": "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "questions": [
@@ -364,7 +364,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "category": "Food",
       "categoryImage": "https://images.pexels.com/photos/6544491/pexels-photo-6544491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "questions": [
