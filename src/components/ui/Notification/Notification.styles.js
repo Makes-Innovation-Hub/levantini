@@ -103,6 +103,7 @@ export const ToastButton = styled.button`
   height: 57px;
   font-size: 20px;
   line-height: 22px;
+  margin-bottom: 20px;
 
   /* Responsive styles 
   @media (max-width: ${breakpoints.mobile}) {
