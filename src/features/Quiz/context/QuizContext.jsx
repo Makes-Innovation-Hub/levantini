@@ -8,6 +8,9 @@ import React, {
 import { useNavigate, useParams } from "react-router-dom";
 import data from "../../../api/data.json";
 
+import correctSoundFile from "../../../../public/Sound/correct-6033.mp3";
+import incorrectSoundFile from "../../../../public/Sound/buzzer-or-wrong-answer-20582.mp3";
+
 const QuizContext = createContext();
 
 export const QuizProvider = ({ children }) => {
@@ -65,6 +68,15 @@ export const QuizProvider = ({ children }) => {
 
   const handleAnswerClickWithStatus = (answerIndex) => {
     const isCorrect = answerIndex === questionData.correctAnswer;
+
+    if (isCorrect) {
+      const correctSound = new Audio(correctSoundFile);
+      correctSound.play();
+    } else {
+      const incorrectSound = new Audio(incorrectSoundFile);
+      incorrectSound.play();
+    }
+
     const updatedStatus = [...questionStatus];
     updatedStatus[currentQuestionIndex] = isCorrect ? "correct" : "incorrect";
     setQuestionStatus(updatedStatus);
