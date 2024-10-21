@@ -59,7 +59,7 @@ const Quiz = () => {
         {!questionStatus[currentQuestionIndex] && (
           <Timer
             key={currentQuestionIndex}
-            duration={1000000}
+            duration={10}
             onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
           />
         )}

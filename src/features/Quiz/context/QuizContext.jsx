@@ -2,8 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchData from "../../../api/hooks/useFetchData";
 
-import correctSoundFile from "../../../../public/Sound/correct-6033.mp3";
-import incorrectSoundFile from "../../../../public/Sound/buzzer-or-wrong-answer-20582.mp3";
+import { playAnswerSound } from "../../../utils/PlayAnswerSound";
 
 const QuizContext = createContext();
 
@@ -68,18 +67,16 @@ export const QuizProvider = ({ children }) => {
 
   const handleAnswerClickWithStatus = (answerIndex) => {
     const isCorrect = answerIndex === questionData.correctAnswer;
+    const status = isCorrect ? "correct" : "incorrect";
 
-    if (isCorrect) {
-      const correctSound = new Audio(correctSoundFile);
-      correctSound.play();
-    } else {
-      const incorrectSound = new Audio(incorrectSoundFile);
-      incorrectSound.play();
-    }
+    // Play the sound based on the status
+    playAnswerSound(status);
 
     const updatedStatus = [...questionStatus];
-    updatedStatus[currentQuestionIndex] = isCorrect ? "correct" : "incorrect";
+    updatedStatus[currentQuestionIndex] = status;
     setQuestionStatus(updatedStatus);
+
+    // Call the existing handler
     handleAnswerClick(isCorrect, answerIndex);
   };
 
