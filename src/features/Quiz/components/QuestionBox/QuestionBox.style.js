@@ -17,11 +17,11 @@ export const QuestionBoxSecond = styled.div`
 
   h2 {
     font-family: var(--font-rubik);
-    font-weight: 400;
+    font-weight: 600;
     font-style: italic;
     font-size: 14px;
     line-height: 18.62px;
-    margin-top: 3rem;
+    margin-top: 1%.5;
     margin-bottom: 1rem;
   }
   .answers {
