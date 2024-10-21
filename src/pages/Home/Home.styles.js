@@ -4,6 +4,7 @@ export const CategoryContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 `;
 
 export const Title = styled.h2`
@@ -30,3 +31,8 @@ export const Label = styled.span`
   font-size: 16px;
   font-weight: 400;
 `;
+export const Container = styled.div`
+display:flex;
+flex-direction: column;
+align-items: center;
+`

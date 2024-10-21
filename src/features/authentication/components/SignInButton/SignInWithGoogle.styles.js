@@ -8,11 +8,10 @@ export const GoogleSignInButton = styled.button.attrs(({ onClick }) => ({
   justify-content: center;
   width: 220px;
   height: 42px;
-  /* margin-left: 10%; */
   padding: 0 16px;
   background-color: #ffffff;
-  border: 1px solid #dadce0;
-  border-radius: 4px;
+  border: 1.5px solid #dadce0;
+  border-radius: 10px;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 500;

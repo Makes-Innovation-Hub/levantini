@@ -1,5 +1,5 @@
 import Toast from "./Toast";
-import { useState } from "react";
+
 import QuizNotification from "./QuizNotification";
 
 const Notification = ({ isOpen, title, color, explanation, handleNextQuestion }) => {

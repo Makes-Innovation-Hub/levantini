@@ -5,6 +5,7 @@ export const LogoutGoogle = styled.button`
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,5 +18,8 @@ export const LogoutGoogle = styled.button`
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
   }
+
   
 `;
+
+

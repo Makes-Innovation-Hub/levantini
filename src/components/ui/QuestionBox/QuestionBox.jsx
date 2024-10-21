@@ -1,65 +1,65 @@
-import React from "react";
-import Button from "../Button/Button";
-import YouTubePlayer from "../VideoQuestion/YouTubePlayer.jsx";
-import * as S from "./QuestionBox.style.js";
+// import React from "react";
+// import Button from "../../../../components/ui/Button/Button.jsx";
+// import YouTubePlayer from "../../../../lib/YouTubePlayer/YouTubePlayer.jsx";
+// import * as S from "./QuestionBox.style.js";
 
-// Utility to extract the video ID from YouTube URL
-const extractYouTubeVideoId = (url) => {
-  const regExp = /^.*(youtu.be\/|v\/|\/u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-  const match = url.match(regExp);
-  return match && match[2].length === 11 ? match[2] : null;
-};
+// const QuestionBox = ({
+//   handleOnClick,
+//   questionData,
+//   answerColors,
+//   notification,
+//   handleNextQuestion,
+//   handleQuestionTimeOut,
+//   children,
+// }) => {
+//   if (!questionData) return <p>No question data available</p>;
 
-const QuestionBox = ({
-  handleOnClick,
-  questionData,
-  answerColors,
-  notification,
-  handleNextQuestion,
-  handleQuestionTimeOut,
-}) => {
-  if (!questionData) return <p>No question data available</p>;
+//   const renderExplanation = (explanation) => {
+//     return explanation.map((sentence, index) => (
+//       <span key={index}>
+//         {sentence}
+//         <br />
+//       </span>
+//     ));
+//   };
 
-  const renderExplanation = (explanation) => {
-    return explanation.map((sentence, index) => (
-      <span key={index}>
-        {sentence}
-        <br />
-      </span>
-    ));
-  };
+//   const renderQuestionType = () => {
+//     switch (questionData.questionType) {
+//       case "video":
+//         return (
+//           <div>
+//             <YouTubePlayer url={questionData.video} width="330" height="255" />;
+//           </div>
+//         );
 
-  const videoId =
-    questionData.questionType === "video" && questionData.video
-      ? extractYouTubeVideoId(questionData.video)
-      : null;
+//       case "image":
+//         return (
+//           <div>
+//             <img src={questionData.image} alt={questionData.explanation} />
+//           </div>
+//         );
 
-  return (
-    <S.QuestionBoxFirst>
-      <S.QuestionBoxSecond>
-        <h2>{questionData.question}</h2>
+//       case "text":
+//         return (
+//           <div>
+//             <p>{questionData.text}</p>{" "}
+//           </div>
+//         );
 
-        {questionData.questionType === "image" && (
-          <S.Image src={questionData.image} alt="Question" />
-        )}
-        {questionData.questionType === "text" && <p>{questionData.text}</p>}
-        {questionData.questionType === "video" && videoId && (
-          <YouTubePlayer videoId={videoId} width="330" height="255" />
-        )}
+//       default:
+//         null;
+//     }
+//   };
 
-        <div className="answers">
-          {questionData.answers.map((answer, index) => (
-            <Button
-              key={index}
-              handleClick={() => handleOnClick(index)}
-              color={answerColors[index]}
-            >
-              {answer}
-            </Button>
-          ))}
-        </div>
-      </S.QuestionBoxSecond>
-    </S.QuestionBoxFirst>
-  );
-};
-export default QuestionBox;
+//   return (
+//     <S.QuestionBoxFirst>
+//       <S.QuestionBoxSecond>
+//         <h2>{questionData.question}</h2>
+//         {renderQuestionType()}
+
+//         <div className="answers">{children}</div>
+//       </S.QuestionBoxSecond>
+//     </S.QuestionBoxFirst>
+//   );
+// };
+// export default QuestionBox;
