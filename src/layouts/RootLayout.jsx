@@ -20,7 +20,7 @@ const RootLayout = () => (
     transition={{ duration: 1 }}
   >
     <Header />
-    <Menu /> 
+   
     <Toaster />
     <Outlet />
   </motion.div>

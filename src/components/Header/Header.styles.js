@@ -3,11 +3,23 @@ import styled from "styled-components";
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 16px 20px 0 20px;
-  position: fixed;
-  width: 100%;
-  z-index:10;
+  margin-top:10px
+
 `;
+
 export const LogoContainer = styled.div`
-  padding-top: 16px;
+
+`;
+
+
+export const ScoreContainer = styled.div`
+  margin-left: 20px;  
+
+  `;
+
+export const MenuContainer = styled.div`
+    
+ margin-right:50px 
+ 
+  
 `;
