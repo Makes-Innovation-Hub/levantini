@@ -1,7 +1,7 @@
 import * as S from "./Timer.styles.js";
 import { useState, useEffect } from "react";
 
-const Timer = ({ duration, onTimerEnd }) => {
+const Timer = ({ duration, onTimerEnd, setRemainingTime }) => {
   const [progress, setProgress] = useState(100);
 
   useEffect(() => {
@@ -10,7 +10,6 @@ const Timer = ({ duration, onTimerEnd }) => {
         if (prev <= 0) {
           clearInterval(interval);
           if (onTimerEnd) {
-            console.log("im inside");
             onTimerEnd();
           }
           return 0;
@@ -22,7 +21,7 @@ const Timer = ({ duration, onTimerEnd }) => {
     return () => {
       clearInterval(interval);
     };
-  }, [duration, onTimerEnd]);
+  }, [duration, onTimerEnd, setRemainingTime]);
 
   return (
     <S.Container>
@@ -33,4 +32,5 @@ const Timer = ({ duration, onTimerEnd }) => {
     </S.Container>
   );
 };
+
 export default Timer;

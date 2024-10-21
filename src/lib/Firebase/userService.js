@@ -85,26 +85,3 @@ export const updateUserPoints = async (uid, newPoints) => {
     throw error;
   }
 };
-// Initialize Firestore
-
-// export const updateUserPoints = async (userId, additionalPoints) => {
-//   try {
-//     const userRef = doc(db, LEVANTINI_USERS, userId);
-//     const userSnap = await getDoc(userRef);
-
-//     if (userSnap.exists()) {
-//       const userData = userSnap.data();
-//       const currentPoints = userData.points || 0;
-
-//       // Update the user's points
-//       await updateDoc(userRef, {
-//         points: currentPoints + additionalPoints,
-//       });
-//     } else {
-//       console.error("User document not found");
-//     }
-//   } catch (error) {
-//     console.error("Error updating user points:", error);
-//     throw new Error("Could not update points");
-//   }
-// };
