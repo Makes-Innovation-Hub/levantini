@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchData from "../../../api/hooks/useFetchData";
+import mutationPoints from "../../../api/hooks/useMutationPoints";
 
 const QuizContext = createContext();
 
@@ -62,9 +63,13 @@ export const QuizProvider = ({ children }) => {
       explanation: questionData.explanation,
     });
   };
-
-  const handleAnswerClickWithStatus = (answerIndex) => {
+  const updateScore = () => {
+    // API call to update score
+  };
+  const handleAnswerClickWithStatus = async (answerIndex) => {
     const isCorrect = answerIndex === questionData.correctAnswer;
+    await updateScore();
+    mutationPoints();
 
     const updatedStatus = [...questionStatus];
     updatedStatus[currentQuestionIndex] = isCorrect ? "correct" : "incorrect";
