@@ -1,13 +1,15 @@
 import * as React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { LEADER_BOARD, LOGIN, QUESTION_PAGE, ROOT } from "./routeConstants";
+import { LOGIN, QUIZ, ROOT, LEADER_BOARD } from "./routeConstants";
+
 import Home from "@/pages/Home/Home";
-import QuestionPage from "../pages/QuestionPage";
+
 import RootLayout from "../layouts/RootLayout";
 import Page404 from "@/pages/Page404/Page404";
-import LeaderBoard from "@/pages/LeaderBoard/LeaderBoard";
+import { QuizProvider } from "../features/Quiz/context/QuizContext.jsx";
 const Login = React.lazy(() => import("@pages/Login/Login"));
-
+const Quiz = React.lazy(() => import("../pages/Quiz/Quiz.jsx"));
+const LeaderBoard = React.lazy(() => import("../pages/LeaderBoard/LeaderBoard.jsx"));
 const router = createBrowserRouter([
   {
     path: ROOT,
@@ -16,8 +18,12 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
 
       {
-        path: QUESTION_PAGE,
-        element: <QuestionPage />,
+        path: `${QUIZ}/:categoryId`,
+        element: (
+          <QuizProvider>
+            <Quiz />
+          </QuizProvider>
+        ),
       },
       {
         path: LOGIN,

@@ -1,19 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-import svgr from "vite-plugin-svgr";
 export default defineConfig({
   plugins: [
     react({
       babel: {
         plugins: ["babel-plugin-macros", "babel-plugin-styled-components"],
       },
-    }),
-    svgr({
-      svgrOptions: {
-        icon: true, // Optional, to set the viewBox for better scaling
-      },
-      include: "**/*.svg",
     }),
   ],
   resolve: {

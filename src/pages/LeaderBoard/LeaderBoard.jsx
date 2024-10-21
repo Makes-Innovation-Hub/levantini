@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import LeaderIcon from "../../components/ui/LeaderIcon/LeaderIcon";
 import { LeaderboardContainer } from "./LeaderBoard.Style";
 import { useAuth } from "../../features/authentication/context/AuthContext";

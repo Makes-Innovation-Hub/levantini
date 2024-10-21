@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as S from "./TextQuestionType.styles";
+import * as S from "./TextQuestionType.styles.js";
 
 const TextQuestion = ({ question, text }) => {
   const [userAnswer, setUserAnswer] = useState("");

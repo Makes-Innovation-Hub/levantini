@@ -1,9 +1,12 @@
+import CategoryThumbNail from "../../components/CategoryThumbNail/CategoryThumbNail";
+import * as S from "./Home.styles";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../features/authentication/context/AuthContext";
-import CategoryThumbNail from "../../components/CategoryThumbNail/CategoryThumbNail";
-import * as S from "./Home.styles";
-import useFetchData from "../../api/hooks/usefetchData";
+import CategoryLabel from "../../components/ui/CategoryStatus/CategoryLabel";
+import { QUIZ } from "../../routes/routeConstants.js";
+
+import useFetchData from "../../api/hooks/useFetchData";
 import Spinner from "../../components/ui/Spinner/Spinner";
 
 const Home = () => {
@@ -21,18 +24,29 @@ const Home = () => {
   }
 
   if (isError) return <div>Error fetching posts</div>;
-
+  const handleOnClick = (categoryId) => {
+    navigate(`${QUIZ}/${categoryId}`);
+  };
   return (
-    <S.CategoryContainer>
-      <S.Title>Choose your category of game</S.Title>
-      <S.GridContainer>
-        {data.map((category) => (
-          <CategoryThumbNail key={category.id} imgUrl={category.categoryImage}>
-            <S.Label>{category.category}</S.Label>
-          </CategoryThumbNail>
-        ))}
-      </S.GridContainer>
-    </S.CategoryContainer>
+    <>
+      <S.CategoryContainer>
+        <S.Title>Choose your category of game</S.Title>
+        <S.GridContainer>
+          {data.map((category, index) => {
+            const position = index % 2 === 0 ? "left" : "right";
+
+            return (
+              <S.Container key={category.id} onClick={() => handleOnClick(category.id)}>
+                <CategoryThumbNail imgUrl={category.categoryImage}>
+                  <S.Label>{category.category}</S.Label>
+                </CategoryThumbNail>
+                <CategoryLabel position={position} status="locked" />
+              </S.Container>
+            );
+          })}
+        </S.GridContainer>
+      </S.CategoryContainer>
+    </>
   );
 };
 

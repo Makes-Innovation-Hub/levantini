@@ -7,6 +7,7 @@ import {
   orderBy,
   query,
   setDoc,
+  updateDoc,
 } from "firebase/firestore";
 import { db } from "./firebaseSetup";
 import { LEVANTINI_USERS } from "../Firebase/constants";
@@ -22,7 +23,6 @@ export const createOrGetUser = async (user) => {
         points: 0,
         photoURL: user.photoURL,
       };
-      console.log(userSnap);
       await setDoc(userRef, newUser);
       return newUser;
     } else {
@@ -56,3 +56,55 @@ export const getLeaderboard = async () => {
     throw error;
   }
 };
+
+export const getUserPoints = async (uid) => {
+  try {
+    const userRef = doc(db, LEVANTINI_USERS, uid);
+    const userSnap = await getDoc(userRef);
+    if (userSnap.exists()) {
+      const userData = userSnap.data();
+      return userData.points || 0;
+    } else {
+      console.error("No such user!");
+      return 0;
+    }
+  } catch (error) {
+    console.error("Error fetching user points:", error);
+    throw error;
+  }
+};
+
+// Update user points in Firebase
+export const updateUserPoints = async (uid, newPoints) => {
+  try {
+    const userRef = doc(db, LEVANTINI_USERS, uid);
+    await updateDoc(userRef, { points: newPoints });
+    console.log("Points updated to:", newPoints);
+  } catch (error) {
+    console.error("Error updating points:", error);
+    throw error;
+  }
+};
+// Initialize Firestore
+
+// export const updateUserPoints = async (userId, additionalPoints) => {
+//   try {
+//     const userRef = doc(db, LEVANTINI_USERS, userId);
+//     const userSnap = await getDoc(userRef);
+
+//     if (userSnap.exists()) {
+//       const userData = userSnap.data();
+//       const currentPoints = userData.points || 0;
+
+//       // Update the user's points
+//       await updateDoc(userRef, {
+//         points: currentPoints + additionalPoints,
+//       });
+//     } else {
+//       console.error("User document not found");
+//     }
+//   } catch (error) {
+//     console.error("Error updating user points:", error);
+//     throw new Error("Could not update points");
+//   }
+// };
