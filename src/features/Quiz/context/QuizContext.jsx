@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchData from "../../../api/hooks/useFetchData";
 import { useMutatePoints } from "../../../api/hooks/useMutationPoints";
-import { updateUserPoints } from "../../../lib/Firebase/userService"; // Firebase points update function
+import { updateUserPoints } from "../../../lib/Firebase/userService";
 import { auth } from "../../../lib/Firebase/firebaseSetup";
 const QuizContext = createContext();
 
@@ -13,7 +13,7 @@ export const QuizProvider = ({ children }) => {
   const [currentCategory, setCurrentCategory] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const questionData = currentCategory?.questions[currentQuestionIndex];
-  const { mutate: mutatePoints } = useMutatePoints(); // Destructure the mutate function
+  const { mutate: mutatePoints } = useMutatePoints();
   const user = auth.currentUser;
   const [questionStatus, setQuestionStatus] = useState(
     Array(currentCategory?.questions.length).fill(null),
@@ -37,25 +37,22 @@ export const QuizProvider = ({ children }) => {
     });
   };
 
-  const handleAnswerClickWithStatus = async (answerIndex, remainingTime) => {
+  const handleAnswerClickWithStatus = (answerIndex, remainingTime) => {
     const isCorrect = answerIndex === questionData.correctAnswer;
     let points = 0;
 
-    // Calculate points based on correctness and remaining time
     if (isCorrect) {
       points += 10;
       if (remainingTime >= 7) {
-        points += 3; // Time bonus
+        points += 3;
       }
     }
 
-    // Use the mutation to update points
     mutatePoints({
-      userId: user.uid, // Pass the current user's ID
-      points: points, // Pass the calculated points
+      userId: user.uid,
+      points: points,
     });
 
-    // Update UI (status, colors, notification)
     const updatedStatus = [...questionStatus];
     updatedStatus[currentQuestionIndex] = isCorrect ? "correct" : "incorrect";
     setQuestionStatus(updatedStatus);
@@ -85,14 +82,12 @@ export const QuizProvider = ({ children }) => {
       navigate("/");
     }
   }, [notification]);
-  // Function to handle moving to the next question and award category completion bonus
   const handleNextQuestion = async () => {
     if (currentQuestionIndex < currentCategory?.questions.length - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       setAnswerColors(Array(4).fill("var(--blue)"));
       setNotification(null);
     } else {
-      // Award 5 points as a category completion bonus if all questions are answered
       await updateUserPoints(5);
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       setNotification(null);

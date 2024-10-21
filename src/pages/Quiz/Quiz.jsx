@@ -23,7 +23,6 @@ const Quiz = () => {
     isLoading,
   } = useQuizContext();
 
-  // Add a state for remainingTime
   const [remainingTime, setRemainingTime] = useState(10);
 
   if (isLoading) return <Spinner />;
@@ -50,7 +49,7 @@ const Quiz = () => {
             <Button
               key={index}
               isDisabled={questionStatus[currentQuestionIndex]}
-              handleClick={() => handleAnswerClickWithStatus(index, remainingTime)} // Pass remainingTime when answering
+              handleClick={() => handleAnswerClickWithStatus(index, remainingTime)}
               color={answerColors[index]}
             >
               {answer}
@@ -64,7 +63,7 @@ const Quiz = () => {
             key={currentQuestionIndex}
             duration={10}
             onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
-            setRemainingTime={setRemainingTime} // Pass setRemainingTime to capture remaining time
+            setRemainingTime={setRemainingTime}
           />
         )}
         {!notification && (

@@ -20,17 +20,15 @@ const fetchUserPoints = async (userId) => {
 export default function ScoreDisplay() {
   const user = auth.currentUser;
 
-  // Use the object form for `useQuery`
   const { data: totalPoints = 0 } = useQuery({
-    queryKey: [LEVANTINI_USERS, user?.uid], // Query key
-    queryFn: () => fetchUserPoints(user.uid), // Fetch function
-    enabled: !!user, // Ensure the query runs only if the user is authenticated
+    queryKey: [LEVANTINI_USERS, user?.uid],
+    queryFn: () => fetchUserPoints(user.uid),
+    enabled: !!user,
   });
 
   return (
     <S.LogoContainer>
       <S.LogoSvgContainer>
-        {/* Restoring the SVG icon */}
         <svg
           width="25"
           height="25"
