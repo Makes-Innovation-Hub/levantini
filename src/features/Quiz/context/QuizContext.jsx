@@ -1,12 +1,6 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  useEffect,
-} from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import data from "../../../api/data.json";
+import useFetchData from "../../../api/hooks/useFetchData";
 
 import correctSoundFile from "../../../../public/Sound/correct-6033.mp3";
 import incorrectSoundFile from "../../../../public/Sound/buzzer-or-wrong-answer-20582.mp3";
@@ -14,6 +8,7 @@ import incorrectSoundFile from "../../../../public/Sound/buzzer-or-wrong-answer-
 const QuizContext = createContext();
 
 export const QuizProvider = ({ children }) => {
+  const { data, isLoading } = useFetchData();
   const navigate = useNavigate();
   const { categoryId } = useParams();
 
@@ -23,15 +18,19 @@ export const QuizProvider = ({ children }) => {
   const [questionStatus, setQuestionStatus] = useState(
     Array(currentCategory?.questions.length).fill(null),
   );
+
   const [answerColors, setAnswerColors] = useState(Array(4).fill("var(--blue)"));
   const [notification, setNotification] = useState(null);
 
   useEffect(() => {
-    const category = data.data.filter((el) => {
+    if (!data) return;
+
+    const category = data.filter((el) => {
       return el.id === Number(categoryId);
     });
+
     setCurrentCategory(category[0]);
-  }, [categoryId]);
+  }, [categoryId, data]);
 
   const handleAnswerClick = (isCorrect, index) => {
     const updatedColors = [...answerColors];
@@ -57,6 +56,7 @@ export const QuizProvider = ({ children }) => {
 
   const handleQuestionTimeOut = () => {
     const updatedColors = [...answerColors];
+
     updatedColors[questionData.correctAnswer] = "var(--green)";
     setAnswerColors(updatedColors);
     setNotification({
@@ -100,15 +100,12 @@ export const QuizProvider = ({ children }) => {
     }
   };
 
-  const handleQuestionTimeOutWithStatus = useCallback(
-    (questionIndex) => {
-      const updatedStatus = [...questionStatus];
-      updatedStatus[questionIndex] = "timeout";
-      setQuestionStatus(updatedStatus);
-      handleQuestionTimeOut();
-    },
-    [questionStatus],
-  );
+  const handleQuestionTimeOutWithStatus = (questionIndex) => {
+    const updatedStatus = [...questionStatus];
+    updatedStatus[questionIndex] = "timeout";
+    setQuestionStatus(updatedStatus);
+    handleQuestionTimeOut();
+  };
 
   return (
     <QuizContext.Provider
@@ -122,6 +119,7 @@ export const QuizProvider = ({ children }) => {
         questionStatus,
         currentQuestionIndex,
         currentCategory,
+        isLoading,
       }}
     >
       {children}

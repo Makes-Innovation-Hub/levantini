@@ -7,16 +7,6 @@ import { useQuizContext } from "../../context/QuizContext.jsx";
 export const QuestionBox = ({ children }) => {
   const { questionData } = useQuizContext();
   if (!questionData) return <p>No question data available</p>;
-  console.log({ questionData });
-
-  const renderExplanation = (explanation) => {
-    return explanation.map((sentence, index) => (
-      <span key={index}>
-        {sentence}
-        <br />
-      </span>
-    ));
-  };
 
   const renderQuestionType = () => {
     switch (questionData.questionType) {
@@ -41,9 +31,10 @@ export const QuestionBox = ({ children }) => {
 
       case "text":
         return (
-          <div>
+          // <TextQuestionType text={questionData.text} />
+          <main>
             <p>{questionData.text}</p>{" "}
-          </div>
+          </main>
         );
 
       default:
@@ -57,21 +48,7 @@ export const QuestionBox = ({ children }) => {
         <h2>{questionData.question}</h2>
         {renderQuestionType()}
 
-        <div className="answers">
-          {children}
-          {/* {questionData.answers.map((answer, index) => {
-            console.log({ index });
-            return (
-              <Button
-                key={index}
-                handleClick={() => handleOnClick(index)}
-                color={answerColors[index]}
-              >
-                {answer}
-              </Button>
-            );
-          })} */}
-        </div>
+        <div className="answers">{children}</div>
       </S.QuestionBoxSecond>
     </S.QuestionBoxFirst>
   );

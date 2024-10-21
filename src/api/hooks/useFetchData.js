@@ -19,6 +19,7 @@ const useFetchData = () => {
     queryKey: [LEVANTINI_KEY],
     queryFn: fetchCategories,
   });
+
   return { data, isLoading, isError };
 };
 
