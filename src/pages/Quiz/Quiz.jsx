@@ -20,6 +20,7 @@ const Quiz = () => {
     currentQuestionIndex,
     currentCategory,
   } = useQuizContext();
+  if (!questionData) return null;
 
   const renderExplanation = (explanation) => {
     if (!explanation || !Array.isArray(explanation)) return null;

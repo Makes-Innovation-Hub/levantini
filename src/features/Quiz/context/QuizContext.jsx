@@ -7,7 +7,6 @@ import React, {
 } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import data from "../../../api/data.json";
-import { toast } from "react-hot-toast";
 
 const QuizContext = createContext();
 

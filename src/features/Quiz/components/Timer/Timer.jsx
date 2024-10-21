@@ -1,23 +1,20 @@
 import * as S from "./Timer.styles.js";
 import { useState, useEffect } from "react";
 
-const Timer = ({ duration, onTimerEnd, setRemainingTime }) => {
+const Timer = ({ duration, onTimerEnd }) => {
   const [progress, setProgress] = useState(100);
 
   useEffect(() => {
-    let timeLeft = duration;
-
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev <= 0) {
           clearInterval(interval);
           if (onTimerEnd) {
+            console.log("im inside");
             onTimerEnd();
           }
           return 0;
         }
-        timeLeft -= 1; // Decrease remaining time
-        setRemainingTime(timeLeft); // Update remaining time in Quiz component
         return prev - 100 / duration;
       });
     }, 1000);
@@ -25,7 +22,7 @@ const Timer = ({ duration, onTimerEnd, setRemainingTime }) => {
     return () => {
       clearInterval(interval);
     };
-  }, [duration, onTimerEnd, setRemainingTime]);
+  }, [duration, onTimerEnd]);
 
   return (
     <S.Container>
@@ -36,5 +33,4 @@ const Timer = ({ duration, onTimerEnd, setRemainingTime }) => {
     </S.Container>
   );
 };
-
 export default Timer;
