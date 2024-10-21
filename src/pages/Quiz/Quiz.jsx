@@ -42,16 +42,18 @@ const Quiz = () => {
   return (
     <S.main>
       <QuestionBox>
-        {questionData?.answers?.map((answer, index) => (
-          <Button
-            key={index}
-            isDisabled={questionStatus[currentQuestionIndex]}
-            handleClick={() => handleAnswerClickWithStatus(index)}
-            color={answerColors[index]}
-          >
-            {answer}
-          </Button>
-        ))}
+        <S.ButtonsWrapper>
+          {questionData?.answers?.map((answer, index) => (
+            <Button
+              key={index}
+              isDisabled={questionStatus[currentQuestionIndex]}
+              handleClick={() => handleAnswerClickWithStatus(index)}
+              color={answerColors[index]}
+            >
+              {answer}
+            </Button>
+          ))}
+        </S.ButtonsWrapper>
       </QuestionBox>
       <S.BottomWrapper>
         {!questionStatus[currentQuestionIndex] && (

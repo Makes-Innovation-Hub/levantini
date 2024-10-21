@@ -9,7 +9,6 @@ export const QuestionBox = ({ children }) => {
   if (!questionData) return <p>No question data available</p>;
 
   const renderQuestionType = () => {
-    console.log(questionData.questionType);
     switch (questionData.questionType) {
       case "video":
         return (

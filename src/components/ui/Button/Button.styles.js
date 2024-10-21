@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import { breakpoints } from "../../../styles/breakingpoints";
 
 export const Button = styled.button`
-  margin: 11px 0;
   padding: 2px 0;
   padding-left: 17px;
   text-align: left;
