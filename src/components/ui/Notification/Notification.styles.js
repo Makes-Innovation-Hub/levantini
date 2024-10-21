@@ -14,6 +14,7 @@ export const ToastContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 10px;
 
   /* Responsive styles 
   @media (max-width: ${breakpoints.mobile}) {
