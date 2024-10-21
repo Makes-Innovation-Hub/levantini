@@ -1,17 +1,36 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "../../../lib/Firebase/firebaseSetup";
+import { LEVANTINI_USERS } from "../../../lib/Firebase/constants";
 import AnimatedNumbers from "react-animated-numbers";
 import * as S from "./ScoreDisplay.styles";
 
-export default function ScoreDisplay({ points = 0 }) {
-  const [totalPoints, setTotalPoints] = useState(points);
+const fetchUserPoints = async (userId) => {
+  const userDocRef = doc(db, LEVANTINI_USERS, userId);
+  const userDoc = await getDoc(userDocRef);
 
-  useEffect(() => {
-    setTotalPoints((prevPoints) => prevPoints + points);
-  }, [points]);
+  if (userDoc.exists()) {
+    return userDoc.data().points || 0;
+  } else {
+    console.error("User document does not exist");
+    return 0;
+  }
+};
+
+export default function ScoreDisplay() {
+  const user = auth.currentUser;
+
+  // Use the object form for `useQuery`
+  const { data: totalPoints = 0 } = useQuery({
+    queryKey: [LEVANTINI_USERS, user?.uid], // Query key
+    queryFn: () => fetchUserPoints(user.uid), // Fetch function
+    enabled: !!user, // Ensure the query runs only if the user is authenticated
+  });
 
   return (
     <S.LogoContainer>
       <S.LogoSvgContainer>
+        {/* Restoring the SVG icon */}
         <svg
           width="25"
           height="25"

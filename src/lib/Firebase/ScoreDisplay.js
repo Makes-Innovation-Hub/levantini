@@ -1,34 +1,34 @@
-import { doc, getDoc, increment, updateDoc } from "firebase/firestore";
-import { LEVANTINI_USERS } from "./constants";
-import { db } from "./firebaseSetup";
+// import { useEffect, useState } from "react";
+// import { doc, onSnapshot } from "firebase/firestore";
+// import { auth, db } from "../../../lib/Firebase/firebaseSetup";
+// import { LEVANTINI_USERS } from "../../../lib/Firebase/constants";
 
+// export default function ScoreDisplay() {
+//   const [totalPoints, setTotalPoints] = useState(0);
 
-export const getUserPoints = async (uid) => {
-  try {
-    const userRef = doc(db, LEVANTINI_USERS, uid);
-    const userSnap = await getDoc(userRef);
+//   useEffect(() => {
+//     const user = auth.currentUser;
 
-    if (userSnap.exists()) {
-      const userData = userSnap.data();
-      return userData.points || 0;
-    } else {
-      console.error("No such user!");
-      return 0;
-    }
-  } catch (error) {
-    console.error("Error fetching user points:", error);
-    throw error;
-  }
-};
+//     if (!user) {
+//       console.error("User is not authenticated");
+//       return;
+//     }
 
-// Update user points
-export const updateUserPoints = async (uid, points) => {
-  const userRef = doc(db, LEVANTINI_USERS, uid);
-  try {
-    await updateDoc(userRef, {
-      points: increment(points), // Increment the points in Firebase
-    });
-  } catch (error) {
-    console.error("Error updating user points:", error);
-  }
-};
+//     const userRef = doc(db, LEVANTINI_USERS, user.uid);
+
+//     // Real-time listener for points update
+//     const unsubscribe = onSnapshot(userRef, (docSnap) => {
+//       if (docSnap.exists()) {
+//         const userData = docSnap.data();
+//         setTotalPoints(userData.points || 0); // Update UI with real-time points
+//       } else {
+//         console.error("User document does not exist");
+//       }
+//     });
+
+//     // Cleanup the listener on component unmount
+//     return () => unsubscribe();
+//   }, []);
+
+//   return <div>Total Points: {totalPoints}</div>;
+// }
