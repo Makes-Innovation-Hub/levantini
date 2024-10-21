@@ -8,8 +8,7 @@ export const breakpoints = {
 };
 
 export const ToastContainer = styled.div`
-  width: 100vw;
-  height: 270px;
+  min-height: 270px;
   overflow-y: auto;
   color: var(--white);
   display: flex;
