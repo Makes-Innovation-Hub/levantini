@@ -1,8 +1,10 @@
 import * as S from "./Timer.styles.js";
 import { useState, useEffect } from "react";
+import warningSound from "../../../../../public/Sound/time-passing-sound-effect-fast-clock-108403.mp3";
 
 const Timer = ({ duration, onTimerEnd }) => {
   const [progress, setProgress] = useState(100);
+  const [hasPlayedSound, setHasPlayedSound] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,6 +25,14 @@ const Timer = ({ duration, onTimerEnd }) => {
     };
   }, [duration, onTimerEnd]);
 
+  useEffect(() => {
+    if (progress <= 20 && !hasPlayedSound) {
+      const sound = new Audio(warningSound);
+      sound.play();
+      setHasPlayedSound(true);
+    }
+  }, [progress, hasPlayedSound]);
+
   return (
     <S.Container>
       <S.TimerContainer>
@@ -32,4 +42,5 @@ const Timer = ({ duration, onTimerEnd }) => {
     </S.Container>
   );
 };
+
 export default Timer;
