@@ -1,8 +1,6 @@
-// Import the sound files for correct and incorrect answers
-import correctSoundFile from "./path-to-your-correct-sound.mp3"; // Replace with actual path
-import incorrectSoundFile from "./path-to-your-incorrect-sound.mp3"; // Replace with actual path
+import correctSoundFile from "../../public/Sound/correct-6033.mp3";
+import incorrectSoundFile from "../../public/Sound/buzzer-or-wrong-answer-20582.mp3";
 
-// Function to handle playing sound based on the status
 export const playAnswerSound = (status) => {
   let sound;
 
@@ -13,11 +11,7 @@ export const playAnswerSound = (status) => {
     case "incorrect":
       sound = new Audio(incorrectSoundFile);
       break;
-    default:
-      console.warn("Unknown status for playing sound");
-      return; // Exit if the status is unknown
   }
 
-  // Play the corresponding sound
   sound.play();
 };
