@@ -10,10 +10,10 @@ export const LogoContainer = styled.div`
 
 export const CounterContainer = styled.div`
   background-color: #47434d;
-  border-radius: 12px;
-  padding: 0px 4px;
+  border-radius: 5px;
+  padding: 0px 3px;
   color: var(--white);
-  font-size: 8px;
+  font-size: 4.5px;
 `;
 
 export const LogoSvgContainer = styled.div`

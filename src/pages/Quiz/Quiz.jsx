@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "../Quiz/Quiz.styled.js";
 import QuestionBox from "../../features/Quiz/components/QuestionBox/index.js";
 import Notification from "../../components/ui/Notification/Notification.jsx";
@@ -22,6 +22,8 @@ const Quiz = () => {
     currentCategory,
     isLoading,
   } = useQuizContext();
+
+  const [remainingTime, setRemainingTime] = useState(10);
 
   if (isLoading) return <Spinner />;
 
@@ -47,7 +49,7 @@ const Quiz = () => {
             <Button
               key={index}
               isDisabled={questionStatus[currentQuestionIndex]}
-              handleClick={() => handleAnswerClickWithStatus(index)}
+              handleClick={() => handleAnswerClickWithStatus(index, remainingTime)}
               color={answerColors[index]}
             >
               {answer}
@@ -59,8 +61,9 @@ const Quiz = () => {
         {!questionStatus[currentQuestionIndex] && (
           <Timer
             key={currentQuestionIndex}
-            duration={1000000}
+            duration={10}
             onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
+            setRemainingTime={setRemainingTime}
           />
         )}
         {!notification && (

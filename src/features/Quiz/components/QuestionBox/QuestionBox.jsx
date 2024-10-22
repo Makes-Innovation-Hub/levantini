@@ -32,9 +32,9 @@ export const QuestionBox = ({ children }) => {
       case "text":
         return (
           // <TextQuestionType text={questionData.text} />
-          <main>
+          <div>
             <p>{questionData.text}</p>{" "}
-          </main>
+          </div>
         );
 
       default:

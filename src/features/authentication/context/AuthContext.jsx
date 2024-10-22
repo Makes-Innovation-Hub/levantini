@@ -5,10 +5,10 @@ import {
   onAuthStateChanged,
   signOut as firebaseSignOut,
 } from "firebase/auth";
-import { auth, db } from "../../../lib/Firebase/firebaseSetup";
-import { LEVANTINI_USERS } from "../../../lib/Firebase/constants";
-import { doc, getDoc } from "firebase/firestore";
+import { auth } from "../../../lib/Firebase/firebaseSetup";
+
 import { createOrGetUser } from "../../../lib/Firebase/userService";
+
 const AuthContext = createContext();
 export function useAuth() {
   return useContext(AuthContext);
@@ -22,9 +22,9 @@ export const AuthProvider = ({ children }) => {
         if (user) {
           try {
             const userInCollection = await createOrGetUser(user);
-            console.log(userInCollection);
-            setCurrentUser((prev) => {
-              return { ...userInCollection };
+
+            setCurrentUser({
+              ...userInCollection,
             });
           } catch (error) {
             console.error("Error fetching user data: ", error);
@@ -35,6 +35,7 @@ export const AuthProvider = ({ children }) => {
         }
         setLoading(false);
       };
+
       fetchUserData();
     });
     return () => unsubscribe();
@@ -45,8 +46,9 @@ export const AuthProvider = ({ children }) => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       const userInCollection = await createOrGetUser(user);
-      setCurrentUser((prev) => {
-        return { ...userInCollection };
+
+      setCurrentUser({
+        ...userInCollection,
       });
       if (onSuccess) {
         onSuccess(user);

@@ -1,13 +1,57 @@
-import { useEffect, useState } from "react";
-import AnimatedNumbers from "react-animated-numbers";
+import React, { useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { doc, getDoc, onSnapshot } from "firebase/firestore";
+import { auth, db } from "../../../lib/Firebase/firebaseSetup";
+import { LEVANTINI_USERS } from "../../../lib/Firebase/constants";
 import * as S from "./ScoreDisplay.styles";
+import { useDispatch, useSelector } from "react-redux";
+import { setPoints } from "../../../redux/slices/app.slice";
 
-export default function ScoreDisplay({ points = 0 }) {
-  const [totalPoints, setTotalPoints] = useState(points);
+const fetchUserPoints = async (userId) => {
+  const userDocRef = doc(db, LEVANTINI_USERS, userId);
+  const userDoc = await getDoc(userDocRef);
+
+  if (userDoc.exists()) {
+    return userDoc.data().points || 0;
+  } else {
+    console.error("User document does not exist");
+    return 0;
+  }
+};
+
+export default function ScoreDisplay() {
+  const user = auth.currentUser;
+  const dispatch = useDispatch();
+  const points = useSelector((state) => state.app.points);
+
+  console.log("Points from Redux state:", points);
+
+  const { data: totalPoints } = useQuery({
+    queryKey: [LEVANTINI_USERS, user?.uid],
+    queryFn: () => fetchUserPoints(user.uid),
+    enabled: !!user,
+  });
 
   useEffect(() => {
-    setTotalPoints((prevPoints) => prevPoints + points);
-  }, [points]);
+    if (user) {
+      const userDocRef = doc(db, LEVANTINI_USERS, user.uid);
+
+      const unsubscribe = onSnapshot(userDocRef, (docSnapshot) => {
+        if (docSnapshot.exists()) {
+          const userData = docSnapshot.data();
+          const updatedPoints = userData.points || 0;
+
+          dispatch(setPoints(updatedPoints));
+        } else {
+          console.error("User document does not exist");
+        }
+      });
+
+      return () => unsubscribe();
+    }
+  }, [user, dispatch]);
+
+  const displayPoints = typeof points === "number" ? points : totalPoints || 0;
 
   return (
     <S.LogoContainer>
@@ -26,20 +70,8 @@ export default function ScoreDisplay({ points = 0 }) {
         </svg>
         <S.LogoText>L</S.LogoText>
       </S.LogoSvgContainer>
-
       <S.CounterContainer>
-        <AnimatedNumbers
-          includeComma
-          animateToNumber={totalPoints}
-          fontStyle={{
-            fontSize: 12,
-            color: "var(--white)",
-          }}
-          transitions={(index) => ({
-            type: "spring",
-            duration: index * 0.3,
-          })}
-        />
+        <h1>{displayPoints}</h1>
       </S.CounterContainer>
     </S.LogoContainer>
   );
