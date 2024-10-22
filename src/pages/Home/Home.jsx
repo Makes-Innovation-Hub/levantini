@@ -1,3 +1,4 @@
+// Home.jsx
 import CategoryThumbNail from "../../components/CategoryThumbNail/CategoryThumbNail";
 import * as S from "./Home.styles";
 import { useEffect } from "react";
@@ -12,8 +13,9 @@ import Spinner from "../../components/ui/Spinner/Spinner";
 const Home = () => {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
-  console.log(currentUser);
-  const { data, isLoading, isError } = useFetchData();
+
+  const { data: categories, isLoading, isError } = useFetchData();
+
   useEffect(() => {
     if (!currentUser) {
       navigate("/login");
@@ -24,34 +26,65 @@ const Home = () => {
     return <Spinner />;
   }
 
-  if (isError) return <div>Error fetching posts</div>;
-  const handleOnClick = (categoryId) => {
-    navigate(`${QUIZ}/${categoryId}`);
+  if (isError) return <div>Error fetching categories</div>;
+
+  const handleOnClick = (categoryId, categoryStatus) => {
+    if (categoryStatus !== "locked") {
+      navigate(`${QUIZ}/${categoryId}`);
+    }
   };
-  const getCategoryStatus = (id) => {
-    let status;
-    const progress = currentUser.progress.find((prog) => {
-      return prog.id === Number(id);
-    });
-    if (!progress) {
-      status = "locked";
+
+  const getCategoryStatus = (categories, id) => {
+    let status = "locked";
+    const categoryIndex = categories.findIndex((cat) => cat.id === id);
+
+    if (currentUser && currentUser.progress) {
+      const progress = currentUser.progress;
+      const categoryProgress = progress.find((prog) => prog.id === id);
+
+      if (categoryProgress) {
+        // Use the existing status (e.g., "completed", "in_progress")
+        status = categoryProgress.status;
+      } else {
+        // Determine the highest completed category index
+        const completedCategories = progress
+          .filter((prog) => prog.status === "completed")
+          .map((prog) => prog.id);
+
+        const completedIndices = categories
+          .map((cat, index) => (completedCategories.includes(cat.id) ? index : -1))
+          .filter((index) => index !== -1);
+
+        const highestCompletedIndex =
+          completedIndices.length > 0 ? Math.max(...completedIndices) : -1;
+
+        if (categoryIndex === highestCompletedIndex + 1) {
+          status = "started";
+        }
+      }
     } else {
-      status == progress.status;
+      if (categoryIndex === 0) {
+        status = "started";
+      }
     }
     return status;
   };
+
   return (
     <>
       <S.CategoryContainer>
         <S.Title>Choose your category of game</S.Title>
         <S.GridContainer>
-          {data.map((category, index) => {
+          {categories.map((category, index) => {
             const position = index % 2 === 0 ? "left" : "right";
 
-            const categoryStatus = getCategoryStatus(category.id);
+            const categoryStatus = getCategoryStatus(categories, category.id);
 
             return (
-              <S.Container key={category.id} onClick={() => handleOnClick(category.id)}>
+              <S.Container
+                key={category.id}
+                onClick={() => handleOnClick(category.id, categoryStatus)}
+              >
                 <CategoryThumbNail imgUrl={category.categoryImage}>
                   <S.Label>{category.category}</S.Label>
                 </CategoryThumbNail>

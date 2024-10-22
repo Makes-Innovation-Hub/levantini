@@ -24,8 +24,6 @@ export default function ScoreDisplay() {
   const dispatch = useDispatch();
   const points = useSelector((state) => state.app.points);
 
-  console.log("Points from Redux state:", points);
-
   const { data: totalPoints } = useQuery({
     queryKey: [LEVANTINI_USERS, user?.uid],
     queryFn: () => fetchUserPoints(user.uid),

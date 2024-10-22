@@ -1,64 +1,55 @@
-// import { collection, getDocs } from "firebase/firestore";
-// import { db } from "../../lib/Firebase/firebaseSetup";
-// import { LEVANTINI_USERS } from "../../lib/Firebase/constants";
-// import { useQuery } from "@tanstack/react-query";
-// import { LEVANTINI_KEY } from "../../lib/react-query/constant";
-
-// const MutateUserProgress = () => {
-//   const fetchCategories = async () => {
-//     const categoriesCollection = collection(db, LEVANTINI_USERS);
-//     const categorySnapshot = await getDocs(categoriesCollection);
-//     const categoryList = categorySnapshot.docs.map((doc) => ({
-//       id: doc.id,
-//       ...doc.data(),
-//     }));
-//     return categoryList;
-//   };
-
-//   // const { data, isLoading, isError } = useQuery({
-//   //   queryKey: [LEVANTINI_KEY],
-//   //   queryFn: fetchCategories,
-//   // });
-
-//   // return { data, isLoading, isError };
-// };
-
-// export default MutateUserProgress;
-
-import { doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../lib/Firebase/firebaseSetup";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const LEVANTINI_USERS = "users";
 
 export const updateUserProgress = async ({ currentUser, id, status }) => {
-  console.log({ currentUser, id, status });
-  // Get the user document reference
-  console.log("updateuserprogress");
-
+  console.log("IM IN MUTATION");
   if (!currentUser) {
     console.error("User is not authenticated.");
     return;
   }
+
   const userId = currentUser.id;
-  console.log({ userId });
   const userDocRef = doc(db, LEVANTINI_USERS, userId);
 
-  // Update the progress array inside the user document
-  if (status === "in_progress") {
-    await updateDoc(userDocRef, {
-      progress: arrayUnion({ id, status }),
-    });
-  } else if (status === "completed") {
-    await updateDoc(
-      userDocRef,
-      {
-        "progress.$[elem].status": "completed",
-      },
-      { arrayFilters: [{ "elem.id": id }] },
-    );
-    console.log("Progress status updated to 'completed'");
+  // Step 1: Fetch the user document to get the progress array
+  const userDoc = await getDoc(userDocRef);
+  if (!userDoc.exists()) {
+    console.error("User document does not exist.");
+    return;
   }
+
+  const progressArray = userDoc.data().progress || [];
+
+  // Step 2: Modify the progress array based on the status
+  let updatedProgressArray;
+  if (status === "in_progress") {
+    // Check if the id already exists in the array
+    const existingItem = progressArray.find((item) => item.id === id);
+
+    if (!existingItem) {
+      // Add new progress object
+      updatedProgressArray = [...progressArray, { id, status }];
+    } else {
+      console.log("Progress already exists, skipping.");
+      return;
+    }
+  } else if (status === "completed") {
+    console.log("Updating progress to 'completed'");
+    // Update the specific progress item's status to "completed"
+    updatedProgressArray = progressArray.map((item) =>
+      item.id === id ? { ...item, status: "completed" } : item,
+    );
+  }
+
+  // Step 3: Write the updated array back to Firestore
+  await updateDoc(userDocRef, {
+    progress: updatedProgressArray,
+  });
+
+  console.log(`Progress updated to '${status}' for quiz ID: ${id}`);
 };
 
 export const useMutateUserProgress = () => {

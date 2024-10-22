@@ -30,7 +30,7 @@ const CategoryLabel = ({ status, position }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {status}
+      {status === "in_progress" ? "In Progress" : status}
       <img src={getStatusImage()} alt={status} />
       {status === "locked" && isHovered && (
         <ToolTip position={position}>
