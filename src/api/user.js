@@ -8,7 +8,7 @@
 //user enters categroy 1
 {
   "userId:":1,
-  progress:[{catgoeytId:1,status:'in progress'}]
+  progress:[{catgoeytId:1,status:'in_progress'}]
 }
 //user finishes it
 {

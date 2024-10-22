@@ -22,6 +22,7 @@ export const createOrGetUser = async (user) => {
         name: user.displayName,
         points: 0,
         photoURL: user.photoURL,
+        progress: [],
       };
       await setDoc(userRef, newUser);
       return newUser;

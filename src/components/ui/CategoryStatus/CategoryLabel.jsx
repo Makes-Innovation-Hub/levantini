@@ -17,7 +17,7 @@ const CategoryLabel = ({ status, position }) => {
         return arrow;
       case "locked":
         return locked;
-      case "in progress":
+      case "in_progress":
         return arrow;
       default:
         return null;

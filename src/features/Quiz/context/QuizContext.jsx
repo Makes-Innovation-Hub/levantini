@@ -1,6 +1,10 @@
+//////21.10.2024
+
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchData from "../../../api/hooks/useFetchData";
+import { useMutateUserProgress } from "../../../api/hooks/useMutateUserProgress.jsx";
+import { useAuth } from "../../../features/authentication/context/AuthContext.jsx";
 
 const QuizContext = createContext();
 
@@ -8,7 +12,13 @@ export const QuizProvider = ({ children }) => {
   const { data, isLoading } = useFetchData();
   const navigate = useNavigate();
   const { categoryId } = useParams();
+  const id = Number(categoryId);
+  const { currentUser, signInWithGoogle, logout } = useAuth();
 
+  ///
+
+  const { mutate: mutateUserProgress } = useMutateUserProgress();
+  ///
   const [currentCategory, setCurrentCategory] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const questionData = currentCategory?.questions[currentQuestionIndex];
@@ -22,12 +32,25 @@ export const QuizProvider = ({ children }) => {
   useEffect(() => {
     if (!data) return;
 
-    const category = data.filter((el) => {
-      return el.id === Number(categoryId);
-    });
+    const category = data.filter((el) => el.id === id);
 
     setCurrentCategory(category[0]);
-  }, [categoryId, data]);
+  }, [id, data]);
+  useEffect(() => {
+    if (!currentUser) return;
+    console.log({ currentUser });
+    // mutate({ user, categoryId, status: "in_progress" });
+    const progress = currentUser.progress.find((prog) => {
+      return prog.id === id;
+    });
+    console.log({ progress });
+
+    //need to find out if a user already has this progress object in its record. If exsists then dont do a mutation.
+    // !progress means there is no progress object of this ctegory id in the firebase
+    if (!progress) {
+      mutateUserProgress({ currentUser, id, status: "in_progress" });
+    }
+  }, [currentUser]);
 
   const handleAnswerClick = (isCorrect, index) => {
     const updatedColors = [...answerColors];
@@ -53,7 +76,6 @@ export const QuizProvider = ({ children }) => {
 
   const handleQuestionTimeOut = () => {
     const updatedColors = [...answerColors];
-
     updatedColors[questionData.correctAnswer] = "var(--green)";
     setAnswerColors(updatedColors);
     setNotification({
@@ -65,19 +87,32 @@ export const QuizProvider = ({ children }) => {
 
   const handleAnswerClickWithStatus = (answerIndex) => {
     const isCorrect = answerIndex === questionData.correctAnswer;
-
     const updatedStatus = [...questionStatus];
     updatedStatus[currentQuestionIndex] = isCorrect ? "correct" : "incorrect";
     setQuestionStatus(updatedStatus);
     handleAnswerClick(isCorrect, answerIndex);
   };
 
+  //
   useEffect(() => {
-    if ((currentQuestionIndex > currentCategory?.questions.length - 1) & !notification) {
+    if (currentQuestionIndex > currentCategory?.questions.length - 1 && !notification) {
+      console.log("im in the use effect");
+      const progress = currentUser.progress.find((prog) => {
+        console.log({ prog }, id);
+        return prog.id === id;
+      });
+      console.log({ progress });
+      if (progress && progress.status !== "completed") {
+        //a user can come back to this category again and click the questions so it can be done already
+
+        mutateUserProgress({ currentUser, id, status: "completed" });
+      }
       navigate("/");
+    } else {
+      notification && currentQuestionIndex < currentCategory?.questions.length - 1;
     }
   }, [notification]);
-
+  //
   const handleNextQuestion = () => {
     if (currentQuestionIndex < currentCategory?.questions.length - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
