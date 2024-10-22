@@ -1,98 +1,41 @@
 import styled from "styled-components";
-
 export const breakpoints = {
   mobile: "600px",
   tablet: "1024px",
   laptop: "1366px",
   desktop: "1920px",
 };
-
 export const ToastContainer = styled.div`
-  min-height: 270px;
+  width: 100vw;
+  height: 270px;
   overflow-y: auto;
   color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 10px;
-
-  /* Responsive styles 
-  @media (max-width: ${breakpoints.mobile}) {
-    height: 275px; 
-  }
-
-  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
-    height: 240px; 
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    height: 300px; 
-  }*/
-`;
-
-export const ToastCorrect = styled.div`
+`
+  export const ToastCorrect = styled.div`
   background-color: var(--green);
   width: 100%;
   height: 50%;
-
-  /* Responsive styles 
-  @media (max-width: ${breakpoints.mobile}) {
-    height: 275px; 
-  }
-
-  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
-    height: 240px; 
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    height: 300px; 
-  }*/
-`;
-
-export const ToastTitle = styled.h2`
+`
+  export const ToastTitle = styled.h2`
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
   color: var(--grey-black);
   text-align: center;
+`
 
-  /* Responsive styles 
-  @media (max-width: ${breakpoints.mobile}) {
-    height: 275px; 
-  }
-
-  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
-    height: 240px; 
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    height: 300px; 
-  }*/
-`;
-
-export const ToastText = styled.p`
+  export const ToastText = styled.p`
   margin-bottom: 15px;
   color: var(--grey-black);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
-  /* Responsive styles 
-  @media (max-width: ${breakpoints.mobile}) {
-    height: 275px; 
-  }
-
-  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
-    height: 240px; 
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    height: 300px; 
-  }*/
-`;
-
-export const ToastButton = styled.button`
+  `
+  export const ToastButton = styled.button`
   background-color: var(--white);
   color: var(--grey-black);
   font-weight: 700;
@@ -104,18 +47,4 @@ export const ToastButton = styled.button`
   height: 57px;
   font-size: 20px;
   line-height: 22px;
-  margin-bottom: 20px;
-
-  /* Responsive styles 
-  @media (max-width: ${breakpoints.mobile}) {
-    height: 275px; 
-  }
-
-  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
-    height: 240px; 
-  }
-
-  @media (min-width: ${breakpoints.desktop}) {
-    height: 300px; 
-  }*/
-`;
+  `

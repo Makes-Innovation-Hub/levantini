@@ -5,7 +5,6 @@ export const LogoutGoogle = styled.button`
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
-  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
