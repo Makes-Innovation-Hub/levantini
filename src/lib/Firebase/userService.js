@@ -24,7 +24,8 @@ export const createOrGetUser = async (user) => {
         id: user.uid,
         name: user.displayName || "Anonymous",
         points: 0,
-        photoURL: user.photoURL || "",
+        photoURL: user.photoURL,
+        progress: [],
       };
       await setDoc(userRef, newUser);
       return newUser;
@@ -34,6 +35,7 @@ export const createOrGetUser = async (user) => {
         ...existingUser,
         photoURL: user.photoURL || existingUser.photoURL,
       };
+
       await setDoc(userRef, updatedUser, { merge: true });
       return updatedUser;
     }

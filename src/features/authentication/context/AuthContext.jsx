@@ -7,6 +7,8 @@ import {
 } from "firebase/auth";
 import { auth } from "../../../lib/Firebase/firebaseSetup";
 
+import { createOrGetUser } from "../../../lib/Firebase/userService";
+
 const AuthContext = createContext();
 
 export function useAuth() {
@@ -19,17 +21,25 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setCurrentUser({
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-          photoURL: user.photoURL, // Store profile image URL
-        });
-      } else {
-        setCurrentUser(null);
-      }
-      setLoading(false);
+      const fetchUserData = async () => {
+        if (user) {
+          try {
+            const userInCollection = await createOrGetUser(user);
+
+            setCurrentUser({
+              ...userInCollection,
+            });
+          } catch (error) {
+            console.error("Error fetching user data: ", error);
+            setCurrentUser(null);
+          }
+        } else {
+          setCurrentUser(null);
+        }
+        setLoading(false);
+      };
+
+      fetchUserData();
     });
 
     return () => unsubscribe();
@@ -40,11 +50,10 @@ export const AuthProvider = ({ children }) => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
+      const userInCollection = await createOrGetUser(user);
+
       setCurrentUser({
-        uid: user.uid,
-        email: user.email,
-        displayName: user.displayName,
-        photoURL: user.photoURL,
+        ...userInCollection,
       });
 
       if (onSuccess) {
