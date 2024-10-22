@@ -54,6 +54,7 @@ export const QuizProvider = ({ children }) => {
   };
 
   const handleQuestionTimeOut = () => {
+    playAnswerSound("incorrect");
     const updatedColors = [...answerColors];
 
     updatedColors[questionData.correctAnswer] = "var(--green)";
@@ -68,15 +69,12 @@ export const QuizProvider = ({ children }) => {
   const handleAnswerClickWithStatus = (answerIndex) => {
     const isCorrect = answerIndex === questionData.correctAnswer;
     const status = isCorrect ? "correct" : "incorrect";
-
-    // Play the sound based on the status
     playAnswerSound(status);
 
     const updatedStatus = [...questionStatus];
     updatedStatus[currentQuestionIndex] = status;
     setQuestionStatus(updatedStatus);
 
-    // Call the existing handler
     handleAnswerClick(isCorrect, answerIndex);
   };
 
