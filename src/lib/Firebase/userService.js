@@ -98,9 +98,12 @@ export const updateUserPoints = async (additionalPoints) => {
 export const subscribeToUserPoints = (uid, callback) => {
   const userRef = doc(db, LEVANTINI_USERS, uid);
 
+  // Subscribe to the user document to listen for point updates
   const unsubscribe = onSnapshot(userRef, (docSnap) => {
     if (docSnap.exists()) {
-      callback(docSnap.data().points || 0);
+      const points = docSnap.data().points || 0;
+      callback(points); // Pass points to the callback
+    } else {
       console.error("User document does not exist");
     }
   });

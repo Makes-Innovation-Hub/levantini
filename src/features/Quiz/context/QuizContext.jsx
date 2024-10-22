@@ -4,6 +4,7 @@ import useFetchData from "../../../api/hooks/useFetchData";
 import { useMutatePoints } from "../../../api/hooks/useMutationPoints";
 import { updateUserPoints } from "../../../lib/Firebase/userService";
 import { auth } from "../../../lib/Firebase/firebaseSetup";
+
 const QuizContext = createContext();
 
 export const QuizProvider = ({ children }) => {
@@ -20,6 +21,7 @@ export const QuizProvider = ({ children }) => {
   );
   const [answerColors, setAnswerColors] = useState(Array(4).fill("var(--blue)"));
   const [notification, setNotification] = useState(null);
+
   useEffect(() => {
     if (!data) return;
     const category = data.filter((el) => el.id === Number(categoryId));
@@ -82,6 +84,7 @@ export const QuizProvider = ({ children }) => {
       navigate("/");
     }
   }, [notification]);
+
   const handleNextQuestion = async () => {
     if (currentQuestionIndex < currentCategory?.questions.length - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
@@ -93,6 +96,7 @@ export const QuizProvider = ({ children }) => {
       setNotification(null);
     }
   };
+
   const handleQuestionTimeOutWithStatus = (questionIndex) => {
     const updatedStatus = [...questionStatus];
     updatedStatus[questionIndex] = "timeout";

@@ -38,18 +38,3 @@ export const useMutatePoints = () => {
     },
   });
 };
-
-/*
-pseudo code:
-This is the first 
-1. create a function that will update the current user points. With the user we logged in
-a) hard coded points at first
-b) we get the user id from authcontext
-currentPoints + newPoints
-Find a way in firebase to increment the points field use the incrmeent method
-2. Implement react query mutation with the function
----------
-quizContext
-3. Then call the mutation in the quizContext. In get click handler. 
-a) useMutationPoints(10s,5)
-*/
