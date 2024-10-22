@@ -8,13 +8,13 @@ export const breakpoints = {
 };
 
 export const ToastContainer = styled.div`
-  width: 100vw;
-  height: 270px;
+  min-height: 270px;
   overflow-y: auto;
   color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 10px;
 
   /* Responsive styles 
   @media (max-width: ${breakpoints.mobile}) {
@@ -104,6 +104,7 @@ export const ToastButton = styled.button`
   height: 57px;
   font-size: 20px;
   line-height: 22px;
+  margin-bottom: 20px;
 
   /* Responsive styles 
   @media (max-width: ${breakpoints.mobile}) {

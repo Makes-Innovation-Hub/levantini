@@ -21,9 +21,11 @@ a:hover {
  color: #535BF2;
 }
 body {
- margin: 0;
- min-width: 320px;
- min-height: 100dvh;
+  margin: 0;
+  color:var(--grey-black)
+
+  min-width: 320px;
+  min-height: 100dvh;
 }
 h1 {
  font-size: 3.2em;
@@ -60,5 +62,5 @@ button:focus-visible {
  }
 }
 div[style*="position: fixed"][style*="z-index: 9999"] {
- inset: 0 !important;
-}
+  inset: 0 !important;
+} */
