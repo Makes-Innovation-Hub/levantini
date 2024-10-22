@@ -15,8 +15,7 @@ export const Title = styled.h2`
   margin-bottom: 30px;
   text-align: center;
   color: var(--grey-black);
-  margin-top:50px
-  
+  margin-top: 30px;
 `;
 
 export const GridContainer = styled.div`
@@ -32,7 +31,7 @@ export const Label = styled.span`
   font-weight: 400;
 `;
 export const Container = styled.div`
-display:flex;
-flex-direction: column;
-align-items: center;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
