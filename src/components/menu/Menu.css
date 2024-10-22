@@ -4,8 +4,7 @@
   align-items: flex-start; 
   position: absolute; 
   z-index: 999; 
-  
-  
+    
 }
 
 .menu-icon {
@@ -24,15 +23,20 @@
 
 .side-menu {
   position: fixed;
-  right: 0;
+  right: -600px; 
   top: 0;
-  width: 300px;
+  width: 500px;
   height: 100vh; 
   background-color: white;
   border-left: 1px solid #ccc;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   padding: 20px;
   z-index: 1100; 
+  transition: transform 0.3s ease; 
+}
+
+.side-menu.open {
+  transform: translateX(-500px); 
 }
 
 .close-button {
@@ -46,12 +50,13 @@
 .menu-options {
   list-style-type: none;
   padding: 0;
+   line-height: 2;
   font-size: 1.5rem;
  
 }
 
 .theIcons{
-  margin-right: 10px; 
+  margin-right: 5px; 
 }
 
 .firstLink{
@@ -80,6 +85,8 @@ cursor: pointer;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1050; 
   transition: opacity 0.3s ease; 
-  opacity: 0.5; 
+  opacity: 0.75; 
   position: fixed;
+  
+ 
 }

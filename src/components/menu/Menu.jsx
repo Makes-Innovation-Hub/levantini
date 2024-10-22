@@ -1,4 +1,3 @@
-// Menu.js
 import React, { useState } from 'react';
 import './Menu.css'; 
 import Navigation from '../Navigation/Navigation';
@@ -27,15 +26,13 @@ const Menu = () => {
         )}
 
         {isOpen && <div className="overlay" onClick={closeMenu} />}
-        {isOpen && (
-          <div className="side-menu">
-            <button className="close-button" onClick={closeMenu}>
-              &times; 
-            </button>
-            <h1 className='name'>Levantini</h1>
-            <Navigation closeMenu={closeMenu} /> 
-          </div>
-        )}
+        <div className={`side-menu ${isOpen ? 'open' : ''}`}>
+          <button className="close-button" onClick={closeMenu}>
+            &times; 
+          </button>
+          <h1 className='name'>Levantini</h1>
+          <Navigation closeMenu={closeMenu} /> 
+        </div>
       </div>
     </div>
   );

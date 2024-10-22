@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { LOGIN, QUIZ, ROOT, LEADER_BOARD } from "./routeConstants";
 
 import Home from "@/pages/Home/Home";
-import QuestionPage from "../pages/QuestionPage";
+
 import RootLayout from "../layouts/RootLayout";
 import Page404 from "@/pages/Page404/Page404";
 import { QuizProvider } from "../features/Quiz/context/QuizContext.jsx";

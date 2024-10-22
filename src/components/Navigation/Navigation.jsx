@@ -2,7 +2,7 @@ import React from 'react';
 import { MdHome } from "react-icons/md";
 import { LiaCrownSolid } from "react-icons/lia";
 import { IoIosLogOut } from "react-icons/io";
-import LogoutGoogle from "../../features/authentication/components/LogoutButton"; 
+import { LogoutGoogle } from '../../features/authentication';
 import { useAuth } from "../../features/authentication/context/AuthContext";
 import { Link } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ const Navigation = ({ closeMenu }) => {
         </Link>
       </li>
       <li className="secondLink">
-        <IoIosLogOut className="theIcons" />
+        
         <LogoutGoogle handleClick={logout} />
       </li>
     </ul>
