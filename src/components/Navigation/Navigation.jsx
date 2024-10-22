@@ -1,24 +1,30 @@
 import React from "react";
 import { MdHome } from "react-icons/md";
 import { LiaCrownSolid } from "react-icons/lia";
-import { IoIosLogOut } from "react-icons/io";
 import { LogoutGoogle } from "../../features/authentication";
 import { useAuth } from "../../features/authentication/context/AuthContext";
 import { Link } from "react-router-dom";
+import "./Navigation.css";
 
 const Navigation = ({ closeMenu }) => {
   const { logout } = useAuth();
 
+  const handleMenuClose = () => {
+    closeMenu();
+  };
+
   return (
     <ul className="menu-options">
-      <li onClick={closeMenu}>
-        <Link to="/" className="firstLink">
-          <MdHome className="theIcons" /> Home
+      <li>
+        <MdHome className="theIcons" />
+        <Link to="/" className="firstLink" onClick={handleMenuClose}>
+          <span className="HomeIcon">Home</span>
         </Link>
       </li>
-      <li onClick={closeMenu}>
-        <Link to="/LeaderBoard" className="firstLink">
-          <LiaCrownSolid className="theIcons" /> Leaderboard
+      <li>
+        <LiaCrownSolid className="theIcons" />
+        <Link to="/LeaderBoard" className="firstLink" onClick={handleMenuClose}>
+          <span className="HomeIcon">Leaderboard</span>
         </Link>
       </li>
       <li className="secondLink">

@@ -46,26 +46,9 @@
 
 .menu-options {
   list-style-type: none;
-  padding: 0;
-  line-height: 1.5;
+  padding: 0px;
   align-items: center;
   font-size: 1.5rem;
-}
-
-.theIcons {
-  margin-right: 5px;
-}
-
-.firstLink {
-  text-decoration: none;
-  color: inherit;
-}
-
-.secondLink {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  margin-left: 30px;
 }
 
 .menu-options li {
