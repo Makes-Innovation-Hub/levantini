@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import { MdHome } from "react-icons/md";
 import { LiaCrownSolid } from "react-icons/lia";
 import { IoIosLogOut } from "react-icons/io";
-import { LogoutGoogle } from '../../features/authentication';
+import { LogoutGoogle } from "../../features/authentication";
 import { useAuth } from "../../features/authentication/context/AuthContext";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Navigation = ({ closeMenu }) => {
   const { logout } = useAuth();
@@ -17,12 +17,11 @@ const Navigation = ({ closeMenu }) => {
         </Link>
       </li>
       <li onClick={closeMenu}>
-        <Link to="/" className="firstLink">
+        <Link to="/LeaderBoard" className="firstLink">
           <LiaCrownSolid className="theIcons" /> Leaderboard
         </Link>
       </li>
       <li className="secondLink">
-        
         <LogoutGoogle handleClick={logout} />
       </li>
     </ul>
