@@ -13,29 +13,29 @@ export const ToastContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
-  export const ToastCorrect = styled.div`
+`;
+export const ToastCorrect = styled.div`
   background-color: var(--green);
   width: 100%;
   height: 50%;
-`
-  export const ToastTitle = styled.h2`
+`;
+export const ToastTitle = styled.h2`
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
   color: var(--grey-black);
   text-align: center;
-`
+`;
 
-  export const ToastText = styled.p`
+export const ToastText = styled.p`
   margin-bottom: 15px;
   color: var(--grey-black);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  `
-  export const ToastButton = styled.button`
+`;
+export const ToastButton = styled.button`
   background-color: var(--white);
   color: var(--grey-black);
   font-weight: 700;
@@ -47,4 +47,4 @@ export const ToastContainer = styled.div`
   height: 57px;
   font-size: 20px;
   line-height: 22px;
-  `
+`;
