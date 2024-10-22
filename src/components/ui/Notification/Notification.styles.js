@@ -76,4 +76,18 @@ export const ToastButton = styled.button`
   height: 57px;
   font-size: 20px;
   line-height: 22px;
+  padding: 0.6em 1.2em;
+
+  /* Responsive styles 
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 275px; 
+  }
+
+  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
+    height: 240px; 
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    height: 300px; 
+  }*/
 `;

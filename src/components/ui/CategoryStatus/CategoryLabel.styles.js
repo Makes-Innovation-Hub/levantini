@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Category = styled.div`
   position: relative;
   font-size: 10px;
-  margin-top:7px;
+  margin-top: 7px;
   border: none;
   width: 88px;
 
@@ -12,6 +12,7 @@ export const Category = styled.div`
   line-height: 19px;
   font-weight: 700;
   text-transform: capitalize;
+  padding: 0 2px;
 
   border-radius: 40px;
   align-items: center;
@@ -21,7 +22,7 @@ export const Category = styled.div`
       ? "#58D39F"
       : props.status === "started"
         ? "#58B2D3"
-        : props.status === "in progress"
+        : props.status === "in_progress"
           ? "#58B2D3"
           : "#D35858"};
   color: white;

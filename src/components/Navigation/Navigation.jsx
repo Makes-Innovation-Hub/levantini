@@ -1,4 +1,4 @@
-import React, { startTransition } from "react";
+import React from "react";
 import { MdHome } from "react-icons/md";
 import { LiaCrownSolid } from "react-icons/lia";
 import { LogoutGoogle } from "../../features/authentication";
@@ -8,22 +8,22 @@ import "./Navigation.css";
 
 const Navigation = ({ closeMenu }) => {
   const { logout } = useAuth();
+
   const handleMenuClose = () => {
-    startTransition(() => {
-      closeMenu();
-    });
+    closeMenu();
   };
+
   return (
     <ul className="menu-options">
-      <li onClick={handleMenuClose}>
+      <li>
         <MdHome className="theIcons" />
-        <Link to="/" className="firstLink">
+        <Link to="/" className="firstLink" onClick={handleMenuClose}>
           <span className="HomeIcon">Home</span>
         </Link>
       </li>
-      <li onClick={handleMenuClose}>
+      <li>
         <LiaCrownSolid className="theIcons" />
-        <Link to="/LeaderBoard" className="firstLink">
+        <Link to="/LeaderBoard" className="firstLink" onClick={handleMenuClose}>
           <span className="HomeIcon">Leaderboard</span>
         </Link>
       </li>

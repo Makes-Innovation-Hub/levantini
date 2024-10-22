@@ -10,15 +10,12 @@ import { auth } from "../../../lib/Firebase/firebaseSetup";
 import { createOrGetUser } from "../../../lib/Firebase/userService";
 
 const AuthContext = createContext();
-
 export function useAuth() {
   return useContext(AuthContext);
 }
-
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       const fetchUserData = async () => {
@@ -41,10 +38,8 @@ export const AuthProvider = ({ children }) => {
 
       fetchUserData();
     });
-
     return () => unsubscribe();
   }, []);
-
   const signInWithGoogle = async (onSuccess) => {
     const provider = new GoogleAuthProvider();
     try {
@@ -55,7 +50,6 @@ export const AuthProvider = ({ children }) => {
       setCurrentUser({
         ...userInCollection,
       });
-
       if (onSuccess) {
         onSuccess(user);
       }
@@ -63,7 +57,6 @@ export const AuthProvider = ({ children }) => {
       console.error("Login failed:", error);
     }
   };
-
   const logout = async () => {
     try {
       await firebaseSignOut(auth);
@@ -72,13 +65,13 @@ export const AuthProvider = ({ children }) => {
       console.error("Logout failed:", error);
     }
   };
-
+  console.log({ currentUser });
   const value = {
+    setCurrentUser,
     currentUser,
     signInWithGoogle,
     logout,
   };
-
   return (
     <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>
   );

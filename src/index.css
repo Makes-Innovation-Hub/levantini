@@ -33,6 +33,10 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
+<<<<<<< HEAD
+  /* padding: 0.6em 1.2em; */
+=======
+>>>>>>> e161f61a6d5ff0840d3d14c0c9c9335e17eb5b0c
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
