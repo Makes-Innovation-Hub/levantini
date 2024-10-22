@@ -5,9 +5,10 @@ import { LOGIN, QUIZ, ROOT, LEADER_BOARD } from "./routeConstants";
 import Home from "@/pages/Home/Home";
 
 import RootLayout from "../layouts/RootLayout";
-import Page404 from "@/pages/Page404/Page404";
+
 import { QuizProvider } from "../features/Quiz/context/QuizContext.jsx";
 import Quiz from "@/pages/Quiz/Quiz";
+const Page404 = React.lazy(() => import("@/pages/Page404/Page404"));
 const Login = React.lazy(() => import("@pages/Login/Login"));
 const LeaderBoard = React.lazy(() => import("../pages/LeaderBoard/LeaderBoard.jsx"));
 const router = createBrowserRouter([
@@ -37,5 +38,4 @@ const router = createBrowserRouter([
   },
   { path: "*", element: <Page404 /> },
 ]);
-
 export default router;

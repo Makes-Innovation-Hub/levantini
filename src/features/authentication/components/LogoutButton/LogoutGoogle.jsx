@@ -5,8 +5,9 @@ import { FiLogOut } from "react-icons/fi";
 function LogoutGoogle({ handleClick }) {
   return (
     <S.LogoutGoogle onClick={handleClick}>
+    <FiLogOut />
       Log out
-      <FiLogOut />
+      
     </S.LogoutGoogle>
   );
 }
