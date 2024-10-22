@@ -4,6 +4,7 @@ import useFetchData from "../../../api/hooks/useFetchData";
 import { useMutatePoints } from "../../../api/hooks/useMutationPoints";
 import { updateUserPoints } from "../../../lib/Firebase/userService";
 import { auth } from "../../../lib/Firebase/firebaseSetup";
+import { playAnswerSound } from "../../../utils/PlayAnswerSound";
 
 const QuizContext = createContext();
 
@@ -79,12 +80,36 @@ export const QuizProvider = ({ children }) => {
     setAnswerColors(updatedColors);
   };
 
+  const handleQuestionTimeOut = () => {
+    playAnswerSound("incorrect");
+    const updatedColors = [...answerColors];
+
+    updatedColors[questionData.correctAnswer] = "var(--green)";
+    setAnswerColors(updatedColors);
+    setNotification({
+      title: "Time Is Out!",
+      color: "var(--red)",
+      explanation: questionData.explanation,
+    });
+  };
+
+  const handleAnswerClickWithStatus = (answerIndex) => {
+    const isCorrect = answerIndex === questionData.correctAnswer;
+    const status = isCorrect ? "correct" : "incorrect";
+    playAnswerSound(status);
+
+    const updatedStatus = [...questionStatus];
+    updatedStatus[currentQuestionIndex] = status;
+    setQuestionStatus(updatedStatus);
+
+    handleAnswerClick(isCorrect, answerIndex);
+  };
+
   useEffect(() => {
     if ((currentQuestionIndex > currentCategory?.questions.length - 1) & !notification) {
       navigate("/");
     }
   }, [notification]);
-
   const handleNextQuestion = async () => {
     if (currentQuestionIndex < currentCategory?.questions.length - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
@@ -96,7 +121,6 @@ export const QuizProvider = ({ children }) => {
       setNotification(null);
     }
   };
-
   const handleQuestionTimeOutWithStatus = (questionIndex) => {
     const updatedStatus = [...questionStatus];
     updatedStatus[questionIndex] = "timeout";

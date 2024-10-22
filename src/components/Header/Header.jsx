@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import Logo from "../ui/Logo/Logo";
 import * as S from "./Header.styles";
 import ScoreDisplay from "../ui/ScoreDisplay/ScoreDisplay";
+import Menu from "../menu/Menu";
 import { LOGIN } from "../../routes/routeConstants";
 import { useAuth } from "../../features/authentication/context/AuthContext";
 import { LogoutGoogle } from "../../features/authentication";
@@ -13,16 +14,15 @@ export default function Header() {
   }
   return (
     <S.Header>
-      <S.LeftWrapper>
+         <S.ScoreContainer>
         <ScoreDisplay />
-      </S.LeftWrapper>
-      <S.CenterWarpper>
+      </S.ScoreContainer>
+      <S.LogoContainer>
         <Logo />
-      </S.CenterWarpper>
-      {/* hamburger menu and google image component below */}
-      <S.RightWrapper>
-        <LogoutGoogle handleClick={logout} />
-      </S.RightWrapper>
+      </S.LogoContainer>
+      <S.MenuContainer>
+        <Menu />
+      </S.MenuContainer>
     </S.Header>
   );
 }

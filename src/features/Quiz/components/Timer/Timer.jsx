@@ -1,8 +1,12 @@
 import * as S from "./Timer.styles.js";
 import { useState, useEffect } from "react";
 
+import { playAnswerSound } from "../../../../utils/PlayAnswerSound.js";
+
+
 const Timer = ({ duration, onTimerEnd, setRemainingTime }) => {
   const [progress, setProgress] = useState(100);
+  const [hasPlayedSound, setHasPlayedSound] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -28,12 +32,11 @@ const Timer = ({ duration, onTimerEnd, setRemainingTime }) => {
   }, [duration, onTimerEnd]);
 
   useEffect(() => {
-    if (setRemainingTime) {
-      const remaining = Math.ceil((progress / 100) * duration);
-      setRemainingTime(remaining); // This happens in useEffect, after render
+    if (progress <= 30 && !hasPlayedSound) {
+      playAnswerSound("timer");
+      setHasPlayedSound(true);
     }
-  }, [progress, duration, setRemainingTime]);
-
+  }, [progress, hasPlayedSound]);
 
   return (
     <S.Container>

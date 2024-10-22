@@ -2,26 +2,24 @@ import styled from "styled-components";
 
 export const Header = styled.div`
   display: flex;
-  height: 50px;
-  padding: 16px 20px;
-  background-color: #fff;
-  align-items: center;
+  justify-content: space-between;
+  margin-top:10px
+
 `;
+
 export const LogoContainer = styled.div`
-  padding-top: 16px;
+
 `;
-export const RightWrapper = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-`;
-export const LeftWrapper = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: flex-start;
-`;
-export const CenterWarpper = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
+
+
+export const ScoreContainer = styled.div`
+  margin-left: 20px;  
+
+  `;
+
+export const MenuContainer = styled.div`
+    
+ margin-right:50px 
+ 
+  
 `;

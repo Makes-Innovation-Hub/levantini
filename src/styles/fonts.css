@@ -3,8 +3,17 @@
   --font-Redressed: "Redressed", "Arial", sans-serif;
   --font-abeezee-italic: "ABeeZee", "Arial", sans-serif;
 }
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-/* ******************************************************************************************************* */
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local("Inter"),
+    url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap")
+      format("woff2");
+}
+
 @font-face {
   font-family: "Redressed";
   font-weight: 400;
