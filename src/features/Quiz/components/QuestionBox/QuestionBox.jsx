@@ -23,7 +23,7 @@ export const QuestionBox = ({ children }) => {
             <img
               src={questionData.image}
               alt={questionData.explanation}
-              width="182px"
+              width="330px"
               height="255px"
             />
           </div>
