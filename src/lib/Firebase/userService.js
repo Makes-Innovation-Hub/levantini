@@ -22,6 +22,7 @@ export const createOrGetUser = async (user) => {
         name: user.displayName,
         points: 0,
         photoURL: user.photoURL,
+        progress: [],
       };
       await setDoc(userRef, newUser);
       return newUser;
@@ -31,7 +32,7 @@ export const createOrGetUser = async (user) => {
         ...existingUser,
         photoURL: user.photoURL || existingUser.photoURL,
       };
-      console.log(updatedUser);
+
       await setDoc(userRef, updatedUser, { merge: true });
       return updatedUser;
     }
