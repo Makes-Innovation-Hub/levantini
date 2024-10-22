@@ -14,6 +14,7 @@ export const QuizProvider = ({ children }) => {
   const { categoryId } = useParams();
   const id = Number(categoryId);
   const { currentUser, signInWithGoogle, logout } = useAuth();
+  console.log({ currentUser });
 
   ///
 

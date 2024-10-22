@@ -23,8 +23,8 @@ export const AuthProvider = ({ children }) => {
           try {
             const userInCollection = await createOrGetUser(user);
             console.log(userInCollection);
-            setCurrentUser({
-              ...userInCollection,
+            setCurrentUser((prev) => {
+              return { ...userInCollection };
             });
           } catch (error) {
             console.error("Error fetching user data: ", error);
@@ -45,8 +45,8 @@ export const AuthProvider = ({ children }) => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       const userInCollection = await createOrGetUser(user);
-      setCurrentUser({
-        ...userInCollection,
+      setCurrentUser((prev) => {
+        return { ...userInCollection };
       });
       if (onSuccess) {
         onSuccess(user);
@@ -63,6 +63,7 @@ export const AuthProvider = ({ children }) => {
       console.error("Logout failed:", error);
     }
   };
+  console.log({ currentUser });
   const value = {
     currentUser,
     signInWithGoogle,
