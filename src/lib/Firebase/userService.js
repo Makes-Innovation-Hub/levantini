@@ -8,9 +8,12 @@ import {
   query,
   setDoc,
   updateDoc,
+  increment,
+  onSnapshot,
 } from "firebase/firestore";
-import { db } from "./firebaseSetup";
+import { auth, db } from "./firebaseSetup";
 import { LEVANTINI_USERS } from "../Firebase/constants";
+
 export const createOrGetUser = async (user) => {
   try {
     const userRef = doc(db, LEVANTINI_USERS, user.uid);
@@ -19,7 +22,7 @@ export const createOrGetUser = async (user) => {
     if (!userSnap.exists()) {
       const newUser = {
         id: user.uid,
-        name: user.displayName,
+        name: user.displayName || "Anonymous",
         points: 0,
         photoURL: user.photoURL,
         progress: [],
@@ -47,10 +50,7 @@ export const getLeaderboard = async () => {
     const usersRef = collection(db, LEVANTINI_USERS);
     const q = query(usersRef, orderBy("points", "desc"), limit(10));
     const querySnapshot = await getDocs(q);
-    const leaderboard = querySnapshot.docs.map((doc) => {
-      const userData = doc.data();
-      return userData;
-    });
+    const leaderboard = querySnapshot.docs.map((doc) => doc.data());
     return leaderboard;
   } catch (error) {
     console.error("Error fetching leaderboard:", error);
@@ -62,12 +62,13 @@ export const getUserPoints = async (uid) => {
   try {
     const userRef = doc(db, LEVANTINI_USERS, uid);
     const userSnap = await getDoc(userRef);
+
     if (userSnap.exists()) {
       const userData = userSnap.data();
-      return userData.points || 0;
+      return userData;
     } else {
       console.error("No such user!");
-      return 0;
+      return null;
     }
   } catch (error) {
     console.error("Error fetching user points:", error);
@@ -75,37 +76,39 @@ export const getUserPoints = async (uid) => {
   }
 };
 
-// Update user points in Firebase
-export const updateUserPoints = async (uid, newPoints) => {
+export const updateUserPoints = async (additionalPoints) => {
+  const user = auth.currentUser;
+
+  if (!user) {
+    console.error("User is not authenticated");
+    return;
+  }
+
+  const userRef = doc(db, LEVANTINI_USERS, user.uid);
+
   try {
-    const userRef = doc(db, LEVANTINI_USERS, uid);
-    await updateDoc(userRef, { points: newPoints });
-    console.log("Points updated to:", newPoints);
+    await updateDoc(userRef, {
+      points: increment(additionalPoints),
+    });
+
+    console.log("Updated user points:", additionalPoints);
   } catch (error) {
-    console.error("Error updating points:", error);
-    throw error;
+    console.error("Error updating user points:", error);
   }
 };
-// Initialize Firestore
 
-// export const updateUserPoints = async (userId, additionalPoints) => {
-//   try {
-//     const userRef = doc(db, LEVANTINI_USERS, userId);
-//     const userSnap = await getDoc(userRef);
+export const subscribeToUserPoints = (uid, callback) => {
+  const userRef = doc(db, LEVANTINI_USERS, uid);
 
-//     if (userSnap.exists()) {
-//       const userData = userSnap.data();
-//       const currentPoints = userData.points || 0;
+  // Subscribe to the user document to listen for point updates
+  const unsubscribe = onSnapshot(userRef, (docSnap) => {
+    if (docSnap.exists()) {
+      const points = docSnap.data().points || 0;
+      callback(points); // Pass points to the callback
+    } else {
+      console.error("User document does not exist");
+    }
+  });
 
-//       // Update the user's points
-//       await updateDoc(userRef, {
-//         points: currentPoints + additionalPoints,
-//       });
-//     } else {
-//       console.error("User document not found");
-//     }
-//   } catch (error) {
-//     console.error("Error updating user points:", error);
-//     throw new Error("Could not update points");
-//   }
-// };
+  return unsubscribe;
+};
