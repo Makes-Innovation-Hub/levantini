@@ -1,8 +1,11 @@
 import * as S from "./Timer.styles.js";
 import { useState, useEffect } from "react";
 
+import { playAnswerSound } from "../../../../utils/PlayAnswerSound.js";
+
 const Timer = ({ duration, onTimerEnd }) => {
   const [progress, setProgress] = useState(100);
+  const [hasPlayedSound, setHasPlayedSound] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,6 +26,13 @@ const Timer = ({ duration, onTimerEnd }) => {
     };
   }, [duration, onTimerEnd]);
 
+  useEffect(() => {
+    if (progress <= 30 && !hasPlayedSound) {
+      playAnswerSound("timer");
+      setHasPlayedSound(true);
+    }
+  }, [progress, hasPlayedSound]);
+
   return (
     <S.Container>
       <S.TimerContainer>
@@ -32,4 +42,5 @@ const Timer = ({ duration, onTimerEnd }) => {
     </S.Container>
   );
 };
+
 export default Timer;

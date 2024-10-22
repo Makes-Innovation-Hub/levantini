@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchData from "../../../api/hooks/useFetchData";
 
+import { playAnswerSound } from "../../../utils/PlayAnswerSound";
+
 const QuizContext = createContext();
 
 export const QuizProvider = ({ children }) => {
@@ -52,6 +54,7 @@ export const QuizProvider = ({ children }) => {
   };
 
   const handleQuestionTimeOut = () => {
+    playAnswerSound("incorrect");
     const updatedColors = [...answerColors];
 
     updatedColors[questionData.correctAnswer] = "var(--green)";
@@ -65,10 +68,13 @@ export const QuizProvider = ({ children }) => {
 
   const handleAnswerClickWithStatus = (answerIndex) => {
     const isCorrect = answerIndex === questionData.correctAnswer;
+    const status = isCorrect ? "correct" : "incorrect";
+    playAnswerSound(status);
 
     const updatedStatus = [...questionStatus];
-    updatedStatus[currentQuestionIndex] = isCorrect ? "correct" : "incorrect";
+    updatedStatus[currentQuestionIndex] = status;
     setQuestionStatus(updatedStatus);
+
     handleAnswerClick(isCorrect, answerIndex);
   };
 

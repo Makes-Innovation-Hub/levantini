@@ -7,12 +7,27 @@ export const breakpoints = {
 };
 export const ToastContainer = styled.div`
   width: 100vw;
-  height: 270px;
+  min-height: 270px;
   overflow-y: auto;
   color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100vw;
+  padding-bottom: 20px;
+
+  /* Responsive styles 
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 275px; 
+  }
+
+  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
+    height: 240px; 
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    height: 300px; 
+  }*/
 `;
 export const ToastCorrect = styled.div`
   background-color: var(--green);
@@ -34,6 +49,20 @@ export const ToastText = styled.p`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 0 10px;
+
+  /* Responsive styles 
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 275px; 
+  }
+
+  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop}) {
+    height: 240px; 
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    height: 300px; 
+  }*/
 `;
 export const ToastButton = styled.button`
   background-color: var(--white);
