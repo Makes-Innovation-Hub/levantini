@@ -23,7 +23,7 @@ const Quiz = () => {
     isLoading,
   } = useQuizContext();
 
-  const [remainingTime, setRemainingTime] = useState(10);
+  const [remainingTime, setRemainingTime] = useState(20);
 
   if (isLoading) return <Spinner />;
 
@@ -61,7 +61,7 @@ const Quiz = () => {
         {!questionStatus[currentQuestionIndex] && (
           <Timer
             key={currentQuestionIndex}
-            duration={10}
+            duration={20}
             onTimerEnd={() => handleQuestionTimeOutWithStatus(currentQuestionIndex)}
             setRemainingTime={setRemainingTime}
           />

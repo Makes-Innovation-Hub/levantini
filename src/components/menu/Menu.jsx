@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import './Menu.css'; 
-import Navigation from '../Navigation/Navigation';
+import React, { useState } from "react";
+import "./Menu.css";
+import Navigation from "../Navigation/Navigation";
 import { useAuth } from "../../features/authentication/context/AuthContext";
 import { LOGIN } from "../../routes/routeConstants";
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation(); 
+  const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -21,17 +21,17 @@ const Menu = () => {
       <div className="menu-container">
         {!isOpen && (
           <div className="menu-icon" onClick={toggleMenu}>
-            ☰ 
+            ☰
           </div>
         )}
 
         {isOpen && <div className="overlay" onClick={closeMenu} />}
-        <div className={`side-menu ${isOpen ? 'open' : ''}`}>
+        <div className={`side-menu ${isOpen ? "open" : ""}`}>
           <button className="close-button" onClick={closeMenu}>
-            &times; 
+            &times;
           </button>
-          <h1 className='name'>Levantini</h1>
-          <Navigation closeMenu={closeMenu} /> 
+          <h1 className="name">Levantini</h1>
+          <Navigation closeMenu={closeMenu} />
         </div>
       </div>
     </div>
