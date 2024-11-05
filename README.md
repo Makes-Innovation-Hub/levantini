@@ -1,4 +1,4 @@
-# Levantini - A Trivia Game About the Levant Region
+# Levantini App - A Trivia Game About the Levant Region
 
 Levantini is a trivia game designed to foster peace and connection through engaging and educational questions across various topics. Developed to be accessible on both desktop and mobile platforms, Levantini challenges players with timed, multiple-choice questions that contribute to an overall score and leaderboard.
 
